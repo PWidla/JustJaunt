@@ -1,0 +1,3 @@
+.nav-item {
+  @apply hover:text-yellow-600 hover:font-bold transition duration-200;
+}
