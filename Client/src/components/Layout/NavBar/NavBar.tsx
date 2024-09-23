@@ -25,9 +25,9 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-main-theme p-4">
+    <nav className="bg-main-theme p-4 font-primaryRegular">
       <div className="flex justify-between items-center w-full">
-        <div className="text-3xl font-bold text-yellow-400 hover:text-white hover:font-bold hover:underline transition duration-200">
+        <div className="text-3xl font-primaryBold text-yellow-400 hover:text-white hover:font-bold hover:underline transition duration-200">
           Just Jaunt
         </div>
 

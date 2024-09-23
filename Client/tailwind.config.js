@@ -6,6 +6,10 @@ export default {
       colors: {
         "main-theme": "#0b1c38",
       },
+      fontFamily: {
+        primaryRegular: ["Regular"],
+        primaryBold: ["Bold"],
+      },
     },
   },
   plugins: [],
