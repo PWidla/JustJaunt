@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .nav-item {
-  @apply hover:text-yellow-600 hover:font-bold transition duration-200;
+  @apply hover:text-dark-brown hover:font-bold transition duration-200;
 }

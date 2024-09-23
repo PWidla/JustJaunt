@@ -4,14 +4,14 @@ const LandingPage = () => {
   const { isLoggedIn, signup } = useAuth();
 
   return (
-    <div className="flex flex-col items-center justify-center bg-main-theme text-white w-full h-screen space-y-32 font-primaryRegular">
+    <div className="flex flex-col items-center justify-center bg-dark-green text-white w-full h-screen space-y-32 font-primaryRegular">
       <div className="text-center mb-10 w-full">
         <h1 className="text-4xl font-primaryBold">Welcome to Just Jaunt</h1>
         <p className="mt-4">Plan your dream trip with us!</p>
         {!isLoggedIn && (
           <>
             <button
-              className="mt-6 px-4 py-2 bg-yellow-700 text-white hover:bg-white hover:text-yellow-700"
+              className="mt-6 px-4 py-2 bg-dark-brown text-white hover:bg-white hover:text-yellow-700 rounded-lg"
               onClick={signup}
             >
               Sign Up

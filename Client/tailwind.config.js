@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "main-theme": "#0b1c38",
+        "light-green": "#606C38",
+        "dark-green": "#283618",
+        "light-wheat": "#FEFAE0",
+        "light-brown": "#DDA15E",
+        "dark-brown": "#BC6C25",
       },
       fontFamily: {
         primaryRegular: ["Regular"],
