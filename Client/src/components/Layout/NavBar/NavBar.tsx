@@ -25,7 +25,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-main-theme p-4">
       <div className="flex justify-between items-center w-full">
         <div className="text-3xl font-bold text-yellow-400 hover:text-white hover:font-bold hover:underline transition duration-200">
           Just Jaunt
@@ -74,7 +74,7 @@ const NavBar = () => {
         {/* mobile menu */}
         <div
           ref={menuRef}
-          className={`fixed top-0 right-0 h-full w-64 bg-gray-900 text-white transform ${
+          className={`fixed top-0 right-0 h-full w-64 bg-blue-950 text-white transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 ease-in-out z-50`}
         >
