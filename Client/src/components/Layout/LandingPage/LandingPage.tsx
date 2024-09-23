@@ -11,7 +11,7 @@ const LandingPage = () => {
         {!isLoggedIn && (
           <>
             <button
-              className="mt-6 px-8 py-5 bg-gradient-to-r from-dark-brown to-light-orange text-white hover:bg-white hover:text-dark-green rounded-3xl"
+              className="mt-6 px-8 py-5 bg-gradient-to-r from-dark-brown to-light-orange text-white hover:bg-white hover:text-dark-green rounded-3xl transition-colors duration-300"
               onClick={signup}
             >
               Sign Up
