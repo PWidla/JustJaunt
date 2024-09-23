@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../context/AuthProvider";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import "./NavBar.css";
 
 const NavBar = () => {
   const { isLoggedIn, login, logout, signup } = useAuth();
