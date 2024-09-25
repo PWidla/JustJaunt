@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Times New Roman", Times, serif;
+@font-face {
+  font-family: "Regular";
+  src:
+    local("Poppins-Regular"),
+    url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
 
-/* @layer components {
-  .card {
-  @apply flex items-center justify-center;
-    display: flex;
-    background-color: theme("colors.dark-theme");
-  }
-} */
+@font-face {
+  font-family: "Bold";
+  src:
+    local("Poppins-Bold"),
+    url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+}

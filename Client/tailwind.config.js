@@ -4,7 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dark-theme": "#b55100",
+        "light-green": "#606C38",
+        "dark-green": "#283618",
+        "light-wheat": "#FEFAE0",
+        "light-brown": "#DDA15E",
+        "dark-brown": "#BC6C25",
+      },
+      fontFamily: {
+        primaryRegular: ["Regular"],
+        primaryBold: ["Bold"],
       },
     },
   },

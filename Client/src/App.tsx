@@ -1,19 +1,13 @@
-import "./App.css";
+import LandingPage from "./components/Layout/LandingPage/LandingPage";
+import MainLayout from "./components/Layout/MainLayout/MainLayout";
+import { AuthProvider } from "./context/AuthProvider";
 
-function App() {
+const App = () => {
   return (
-    <>
-      {/* <div className="card">Test</div> */}
-      <section>
-        <p className="h-screen bg-dark-theme">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea,
-          repudiandae. Veniam, eaque rerum. Harum consectetur dolor esse
-          distinctio enim reprehenderit, vero, consequatur iusto voluptatum
-          fugiat quos veniam dolores temporibus magni?
-        </p>
-      </section>
-    </>
+    <AuthProvider>
+      <MainLayout mainContent={<LandingPage />} />
+    </AuthProvider>
   );
-}
+};
 
 export default App;
