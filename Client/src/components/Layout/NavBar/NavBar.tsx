@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../context/AuthProvider";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { isLoggedIn, login, logout, signup } = useAuth();
@@ -27,9 +28,11 @@ const NavBar = () => {
   return (
     <nav className="bg-gradient-to-r from-dark-green to-light-green p-4 font-primaryRegular">
       <div className="flex justify-between items-center w-full">
-        <div className="text-3xl font-primaryBold hover:text-yellow-700 hover:font-bold hover:underline transition duration-200">
-          Just Jaunt
-        </div>
+        <Link to="/">
+          <div className="text-3xl font-primaryBold hover:text-yellow-700 hover:font-bold hover:underline transition duration-200">
+            Just Jaunt
+          </div>
+        </Link>
 
         {/* hamburger menu btn */}
         <div className="md:hidden">
@@ -44,8 +47,13 @@ const NavBar = () => {
 
         {/* desktop menu */}
         <ul className="hidden md:flex justify-between items-center w-full max-w-[50%] mx-auto space-x-6 text-white">
-          <li className="nav-item">Home</li>
-          <li className="nav-item">How it works</li>
+          <Link to="/">
+            <li className="nav-item">Home</li>
+          </Link>
+          <Link to="/aboutus">
+            <li className="nav-item">About us</li>
+          </Link>
+
           {isLoggedIn ? (
             <>
               <li className="nav-item">Plan a trip</li>
@@ -82,8 +90,12 @@ const NavBar = () => {
             <AiOutlineClose size={30} />
           </button>
           <ul className="flex flex-col space-y-6 mt-8 pl-6">
-            <li className="nav-item">Home</li>
-            <li className="nav-item">How it works</li>
+            <Link to="/">
+              <li className="nav-item">Home</li>
+            </Link>
+            <Link to="/aboutus">
+              <li className="nav-item">About us</li>
+            </Link>
             {isLoggedIn ? (
               <>
                 <li className="nav-item">Plan a trip</li>

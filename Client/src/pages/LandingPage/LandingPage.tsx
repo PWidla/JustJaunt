@@ -1,4 +1,4 @@
-import { useAuth } from "../../../context/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
 
 const LandingPage = () => {
   const { isLoggedIn, signup } = useAuth();
