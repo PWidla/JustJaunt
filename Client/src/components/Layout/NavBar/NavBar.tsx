@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../context/AuthProvider";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { isLoggedIn, login, logout, signup } = useAuth();
@@ -27,13 +28,19 @@ const NavBar = () => {
   return (
     <nav className="bg-gradient-to-r from-dark-green to-light-green p-4 font-primaryRegular">
       <div className="flex justify-between items-center w-full">
-        <div className="text-3xl font-primaryBold hover:text-yellow-700 hover:font-bold hover:underline transition duration-200">
-          Just Jaunt
-        </div>
+        <Link to="/">
+          <div className="text-3xl font-primaryBold hover:text-yellow-700 hover:font-bold hover:underline transition duration-200">
+            Just Jaunt
+          </div>
+        </Link>
 
         {/* hamburger menu btn */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Toggle navigation">
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+          >
             {isOpen ? (
               <AiOutlineClose size={30} />
             ) : (
@@ -44,27 +51,34 @@ const NavBar = () => {
 
         {/* desktop menu */}
         <ul className="hidden md:flex justify-between items-center w-full max-w-[50%] mx-auto space-x-6 text-white">
-          <li className="nav-item">Home</li>
-          <li className="nav-item">How it works</li>
+          <Link to="/">
+            <li className="nav-item">Home</li>
+          </Link>
+          <Link to="/about-us">
+            <li className="nav-item">About us</li>
+          </Link>
+
           {isLoggedIn ? (
             <>
-              <li className="nav-item">Plan a trip</li>
+              <Link to="/plan-a-trip">
+                <li className="nav-item">Plan a trip</li>
+              </Link>
               <li>
-                <button onClick={logout} className="nav-item">
+                <button type="button" onClick={logout} className="nav-item">
                   Log out
                 </button>
               </li>
             </>
           ) : (
             <li>
-              <button onClick={login} className="nav-item">
+              <button type="button" onClick={login} className="nav-item">
                 Log in
               </button>
             </li>
           )}
           {!isLoggedIn && (
             <li>
-              <button onClick={signup} className="nav-item">
+              <button type="button" onClick={signup} className="nav-item">
                 Sign up
               </button>
             </li>
@@ -82,27 +96,33 @@ const NavBar = () => {
             <AiOutlineClose size={30} />
           </button>
           <ul className="flex flex-col space-y-6 mt-8 pl-6">
-            <li className="nav-item">Home</li>
-            <li className="nav-item">How it works</li>
+            <Link to="/">
+              <li className="nav-item">Home</li>
+            </Link>
+            <Link to="/about-us">
+              <li className="nav-item">About us</li>
+            </Link>
             {isLoggedIn ? (
               <>
-                <li className="nav-item">Plan a trip</li>
+                <Link to="/plan-a-trip">
+                  <li className="nav-item">Plan a trip</li>
+                </Link>
                 <li>
-                  <button onClick={logout} className="nav-item">
+                  <button type="button" onClick={logout} className="nav-item">
                     Log out
                   </button>
                 </li>
               </>
             ) : (
               <li>
-                <button onClick={login} className="nav-item">
+                <button type="button" onClick={login} className="nav-item">
                   Log in
                 </button>
               </li>
             )}
             {!isLoggedIn && (
               <li>
-                <button onClick={signup} className="nav-item">
+                <button type="button" onClick={signup} className="nav-item">
                   Sign up
                 </button>
               </li>
