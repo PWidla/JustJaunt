@@ -36,7 +36,11 @@ const NavBar = () => {
 
         {/* hamburger menu btn */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Toggle navigation">
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+          >
             {isOpen ? (
               <AiOutlineClose size={30} />
             ) : (
@@ -56,23 +60,25 @@ const NavBar = () => {
 
           {isLoggedIn ? (
             <>
-              <li className="nav-item">Plan a trip</li>
+              <Link to="/plan-a-trip">
+                <li className="nav-item">Plan a trip</li>
+              </Link>
               <li>
-                <button onClick={logout} className="nav-item">
+                <button type="button" onClick={logout} className="nav-item">
                   Log out
                 </button>
               </li>
             </>
           ) : (
             <li>
-              <button onClick={login} className="nav-item">
+              <button type="button" onClick={login} className="nav-item">
                 Log in
               </button>
             </li>
           )}
           {!isLoggedIn && (
             <li>
-              <button onClick={signup} className="nav-item">
+              <button type="button" onClick={signup} className="nav-item">
                 Sign up
               </button>
             </li>
@@ -98,23 +104,25 @@ const NavBar = () => {
             </Link>
             {isLoggedIn ? (
               <>
-                <li className="nav-item">Plan a trip</li>
+                <Link to="/plan-a-trip">
+                  <li className="nav-item">Plan a trip</li>
+                </Link>
                 <li>
-                  <button onClick={logout} className="nav-item">
+                  <button type="button" onClick={logout} className="nav-item">
                     Log out
                   </button>
                 </li>
               </>
             ) : (
               <li>
-                <button onClick={login} className="nav-item">
+                <button type="button" onClick={login} className="nav-item">
                   Log in
                 </button>
               </li>
             )}
             {!isLoggedIn && (
               <li>
-                <button onClick={signup} className="nav-item">
+                <button type="button" onClick={signup} className="nav-item">
                   Sign up
                 </button>
               </li>
