@@ -50,7 +50,7 @@ const NavBar = () => {
           <Link to="/">
             <li className="nav-item">Home</li>
           </Link>
-          <Link to="/aboutus">
+          <Link to="/about-us">
             <li className="nav-item">About us</li>
           </Link>
 
@@ -93,7 +93,7 @@ const NavBar = () => {
             <Link to="/">
               <li className="nav-item">Home</li>
             </Link>
-            <Link to="/aboutus">
+            <Link to="/about-us">
               <li className="nav-item">About us</li>
             </Link>
             {isLoggedIn ? (
