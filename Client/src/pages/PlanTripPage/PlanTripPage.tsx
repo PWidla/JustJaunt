@@ -1,14 +1,9 @@
+import { ensureToken } from "../../api/Amadeus";
+
 const PlanTripPage = () => {
   const searchCity = async () => {
-    const [books, authors, shops] = await Promise.all([
-      APIManager.fetchBooks(),
-      APIManager.fetchAuthor(),
-      APIManager.fetchShops(),
-    ]);
-
-    this.handleBooks(books);
-    this.handleAuthors(authors);
-    this.handleShops(shops);
+    ensureToken();
+    //get kordy z searchCity[0] bo to miasto. error jak źle
   };
 
   return (
