@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import {
   AmadeusLocation,
   getActivities,
+  getHotels,
   getLocations,
 } from "../../api/Amadeus";
 
@@ -18,8 +19,10 @@ const PlanTripPage = () => {
 
       if (locations && locations.length > 0) {
         const city: AmadeusLocation = locations[0];
+
         const activities = await getActivities(city);
-        console.log(activities);
+
+        const hotels = await getHotels(city);
       } else {
         console.error(
           `We couldn't find data for city '${cityInput}'. Please make sure it's correct and try again.`
