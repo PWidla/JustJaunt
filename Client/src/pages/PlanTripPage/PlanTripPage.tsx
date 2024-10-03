@@ -10,6 +10,26 @@ const PlanTripPage = () => {
   const [inputValue, setInputValue] = useState("");
   const cityInputRef = useRef<HTMLInputElement>(null);
 
+  const fetchActivities = async (city: AmadeusLocation) => {
+    try {
+      const activities = await getActivities(city);
+      return activities;
+    } catch (error) {
+      console.error("Error fetching activities:", error);
+      return null;
+    }
+  };
+
+  const fetchHotels = async (city: AmadeusLocation) => {
+    try {
+      const hotels = await getHotels(city);
+      return hotels;
+    } catch (error) {
+      console.error("Error fetching hotels:", error);
+      return null;
+    }
+  };
+
   const handleSearchCity = async () => {
     if (!cityInputRef.current || cityInputRef.current.value.trim() === "") {
       console.error("Please provide the city name.");
@@ -20,9 +40,22 @@ const PlanTripPage = () => {
       if (locations && locations.length > 0) {
         const city: AmadeusLocation = locations[0];
 
-        const activities = await getActivities(city);
+        const [activities, hotels] = await Promise.all([
+          fetchActivities(city),
+          fetchHotels(city),
+        ]);
 
-        const hotels = await getHotels(city);
+        if (activities) {
+          //
+        } else {
+          console.error("Failed to fetch activities.");
+        }
+
+        if (hotels) {
+          //
+        } else {
+          console.error("Failed to fetch hotels.");
+        }
       } else {
         console.error(
           `We couldn't find data for city '${cityInput}'. Please make sure it's correct and try again.`
