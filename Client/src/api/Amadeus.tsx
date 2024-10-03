@@ -1,3 +1,4 @@
+//extract interfaces
 let accessToken: string | null = null;
 let tokenExpiration: number | null = null;
 
@@ -47,8 +48,43 @@ export const ensureToken = async (): Promise<string | null> => {
   return accessToken;
 };
 
+export async function fetchWithToken<T>(
+  url: string,
+  method: string = "GET"
+): Promise<T> {
+  const token = await ensureToken();
+  if (!token) {
+    throw new Error("Missing or invalid access token");
+  }
+
+  const options: RequestInit = {
+    method: method,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        `Error while fetching data: ${data.message || "An unexpected error occurred."}`
+      );
+    }
+
+    return data.data as T;
+    // return data as T;
+  } catch (error) {
+    console.error("Error in fetchWithToken:", error);
+    throw new Error("Error while fetching data. Please try again later.");
+  }
+}
+
 //
-interface Location {
+export interface AmadeusLocation {
+  //rename
   type: string;
   subType: string; //airport/city
   name: string;
@@ -65,33 +101,12 @@ interface Address {
   regionCode: string;
 }
 
-export const searchCity = async (
+export const getLocations = async (
+  //rename it
   cityName: string
-): Promise<Location | null> => {
-  try {
-    const response = await fetch(
-      `https://test.api.amadeus.com/v1/reference-data/locations/cities?&keyword=${cityName}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
-
-    const data = await response.json();
-    console.log(data); //
-
-    if (response.ok) {
-      return data;
-    } else {
-      console.error("Error fetching city information:", data);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    return null;
-  }
+): Promise<Array<AmadeusLocation> | null> => {
+  const url = `https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=${cityName}`;
+  return await fetchWithToken(url);
 };
 
 //activity
@@ -104,34 +119,11 @@ export interface Activity {
 }
 
 export const getActivities = async (
-  city: Location
-): Promise<Array<Activity> | null> => {
-  try {
-    const latitude = city.geoCode.latitude;
-    const longitude = city.geoCode.longitude;
+  city: AmadeusLocation
+): Promise<Activity | null> => {
+  const latitude = city.geoCode.latitude;
+  const longitude = city.geoCode.longitude;
 
-    const response = await fetch(
-      //radius parameter, 0 to 20
-      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
-
-    const data = await response.json();
-    console.log(data); //
-
-    if (response.ok) {
-      return data;
-    } else {
-      console.error("Error fetching activities:", data);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    return null;
-  }
+  const url = `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`;
+  return await fetchWithToken(url);
 };

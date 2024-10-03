@@ -1,8 +1,22 @@
-import { ensureToken } from "../../api/Amadeus";
+import {
+  AmadeusLocation,
+  getActivities,
+  getLocations,
+} from "../../api/Amadeus";
 
 const PlanTripPage = () => {
-  const searchCity = async () => {
-    ensureToken();
+  const handleSearchCity = async () => {
+    const locations: AmadeusLocation[] | null = await getLocations("Barcelona"); //rename it
+
+    if (locations && locations.length > 0) {
+      const city: AmadeusLocation = locations[0];
+      const activities = await getActivities(city);
+    } else {
+      console.error(
+        "We couldn't find data for city '{cityInput}'. Please make sure it's correct and try again."
+      );
+    }
+
     //get kordy z searchCity[0] bo to miasto. error jak źle
   };
 
@@ -11,11 +25,18 @@ const PlanTripPage = () => {
       <span className="font-primaryRegular text-center">
         Tell us the name of the city you plan to visit
       </span>
-      <input type="text" name="" id="" className="" />
+      <input
+        type="text"
+        name="city-input"
+        id="city-input"
+        placeholder="Enter the city name"
+        className="text-center text-black"
+      />
+      {/* przekazywac do metody i zerowac to pole */}
       <button
         type="button"
         className="mt-6 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-        onClick={searchCity}
+        onClick={handleSearchCity}
       >
         Search
       </button>
