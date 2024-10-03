@@ -44,7 +44,6 @@ export const ensureToken = async (): Promise<string | null> => {
   if (!accessToken || !tokenExpiration || Date.now() >= tokenExpiration) {
     return await getAmadeusAccessToken();
   }
-  console.log(accessToken); //
   return accessToken;
 };
 
@@ -75,21 +74,17 @@ export async function fetchWithToken<T>(
     }
 
     return data.data as T;
-    // return data as T;
   } catch (error) {
     console.error("Error in fetchWithToken:", error);
     throw new Error("Error while fetching data. Please try again later.");
   }
 }
 
-//
 export interface AmadeusLocation {
-  //rename
   type: string;
-  subType: string; //airport/city
+  subType: string;
   name: string;
   geoCode: Geocode;
-  //include airports
   address: Address;
 }
 
@@ -102,7 +97,6 @@ interface Address {
 }
 
 export const getLocations = async (
-  //rename it
   cityName: string
 ): Promise<Array<AmadeusLocation> | null> => {
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=${cityName}`;
