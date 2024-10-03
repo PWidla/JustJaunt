@@ -1,4 +1,4 @@
-//extract interfaces
+//todo extract interfaces
 let accessToken: string | null = null;
 let tokenExpiration: number | null = null;
 
@@ -86,6 +86,7 @@ export interface AmadeusLocation {
   name: string;
   geoCode: Geocode;
   address: Address;
+  iataCode: string;
 }
 
 interface Address {
@@ -104,7 +105,7 @@ export const getLocations = async (
 };
 
 //activity
-export interface Activity {
+export interface AmadeusActivity {
   id: string;
   name: string;
   description: string;
@@ -114,10 +115,25 @@ export interface Activity {
 
 export const getActivities = async (
   city: AmadeusLocation
-): Promise<Activity | null> => {
+): Promise<AmadeusActivity | null> => {
   const latitude = city.geoCode.latitude;
   const longitude = city.geoCode.longitude;
 
-  const url = `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`;
+  const url = `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`; //todo think about radius
+  return await fetchWithToken(url);
+};
+
+//hotels
+export interface AmadeusHotel {
+  name: string;
+  geoCode: Geocode;
+}
+
+export const getHotels = async (
+  city: AmadeusLocation
+): Promise<AmadeusHotel | null> => {
+  const cityCode = city.iataCode;
+
+  const url = `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${cityCode}`;
   return await fetchWithToken(url);
 };
