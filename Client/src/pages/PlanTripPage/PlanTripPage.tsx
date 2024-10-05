@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import {
+  AmadeusActivity,
+  AmadeusHotel,
   AmadeusLocation,
   getActivities,
   getHotels,
@@ -8,6 +10,8 @@ import {
 
 const PlanTripPage = () => {
   const [inputValue, setInputValue] = useState("");
+  const [activities, setActivities] = useState<AmadeusActivity[]>([]);
+  const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
 
   const fetchActivities = async (city: AmadeusLocation) => {
@@ -40,19 +44,19 @@ const PlanTripPage = () => {
       if (locations && locations.length > 0) {
         const city: AmadeusLocation = locations[0];
 
-        const [activities, hotels] = await Promise.all([
+        const [fetchedActivities, fetchedHotels] = await Promise.all([
           fetchActivities(city),
           fetchHotels(city),
         ]);
 
-        if (activities) {
-          //
+        if (fetchedActivities) {
+          setActivities(fetchedActivities);
         } else {
           console.error("Failed to fetch activities.");
         }
 
-        if (hotels) {
-          //
+        if (fetchedHotels) {
+          setHotels(fetchedHotels);
         } else {
           console.error("Failed to fetch hotels.");
         }

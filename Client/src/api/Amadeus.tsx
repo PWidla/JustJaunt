@@ -115,7 +115,7 @@ export interface AmadeusActivity {
 
 export const getActivities = async (
   city: AmadeusLocation
-): Promise<AmadeusActivity | null> => {
+): Promise<AmadeusActivity[]> => {
   const latitude = city.geoCode.latitude;
   const longitude = city.geoCode.longitude;
 
@@ -125,13 +125,15 @@ export const getActivities = async (
 
 //hotels
 export interface AmadeusHotel {
+  // jsonprop na id?
+  dupeId: string;
   name: string;
   geoCode: Geocode;
 }
 
 export const getHotels = async (
   city: AmadeusLocation
-): Promise<AmadeusHotel | null> => {
+): Promise<AmadeusHotel[]> => {
   const cityCode = city.iataCode;
 
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${cityCode}`;
