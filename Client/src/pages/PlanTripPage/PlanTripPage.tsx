@@ -74,7 +74,7 @@ const PlanTripPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-24 p-8 font-primaryRegular">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-6 p-8 font-primaryRegular">
       <span className="font-primaryRegular text-center">
         Tell us the name of the city you plan to visit
       </span>
@@ -95,6 +95,7 @@ const PlanTripPage = () => {
       >
         Search
       </button>
+      {/* jeden komponent ktory sam tworzy horizontal activities list, hotels list i naglowek w postaci miasta i instrukcji */}
       <HorizontalActivitiesList activities={activities} />
     </div>
   );
