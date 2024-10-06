@@ -36,7 +36,7 @@ const HorizontalActivitiesList = ({
             {activity.description && activity.description.length > 100 && (
               <span
                 onClick={toggleShowMore}
-                className="text-blue-500 cursor-pointer block md:hidden"
+                className="text-light-brown cursor-pointer block md:hidden"
               >
                 {showMore ? "Show less" : "Show more"}
               </span>
