@@ -7,10 +7,10 @@ import {
   getHotels,
   getLocations,
 } from "../../api/Amadeus";
-import HorizontalActivitiesList from "../../components/Layout/HorizontalActivitiesList/HorizontalActivitiesList";
+import HorizontalActivitiesList from "../../components/HorizontalActivitiesList/HorizontalActivitiesList";
 
 const PlanTripPage = () => {
-  const [inputValue, setInputValue] = useState("");
+  // const [inputValue, setInputValue] = useState("");
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
   const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
@@ -70,11 +70,11 @@ const PlanTripPage = () => {
       }
     }
 
-    setInputValue("");
+    // setInputValue("");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-6 p-8 font-primaryRegular">
+    <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-4 font-primaryRegular">
       <span className="font-primaryRegular text-center">
         Tell us the name of the city you plan to visit
       </span>
@@ -83,19 +83,18 @@ const PlanTripPage = () => {
         name="city-input"
         id="city-input"
         placeholder="Enter the city name"
-        className="text-center text-black"
+        className="text-center text-black rounded-md p-2"
         ref={cityInputRef}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        // value={inputValue}
+        // onChange={(e) => setInputValue(e.target.value)}
       />
       <button
         type="button"
-        className="mt-6 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+        className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold" // Reduced mt
         onClick={handleSearchCity}
       >
         Search
       </button>
-      {/* jeden komponent ktory sam tworzy horizontal activities list, hotels list i naglowek w postaci miasta i instrukcji */}
       <HorizontalActivitiesList activities={activities} />
     </div>
   );
