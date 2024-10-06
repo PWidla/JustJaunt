@@ -49,13 +49,11 @@ const HorizontalActivitiesList = ({
   };
 
   return (
-    <div className="relative overflow-hidden w-3/4 text-center">
+    <div className="relative overflow-hidden w-3/4 text-center mx-auto">
       {filteredActivities.length > 0 && (
-        <>
-          <h2 className="border-t-8 font-primaryBold text-4xl text-light-wheat text-center pt-10">
-            Activities
-          </h2>
-        </>
+        <h2 className="border-t-8 font-primaryBold text-4xl text-light-wheat text-center pt-10">
+          Activities
+        </h2>
       )}
 
       <div
@@ -67,28 +65,33 @@ const HorizontalActivitiesList = ({
             key={activity.id}
             className="flex-shrink-0 w-full flex flex-col items-center justify-center p-2"
           >
-            <p className="font-primaryBold text-lg">{activity.name}</p>
-            <div className="max-w-xs overflow-hidden text-ellipsis md:max-w-lg">
-              <p className="text-sm md:text-base">
-                <span className="block md:hidden">
-                  {truncateText(activity.description, index)}
-                </span>
-                {activity.description && activity.description.length > 100 && (
-                  <span
-                    onClick={() => toggleShowMore(index)}
-                    className="text-light-brown cursor-pointer block md:hidden"
-                  >
-                    {showMore[index] ? "Show less" : "Show more"}
+            <p className="font-primaryBold text-lg mb-4">{activity.name}</p>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center">
+              <div className="max-w-xs overflow-hidden text-ellipsis md:max-w-lg md:mr-4">
+                <p className="text-sm md:text-base overflow-y-auto max-h-24 md:max-h-48 mb-4">
+                  <span className="block md:hidden">
+                    {truncateText(activity.description, index)}
                   </span>
-                )}
-                <span className="hidden md:block">{activity.description}</span>
-              </p>
+                  {activity.description &&
+                    activity.description.length > 100 && (
+                      <span
+                        onClick={() => toggleShowMore(index)}
+                        className="text-light-brown cursor-pointer block md:hidden"
+                      >
+                        {showMore[index] ? "Show less" : "Show more"}
+                      </span>
+                    )}
+                  <span className="hidden md:block">
+                    {activity.description}
+                  </span>
+                </p>
+              </div>
+              <img
+                src={`${activity.pictures}`}
+                alt={`${activity.name} picture`}
+                className="object-contain md:object-scale-down w-full h-auto max-h-96 mx-auto"
+              />
             </div>
-            <img
-              src={`${activity.pictures}`}
-              alt={`${activity.name} picture`}
-              className="object-contain md:object-scale-down w-full h-auto max-h-96"
-            />
           </div>
         ))}
       </div>
@@ -108,7 +111,7 @@ const HorizontalActivitiesList = ({
             <BsFillArrowRightCircleFill />
           </div>
 
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg">
+          <div className="pt-10 text-lg text-center">
             {current + 1}/{filteredActivities.length}
           </div>
         </>
