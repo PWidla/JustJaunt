@@ -90,11 +90,24 @@ const PlanTripPage = () => {
       />
       <button
         type="button"
-        className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold" // Reduced mt
+        className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
         onClick={handleSearchCity}
       >
         Search
       </button>
+
+      {activities.length > 0 && (
+        <div className="w-5/6 pt-20 text-center text-light-wheat">
+          <h1 className="font-primaryBold text-xl">
+            {/* refact */}
+            {cityInputRef.current?.value || ""}
+          </h1>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum
+          sequi quaerat aliquid sunt voluptatum corrupti nobis quod temporibus
+          obcaecati, enim officia asperiores dolore vero quo sapiente ab! Totam,
+          rem.
+        </div>
+      )}
       <HorizontalActivitiesList activities={activities} />
     </div>
   );

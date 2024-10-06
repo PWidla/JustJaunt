@@ -12,9 +12,13 @@ interface HorizontalActivitiesListProps {
 const HorizontalActivitiesList = ({
   activities,
 }: HorizontalActivitiesListProps) => {
+  const filteredActivities = activities.filter(
+    (activity) => activity.description
+  );
+
   const [current, setCurrent] = useState(0);
   const [showMore, setShowMore] = useState(
-    Array(activities.length).fill(false)
+    Array(filteredActivities.length).fill(false)
   );
 
   const toggleShowMore = (index: number) => {
@@ -33,20 +37,32 @@ const HorizontalActivitiesList = ({
   };
 
   const previousSlide = () => {
-    setCurrent((prev) => (prev === 0 ? activities.length - 1 : prev - 1));
+    setCurrent((prev) =>
+      prev === 0 ? filteredActivities.length - 1 : prev - 1
+    );
   };
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev === activities.length - 1 ? 0 : prev + 1));
+    setCurrent((prev) =>
+      prev === filteredActivities.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
-    <div className="relative overflow-hidden w-3/4 mt-0">
+    <div className="relative overflow-hidden w-3/4 text-center">
+      {filteredActivities.length > 0 && (
+        <>
+          <h2 className="border-t-8 font-primaryBold text-4xl text-light-wheat text-center pt-10">
+            Activities
+          </h2>
+        </>
+      )}
+
       <div
-        className="flex transition-transform duration-300 h-dvh items-center"
+        className="flex transition-transform duration-300 h-dvh"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
-        {activities.map((activity, index) => (
+        {filteredActivities.map((activity, index) => (
           <div
             key={activity.id}
             className="flex-shrink-0 w-full flex flex-col items-center justify-center p-2"
@@ -77,7 +93,7 @@ const HorizontalActivitiesList = ({
         ))}
       </div>
 
-      {activities.length > 0 && (
+      {filteredActivities.length > 0 && (
         <>
           <div
             className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
@@ -93,7 +109,7 @@ const HorizontalActivitiesList = ({
           </div>
 
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg">
-            {current + 1}/{activities.length}
+            {current + 1}/{filteredActivities.length}
           </div>
         </>
       )}
