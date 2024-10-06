@@ -17,6 +17,7 @@ const PlanTripPage = () => {
   const fetchActivities = async (city: AmadeusLocation) => {
     try {
       const activities = await getActivities(city);
+      console.log(activities);
       return activities;
     } catch (error) {
       console.error("Error fetching activities:", error);
@@ -28,6 +29,7 @@ const PlanTripPage = () => {
     try {
       const hotels = await getHotels(city);
       return hotels;
+      console.log(hotels);
     } catch (error) {
       console.error("Error fetching hotels:", error);
       return null;

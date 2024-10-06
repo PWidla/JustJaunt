@@ -60,7 +60,7 @@ const NavBar = () => {
 
           {isLoggedIn ? (
             <>
-              <Link to="/plan-a-trip">
+              <Link to="/trip/create">
                 <li className="nav-item">Plan a trip</li>
               </Link>
               <li>
@@ -104,7 +104,7 @@ const NavBar = () => {
             </Link>
             {isLoggedIn ? (
               <>
-                <Link to="/plan-a-trip">
+                <Link to="/trip/create">
                   <li className="nav-item">Plan a trip</li>
                 </Link>
                 <li>
