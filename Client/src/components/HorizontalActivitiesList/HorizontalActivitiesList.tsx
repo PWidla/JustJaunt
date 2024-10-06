@@ -77,22 +77,26 @@ const HorizontalActivitiesList = ({
         ))}
       </div>
 
-      <div
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
-        onClick={previousSlide}
-      >
-        <BsFillArrowLeftCircleFill />
-      </div>
-      <div
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
-        onClick={nextSlide}
-      >
-        <BsFillArrowRightCircleFill />
-      </div>
+      {activities.length > 0 && (
+        <>
+          <div
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
+            onClick={previousSlide}
+          >
+            <BsFillArrowLeftCircleFill />
+          </div>
+          <div
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
+            onClick={nextSlide}
+          >
+            <BsFillArrowRightCircleFill />
+          </div>
 
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg">
-        {current + 1}/{activities.length}
-      </div>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg">
+            {current + 1}/{activities.length}
+          </div>
+        </>
+      )}
     </div>
   );
 };

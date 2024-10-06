@@ -74,7 +74,7 @@ const PlanTripPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-4 font-primaryRegular">
+    <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-4 pt-8 font-primaryRegular">
       <span className="font-primaryRegular text-center">
         Tell us the name of the city you plan to visit
       </span>
