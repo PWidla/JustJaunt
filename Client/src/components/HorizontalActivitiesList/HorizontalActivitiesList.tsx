@@ -56,14 +56,17 @@ const HorizontalActivitiesList = ({
         </h2>
       )}
 
+      <div className="text-lg text-center">
+        {current + 1}/{filteredActivities.length}
+      </div>
       <div
-        className="flex transition-transform duration-300 h-dvh"
+        className="flex transition-transform duration-300 h-svh"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {filteredActivities.map((activity, index) => (
           <div
             key={activity.id}
-            className="flex-shrink-0 w-full flex flex-col items-center justify-center p-2"
+            className="flex-shrink-0 w-full flex flex-col items-center justify-start md:p-20"
           >
             <p className="font-primaryBold text-lg mb-4">{activity.name}</p>
             <div className="flex flex-col md:flex-row md:items-center md:justify-center">
@@ -109,10 +112,6 @@ const HorizontalActivitiesList = ({
             onClick={nextSlide}
           >
             <BsFillArrowRightCircleFill />
-          </div>
-
-          <div className="pt-10 text-lg text-center">
-            {current + 1}/{filteredActivities.length}
           </div>
         </>
       )}
