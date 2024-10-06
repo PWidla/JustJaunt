@@ -56,11 +56,12 @@ const HorizontalActivitiesList = ({
         </h2>
       )}
 
-      <div className="text-lg text-center">
+      <div className="text-lg text-center mb-4">
         {current + 1}/{filteredActivities.length}
       </div>
+
       <div
-        className="flex transition-transform duration-300 h-svh"
+        className="flex transition-transform duration-300 h-auto" // Użyj h-auto, aby wysokość była dostosowywana automatycznie
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {filteredActivities.map((activity, index) => (
@@ -95,26 +96,25 @@ const HorizontalActivitiesList = ({
                 className="object-contain md:object-scale-down w-full h-auto max-h-96 mx-auto"
               />
             </div>
+
+            {/* Przycisk nawigacyjny poniżej zdjęcia */}
+            <div className="flex justify-between w-full mt-4">
+              <div
+                className="text-white text-3xl p-2 cursor-pointer"
+                onClick={previousSlide}
+              >
+                <BsFillArrowLeftCircleFill />
+              </div>
+              <div
+                className="text-white text-3xl p-2 cursor-pointer"
+                onClick={nextSlide}
+              >
+                <BsFillArrowRightCircleFill />
+              </div>
+            </div>
           </div>
         ))}
       </div>
-
-      {filteredActivities.length > 0 && (
-        <>
-          <div
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
-            onClick={previousSlide}
-          >
-            <BsFillArrowLeftCircleFill />
-          </div>
-          <div
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl p-2 z-10 cursor-pointer"
-            onClick={nextSlide}
-          >
-            <BsFillArrowRightCircleFill />
-          </div>
-        </>
-      )}
     </div>
   );
 };
