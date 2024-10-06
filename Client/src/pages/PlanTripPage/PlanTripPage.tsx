@@ -7,6 +7,7 @@ import {
   getHotels,
   getLocations,
 } from "../../api/Amadeus";
+import HorizontalActivitiesList from "../../components/Layout/HorizontalActivitiesList/HorizontalActivitiesList";
 
 const PlanTripPage = () => {
   const [inputValue, setInputValue] = useState("");
@@ -73,7 +74,7 @@ const PlanTripPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-8 p-8 font-primaryRegular">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-24 p-8 font-primaryRegular">
       <span className="font-primaryRegular text-center">
         Tell us the name of the city you plan to visit
       </span>
@@ -94,6 +95,7 @@ const PlanTripPage = () => {
       >
         Search
       </button>
+      <HorizontalActivitiesList activities={activities} />
     </div>
   );
 };
