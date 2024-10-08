@@ -97,23 +97,29 @@ const PlanTripPage = () => {
         Search
       </button>
 
-      {activities.length > 0 && (
-        <div>
-          <div className="w-5/6 pt-20 text-center text-light-wheat mx-auto">
-            <h1 className="font-primaryBold text-xl">
-              {/* refact */}
-              {cityInputRef.current?.value || ""}
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-              earum sequi quaerat aliquid sunt voluptatum corrupti nobis quod
-              temporibus obcaecati, enim officia asperiores dolore vero quo
-              sapiente ab! Totam, rem.
-            </p>
+      {activities.length > 0 ||
+        (hotels.length > 0 && (
+          <div>
+            <div className="w-5/6 pt-20 text-center text-light-wheat mx-auto">
+              <h1 className="font-primaryBold text-xl">
+                {/* refact */}
+                {cityInputRef.current?.value || ""}
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+                earum sequi quaerat aliquid sunt voluptatum corrupti nobis quod
+                temporibus obcaecati, enim officia asperiores dolore vero quo
+                sapiente ab! Totam, rem.
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
+
+      {activities.length > 0 && (
+        <HorizontalActivitiesList activities={activities} />
       )}
-      <HorizontalActivitiesList activities={activities} />
+
+      {hotels.length > 0 && <HorizontalHotelsList hotels={hotels} />}
     </div>
   );
 };
