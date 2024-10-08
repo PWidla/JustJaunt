@@ -56,9 +56,11 @@ const HorizontalActivitiesList = ({
         </h2>
       )}
 
-      <div className="text-lg text-center mb-4">
-        {current + 1}/{filteredActivities.length}
-      </div>
+      {activities.length > 0 && (
+        <div className="text-lg text-center mb-4">
+          {current + 1}/{filteredActivities.length}
+        </div>
+      )}
 
       <div
         className="flex transition-transform duration-300 h-auto"
