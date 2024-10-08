@@ -7,7 +7,8 @@ import {
   getHotels,
   getLocations,
 } from "../../api/Amadeus";
-import HorizontalActivitiesList from "../../components/HorizontalActivitiesList/HorizontalActivitiesList";
+import HorizontalActivitiesList from "../../components/HorizontalLists/HorizontalActivitiesList";
+import HorizontalHotelsList from "../../components/HorizontalLists/HorizontalHotelsList";
 
 const PlanTripPage = () => {
   // const [inputValue, setInputValue] = useState("");
@@ -98,19 +99,21 @@ const PlanTripPage = () => {
 
       {activities.length > 0 && (
         <div>
-          <div className="w-5/6 pt-20 text-center text-light-wheat">
+          <div className="w-5/6 pt-20 text-center text-light-wheat mx-auto">
             <h1 className="font-primaryBold text-xl">
               {/* refact */}
               {cityInputRef.current?.value || ""}
             </h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi earum
-            sequi quaerat aliquid sunt voluptatum corrupti nobis quod temporibus
-            obcaecati, enim officia asperiores dolore vero quo sapiente ab!
-            Totam, rem.
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+              earum sequi quaerat aliquid sunt voluptatum corrupti nobis quod
+              temporibus obcaecati, enim officia asperiores dolore vero quo
+              sapiente ab! Totam, rem.
+            </p>
           </div>
-          <HorizontalActivitiesList activities={activities} />
         </div>
       )}
+      <HorizontalActivitiesList activities={activities} />
     </div>
   );
 };
