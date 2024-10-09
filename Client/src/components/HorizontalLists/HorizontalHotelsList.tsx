@@ -62,6 +62,10 @@ const HorizontalHotelsList = ({ hotels }: HorizontalHotelsListProps) => {
                 <BsFillArrowRightCircleFill />
               </div>
             </div>
+
+            <div>
+              Map
+            </div>
           </div>
         ))}
       </div>

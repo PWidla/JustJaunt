@@ -14,7 +14,7 @@ interface MapProps {
   markers: AmadeusActivity[] | AmadeusHotel[];
 }
 
-const Map = ({ markers }: MapProps) => {
+const MapView = ({ markers }: MapProps) => {
   return (
     <MapContainer
       style={{ height: "90vh", width: "90%", borderRadius: "2rem" }}
@@ -38,4 +38,4 @@ const Map = ({ markers }: MapProps) => {
   );
 };
 
-export default Map;
+export default MapView;
