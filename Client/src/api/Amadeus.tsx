@@ -2,7 +2,7 @@
 let accessToken: string | null = null;
 let tokenExpiration: number | null = null;
 
-interface Geocode {
+export interface Geocode {
   latitude: number;
   longitude: number;
 }
