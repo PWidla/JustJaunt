@@ -35,3 +35,5 @@ const Map = ({ markers }: MapProps) => {
     </MapContainer>
   );
 };
+
+export default Map;
