@@ -49,9 +49,9 @@ const HorizontalActivitiesList = ({
   };
 
   return (
-    <div className="relative overflow-hidden w-3/4 text-center mx-auto">
+    <div className="border-t-8 overflow-hidden w-5/6 text-center mx-auto">
       {filteredActivities.length > 0 && (
-        <h2 className="border-t-8 font-primaryBold text-4xl text-light-wheat text-center pt-10">
+        <h2 className="font-primaryBold text-4xl text-light-wheat pt-10">
           Activities
         </h2>
       )}

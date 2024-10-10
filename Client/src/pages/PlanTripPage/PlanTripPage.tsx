@@ -100,7 +100,7 @@ const PlanTripPage = () => {
       {activities.length > 0 ||
         (hotels.length > 0 && (
           <div>
-            <div className="w-5/6 pt-20 text-center text-light-wheat mx-auto">
+            <div className="w-5/6 text-center text-light-wheat mx-auto">
               <h1 className="font-primaryBold text-xl">
                 {/* refact */}
                 {cityInputRef.current?.value || ""}

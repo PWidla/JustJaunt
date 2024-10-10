@@ -16,8 +16,8 @@ interface MapProps {
 const MapView = ({ markers }: MapProps) => {
   return (
     <MapContainer
-      style={{ height: "90vh", width: "90%", borderRadius: "2rem" }}
-      center={[48.8566, 2.3522]}
+      style={{ height: "100%", width: "100%", borderRadius: "2rem" }}
+      center={[48.8566, 2.3522]} //change to city
       zoom={13}
     >
       <TileLayer
