@@ -99,15 +99,15 @@ const HorizontalActivitiesList = ({
               />
             </div>
 
-            <div className="flex justify-between w-full mt-4">
+            <div className="flex justify-between md:justify-center w-full mt-4">
               <div
-                className="text-white text-3xl p-2 cursor-pointer"
+                className="text-white text-5xl md:text-7xl p-2 cursor-pointer"
                 onClick={previousSlide}
               >
                 <BsFillArrowLeftCircleFill />
               </div>
               <div
-                className="text-white text-3xl p-2 cursor-pointer"
+                className="text-white text-5xl md:text-7xl p-2 cursor-pointer"
                 onClick={nextSlide}
               >
                 <BsFillArrowRightCircleFill />
