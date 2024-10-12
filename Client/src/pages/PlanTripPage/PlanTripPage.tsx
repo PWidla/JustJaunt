@@ -30,8 +30,8 @@ const PlanTripPage = () => {
   const fetchHotels = async (city: AmadeusLocation) => {
     try {
       const hotels = await getHotels(city);
-      return hotels;
       console.log(hotels);
+      return hotels;
     } catch (error) {
       console.error("Error fetching hotels:", error);
       return null;
@@ -70,7 +70,6 @@ const PlanTripPage = () => {
         );
       }
     }
-
     // setInputValue("");
   };
 
