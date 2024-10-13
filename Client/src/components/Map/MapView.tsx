@@ -2,7 +2,11 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 import { Icon } from "leaflet";
-import { AmadeusActivity, AmadeusHotel } from "../../api/Amadeus";
+import {
+  AmadeusActivity,
+  AmadeusHotel,
+  AmadeusLocation,
+} from "../../api/Amadeus";
 
 const customIcon = new Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
@@ -11,13 +15,17 @@ const customIcon = new Icon({
 
 interface MapProps {
   markers: AmadeusActivity[] | AmadeusHotel[];
+  centerLocation: AmadeusLocation;
 }
 
-const MapView = ({ markers }: MapProps) => {
+const MapView = ({ markers, centerLocation }: MapProps) => {
   return (
     <MapContainer
       style={{ height: "100%", width: "100%", borderRadius: "2rem" }}
-      center={[48.8566, 2.3522]} //change to city
+      center={[
+        centerLocation.geoCode.latitude,
+        centerLocation.geoCode.longitude,
+      ]}
       zoom={13}
     >
       <TileLayer

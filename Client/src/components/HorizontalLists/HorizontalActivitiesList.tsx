@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AmadeusActivity } from "../../api/Amadeus";
+import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
@@ -7,6 +7,7 @@ import {
 
 interface HorizontalActivitiesListProps {
   activities: AmadeusActivity[];
+  searchedCity: AmadeusLocation;
 }
 
 const HorizontalActivitiesList = ({

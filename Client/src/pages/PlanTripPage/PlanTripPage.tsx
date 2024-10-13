@@ -15,6 +15,9 @@ const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
   const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
+  const [searchedCity, setSearchedCity] = useState<AmadeusLocation | null>(
+    null
+  );
 
   const fetchActivities = async (city: AmadeusLocation) => {
     try {
@@ -46,7 +49,8 @@ const PlanTripPage = () => {
       const locations: AmadeusLocation[] | null = await getLocations(cityInput);
 
       if (locations && locations.length > 0) {
-        const city: AmadeusLocation = locations[0];
+        const city = locations[0];
+        setSearchedCity(city);
 
         const [fetchedActivities, fetchedHotels] = await Promise.all([
           fetchActivities(city),
@@ -115,10 +119,15 @@ const PlanTripPage = () => {
         ))}
 
       {activities.length > 0 && (
-        <HorizontalActivitiesList activities={activities} />
+        <HorizontalActivitiesList
+          activities={activities}
+          searchedCity={searchedCity!}
+        />
       )}
 
-      {hotels.length > 0 && <HorizontalHotelsList hotels={hotels} />}
+      {hotels.length > 0 && (
+        <HorizontalHotelsList hotels={hotels} searchedCity={searchedCity!} />
+      )}
     </div>
   );
 };
