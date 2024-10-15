@@ -11,7 +11,6 @@ import HorizontalActivitiesList from "../../components/HorizontalLists/Horizonta
 import HorizontalHotelsList from "../../components/HorizontalLists/HorizontalHotelsList";
 
 const PlanTripPage = () => {
-  // const [inputValue, setInputValue] = useState("");
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
   const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
@@ -74,7 +73,6 @@ const PlanTripPage = () => {
         );
       }
     }
-    // setInputValue("");
   };
 
   return (
@@ -89,8 +87,6 @@ const PlanTripPage = () => {
         placeholder="Enter the city name"
         className="text-center text-black rounded-md p-2"
         ref={cityInputRef}
-        // value={inputValue}
-        // onChange={(e) => setInputValue(e.target.value)}
       />
       <button
         type="button"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import {
   BsFillArrowRightCircleFill,
@@ -13,9 +13,9 @@ interface HorizontalActivitiesListProps {
 const HorizontalActivitiesList = ({
   activities,
 }: HorizontalActivitiesListProps) => {
-  const filteredActivities = activities.filter(
-    (activity) => activity.description
-  );
+  const filteredActivities = useMemo(() => {
+    return activities.filter((activity) => activity.description);
+  }, [activities]);
 
   const [current, setCurrent] = useState(0);
   const [showMore, setShowMore] = useState(
