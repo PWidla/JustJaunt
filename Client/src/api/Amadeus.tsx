@@ -152,17 +152,22 @@ export const getHotels = async (
   const cityCode = city.iataCode;
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${cityCode}`;
 
-  const result = await fetchWithToken<AmadeusHotel[]>(url);
+  const result = await fetchWithToken<{
+    data: AmadeusHotel[];
+    error?: { status: number; message: string };
+  }>(url);
 
-  if (result.error?.status === 400) {
-    //throw error
-    console.error(
-      "Fetching hotels failed, returning mock data:",
-      result.error.message
-    );
-
-    return hotelsMockData.data as AmadeusHotel[];
+  if (result.error) {
+    if (result.error.status === 400) {
+      throw new Error(result.error.message);
+    } else {
+      console.error(
+        "Fetching hotels failed, returning mock data:",
+        result.error
+      );
+      return hotelsMockData.data as AmadeusHotel[];
+    }
   }
 
-  return result.data as AmadeusHotel[];
+  return result.data!.data;
 };
