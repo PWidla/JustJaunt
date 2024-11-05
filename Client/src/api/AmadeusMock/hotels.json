@@ -1,0 +1,3085 @@
+{
+  "data": [
+    {
+      "chainCode": "AA",
+      "iataCode": "BLR",
+      "dupeId": 501381260,
+      "name": "HOTEL RAMANASHREE BRUNTON",
+      "hotelId": "AABLRHRB",
+      "geoCode": {
+        "latitude": 12.97228,
+        "longitude": 77.61508
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:05:43"
+    },
+    {
+      "chainCode": "AL",
+      "iataCode": "BLR",
+      "dupeId": 700151103,
+      "name": "ALOFT BENGALURU WHITEFIELD",
+      "hotelId": "ALBLR275",
+      "geoCode": {
+        "latitude": 12.98623,
+        "longitude": 77.73157
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-15T06:02:27"
+    },
+    {
+      "chainCode": "AL",
+      "iataCode": "BLR",
+      "dupeId": 700211496,
+      "name": "ALOFT BENGALURU CESSNA PARK",
+      "hotelId": "ALBLR545",
+      "geoCode": {
+        "latitude": 12.93439,
+        "longitude": 77.69448
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-12T06:03:14"
+    },
+    {
+      "chainCode": "BD",
+      "iataCode": "BLR",
+      "dupeId": 502372452,
+      "name": "TEST PROP",
+      "hotelId": "BDBLRMAR",
+      "geoCode": {
+        "latitude": 12.95396,
+        "longitude": 77.70019
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-03T09:00:17"
+    },
+    {
+      "chainCode": "BW",
+      "iataCode": "BLR",
+      "dupeId": 700144549,
+      "name": "BW PREMIER LA MARVELLA",
+      "hotelId": "BWBLR552",
+      "geoCode": {
+        "latitude": 12.93756,
+        "longitude": 77.58279
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:54:12"
+    },
+    {
+      "chainCode": "CH",
+      "iataCode": "BLR",
+      "dupeId": 700172683,
+      "name": "OCTAVE HOTEL AND SPA",
+      "hotelId": "CHBLROCT",
+      "geoCode": {
+        "latitude": 12.91692,
+        "longitude": 77.67258
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:36:06"
+    },
+    {
+      "chainCode": "CI",
+      "iataCode": "BLR",
+      "dupeId": 700018176,
+      "name": "COMFORT INN VIJAY RESIDENCY",
+      "hotelId": "CIBLR027",
+      "geoCode": {
+        "latitude": 13.0235,
+        "longitude": 77.55784
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:09"
+    },
+    {
+      "chainCode": "CP",
+      "iataCode": "BLR",
+      "dupeId": 700152401,
+      "name": "CROWNE PLAZA BENGALURU ELECTRO",
+      "hotelId": "CPBLR040",
+      "geoCode": {
+        "latitude": 12.85012,
+        "longitude": 77.66023
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:17:46"
+    },
+    {
+      "chainCode": "DH",
+      "iataCode": "BLR",
+      "dupeId": 700216954,
+      "name": "JW MARRIOTT HOTEL BENGALURU",
+      "hotelId": "DHBLRALL",
+      "geoCode": {
+        "latitude": 12.97116,
+        "longitude": 77.59769
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:37:25"
+    },
+    {
+      "chainCode": "DH",
+      "iataCode": "BLR",
+      "dupeId": 700211593,
+      "name": "THE RITZ CARLTON, BANGALORE",
+      "hotelId": "DHBLRAHU",
+      "geoCode": {
+        "latitude": 12.96707,
+        "longitude": 77.5992
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:35:19"
+    },
+    {
+      "chainCode": "FN",
+      "iataCode": "BLR",
+      "dupeId": 700216953,
+      "name": "FAIRFIELD RAJAJINAGAR MARRIOTT",
+      "hotelId": "FNBLRFBF",
+      "geoCode": {
+        "latitude": 12.89061,
+        "longitude": 77.543
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-01-23T15:44:42"
+    },
+    {
+      "chainCode": "GT",
+      "iataCode": "BLR",
+      "dupeId": 700220100,
+      "name": "GOLDEN TULIP BANGALORE ELECTRONIC CITY",
+      "hotelId": "GTBLRGTE",
+      "geoCode": {
+        "latitude": 12.84689,
+        "longitude": 77.67171
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:06:47"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "BLR",
+      "dupeId": 502196185,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HIBLR670",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:22:13"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "BLR",
+      "dupeId": 502196188,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HIBLR673",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:08"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "BLR",
+      "dupeId": 502195751,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HIBLR900",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:24:52"
+    },
+    {
+      "chainCode": "HI",
+      "iataCode": "BLR",
+      "dupeId": 502195754,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HIBLR903",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:37"
+    },
+    {
+      "chainCode": "HL",
+      "iataCode": "BLR",
+      "dupeId": 700191299,
+      "name": "HILTON BANGALORE EMBASSY GOLF",
+      "hotelId": "HLBLR071",
+      "geoCode": {
+        "latitude": 12.94822,
+        "longitude": 77.64588
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:02:51"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346677,
+      "name": "TEST PROPERTY FOR NO LOGS",
+      "hotelId": "HNBLR07Y",
+      "geoCode": {
+        "latitude": 12.95814,
+        "longitude": 77.66766
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:42:11"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346678,
+      "name": "TEST FOR BNA",
+      "hotelId": "HNBLR055",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T13:09:40"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346606,
+      "name": "TEST PROPERTY FOR IND",
+      "hotelId": "HNBLR033",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:42:00"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345478,
+      "name": "TEST FOR CONFIG LSS",
+      "hotelId": "HNBLRSRM",
+      "geoCode": {
+        "latitude": 12.85761,
+        "longitude": 77.58893
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-10T07:14:46"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345496,
+      "name": "TEST PROPERTY FOR EMAIL",
+      "hotelId": "HNBLRURR",
+      "geoCode": {
+        "latitude": 22.0,
+        "longitude": 24.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-10T07:15:48"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346769,
+      "name": "HOTEL MSD",
+      "hotelId": "HNBLRLIA",
+      "geoCode": {
+        "latitude": 12.95388,
+        "longitude": 77.68965
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:41:00"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345551,
+      "name": "TEST NAME WITH AMPERSAND AND APOSTROPHES",
+      "hotelId": "HNBLRCON",
+      "geoCode": {
+        "latitude": 65.039,
+        "longitude": 23.2345
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:44:11"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372873,
+      "name": "TEST BLR",
+      "hotelId": "HNBLRRRF",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-04T07:53:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372869,
+      "name": "TEST PROPERTY FOR CONTENT APIIT",
+      "hotelId": "HNBLROOP",
+      "geoCode": {
+        "latitude": 12.49,
+        "longitude": 48.9
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-04T09:00:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372872,
+      "name": "TEST PROPERTY FOR CONTENT API",
+      "hotelId": "HNBLRRRE",
+      "geoCode": {
+        "latitude": 20.2,
+        "longitude": 40.4
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-05T09:00:21"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346100,
+      "name": "TEST PROP BLR",
+      "hotelId": "HNBLRFFT",
+      "geoCode": {
+        "latitude": 12.92912,
+        "longitude": 77.67873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:40"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372453,
+      "name": "TEST HOTEL",
+      "hotelId": "HNBLR001",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-03T09:00:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502347373,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLRPRT",
+      "geoCode": {
+        "latitude": 12.8,
+        "longitude": 29.8
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:46:12"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372451,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLR006",
+      "geoCode": {
+        "latitude": 89.69,
+        "longitude": 56.36
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-04T06:56:53"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346834,
+      "name": "TEST PROPERTY FOR TRANSLATION",
+      "hotelId": "HNBLR457",
+      "geoCode": {
+        "latitude": 45.36,
+        "longitude": 56.39
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:42:32"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372445,
+      "name": "TEST PROPERTY BK",
+      "hotelId": "HNBLRLPP",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.8
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-30T09:00:21"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372455,
+      "name": "TEST HOTEL",
+      "hotelId": "HNBLR009",
+      "geoCode": {
+        "latitude": 12.81318,
+        "longitude": 77.57872
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-04T09:00:18"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372454,
+      "name": "TEST HOTEL",
+      "hotelId": "HNBLR9TH",
+      "geoCode": {
+        "latitude": 12.92139,
+        "longitude": 77.51459
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-03T09:00:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372480,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLR178",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-07T09:00:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502372481,
+      "name": "TEST PROPERTY JAVA 17 UPGRADE",
+      "hotelId": "HNBLR968",
+      "geoCode": {
+        "latitude": 28.69,
+        "longitude": 69.36
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-07T09:00:17"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346306,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLR678",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:02"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346288,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLRBAR",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:51"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346309,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLRPOR",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:46:02"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346327,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLR569",
+      "geoCode": {
+        "latitude": 13.02247,
+        "longitude": 77.56128
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:42:52"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346372,
+      "name": "TEST PROPETY 2828",
+      "hotelId": "HNBLR698",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:12"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346320,
+      "name": "TEST PROPERTY FOR QUEUE",
+      "hotelId": "HNBLR896",
+      "geoCode": {
+        "latitude": 28.96,
+        "longitude": 89.69
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:20"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502346727,
+      "name": "TEST PROPERTY FOR SCEANRIO 1",
+      "hotelId": "HNBLR489",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:42:42"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345601,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLRCNN",
+      "geoCode": {
+        "latitude": 12.0,
+        "longitude": 14.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-10T07:32:57"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502347308,
+      "name": "TEST HOTEL FROM HOC LITE UI",
+      "hotelId": "HNBLR985",
+      "geoCode": {
+        "latitude": 38.56,
+        "longitude": 96.36
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-02T10:43:30"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345443,
+      "name": "TEST PROPERTY",
+      "hotelId": "HNBLRTES",
+      "geoCode": {
+        "latitude": -18.14999,
+        "longitude": 177.61666
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-10T07:14:56"
+    },
+    {
+      "chainCode": "HN",
+      "iataCode": "BLR",
+      "dupeId": 502345465,
+      "name": "TEST PROPERTY FOR HNBLRRES",
+      "hotelId": "HNBLRRES",
+      "geoCode": {
+        "latitude": 25.0,
+        "longitude": 26.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-10T07:14:28"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 501825781,
+      "name": "BANGALORE GATE",
+      "hotelId": "HSBLRABU",
+      "geoCode": {
+        "latitude": 12.97369,
+        "longitude": 77.57908
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:17:41"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 700082344,
+      "name": "JAYA MAHAL PALACE",
+      "hotelId": "HSBLRABL",
+      "geoCode": {
+        "latitude": 13.00312,
+        "longitude": 77.57899
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:16:58"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 700151098,
+      "name": "ISIS SUITES",
+      "hotelId": "HSBLRADW",
+      "geoCode": {
+        "latitude": 12.93859,
+        "longitude": 77.6305
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:09:39"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502196181,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR671",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:22:13"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502196182,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR672",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:08"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502196184,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR674",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:22:13"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502195746,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR901",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:24:52"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502195747,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR902",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:37"
+    },
+    {
+      "chainCode": "HS",
+      "iataCode": "BLR",
+      "dupeId": 502195749,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "HSBLR904",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:37"
+    },
+    {
+      "chainCode": "HY",
+      "iataCode": "BLR",
+      "dupeId": 700054744,
+      "name": "HYATT BANGALORE MG ROAD",
+      "hotelId": "HYBLRHYB",
+      "geoCode": {
+        "latitude": 12.98176,
+        "longitude": 77.63166
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:29:34"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700070549,
+      "name": "DR. RAJ KUMAR INTER",
+      "hotelId": "ILBLR022",
+      "geoCode": {
+        "latitude": 12.98138,
+        "longitude": 77.57528
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:26:57"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700182527,
+      "name": "HOTEL IVORY TOWER",
+      "hotelId": "ILBLR021",
+      "geoCode": {
+        "latitude": 12.97533,
+        "longitude": 77.60942
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:28:00"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700054750,
+      "name": "NAHARS HERITAGE HOTEL",
+      "hotelId": "ILBLR024",
+      "geoCode": {
+        "latitude": 12.98138,
+        "longitude": 77.57528
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:27:44"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700182818,
+      "name": "GOLDEN LANDMARK HOTEL",
+      "hotelId": "ILBLR026",
+      "geoCode": {
+        "latitude": 12.98138,
+        "longitude": 77.57528
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:05"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700212764,
+      "name": "CHALET LAKE CITY",
+      "hotelId": "ILBLR373",
+      "geoCode": {
+        "latitude": 12.94099,
+        "longitude": 77.63077
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:35:37"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700083154,
+      "name": "SAMRUDHII SUITES",
+      "hotelId": "ILBLR029",
+      "geoCode": {
+        "latitude": 12.98138,
+        "longitude": 77.57528
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:26:57"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700082343,
+      "name": "RAMANASHREE CALIFORNIA RESORT",
+      "hotelId": "ILBLR020",
+      "geoCode": {
+        "latitude": 48.74495,
+        "longitude": -122.46483
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:08"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700095099,
+      "name": "PARK FIELD",
+      "hotelId": "ILBLR023",
+      "geoCode": {
+        "latitude": 13.1311,
+        "longitude": 77.85979
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:27:44"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700041157,
+      "name": "NALAPAD RESIDENCY",
+      "hotelId": "ILBLR027",
+      "geoCode": {
+        "latitude": 12.98138,
+        "longitude": 77.57528
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:27:13"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700054749,
+      "name": "MUSEUM INN HOTEL",
+      "hotelId": "ILBLR700",
+      "geoCode": {
+        "latitude": 12.97614,
+        "longitude": 77.60366
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:10:45"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700212937,
+      "name": "THE CLUB",
+      "hotelId": "ILBLR342",
+      "geoCode": {
+        "latitude": 12.93903,
+        "longitude": 77.52288
+      },
+      "address": {
+        "countryCode": "FR"
+      },
+      "lastUpdate": "2023-06-15T11:06:06"
+    },
+    {
+      "chainCode": "IL",
+      "iataCode": "BLR",
+      "dupeId": 700192655,
+      "name": "STERLING HOLIDAYS MADHURA",
+      "hotelId": "ILBLR239",
+      "geoCode": {
+        "latitude": 12.59601,
+        "longitude": 78.63063
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:16:43"
+    },
+    {
+      "chainCode": "IM",
+      "iataCode": "BLR",
+      "dupeId": 700054739,
+      "name": "THE ATRIA",
+      "hotelId": "IMBLRTAH",
+      "geoCode": {
+        "latitude": 12.96554,
+        "longitude": 77.58431
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:20:08"
+    },
+    {
+      "chainCode": "IQ",
+      "iataCode": "BLR",
+      "dupeId": 700018178,
+      "name": "HOTEL ROYAL ORCHID BANGALORE",
+      "hotelId": "IQBLRROR",
+      "geoCode": {
+        "latitude": 12.96248,
+        "longitude": 77.64928
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:10"
+    },
+    {
+      "chainCode": "IQ",
+      "iataCode": "BLR",
+      "dupeId": 700117815,
+      "name": "ROYAL ORCHID SUITES BANGALORE",
+      "hotelId": "IQBLRROS",
+      "geoCode": {
+        "latitude": 12.96031,
+        "longitude": 77.74748
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:43:44"
+    },
+    {
+      "chainCode": "LJ",
+      "iataCode": "BLR",
+      "dupeId": 700047586,
+      "name": "THE LALIT ASHOK BANGALORE",
+      "hotelId": "LJBLRI15",
+      "geoCode": {
+        "latitude": 12.99203,
+        "longitude": 77.58165
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:58:09"
+    },
+    {
+      "chainCode": "MC",
+      "iataCode": "BLR",
+      "dupeId": 700216954,
+      "name": "JW MARRIOTT HOTEL BENGALURU",
+      "hotelId": "MCBLRJWM",
+      "geoCode": {
+        "latitude": 12.96978,
+        "longitude": 77.59444
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-01-23T10:58:25"
+    },
+    {
+      "chainCode": "MC",
+      "iataCode": "BLR",
+      "dupeId": 700191294,
+      "name": "BENGALURU MARRIOTT WHITEFIELD",
+      "hotelId": "MCBLRWFM",
+      "geoCode": {
+        "latitude": 12.98051,
+        "longitude": 77.72784
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-01-23T19:53:36"
+    },
+    {
+      "chainCode": "MK",
+      "iataCode": "BLR",
+      "dupeId": 700153959,
+      "name": "MOEVENPICK BANGALORE",
+      "hotelId": "MKBLRMHB",
+      "geoCode": {
+        "latitude": 13.04319,
+        "longitude": 77.55455
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:21"
+    },
+    {
+      "chainCode": "OB",
+      "iataCode": "BLR",
+      "dupeId": 700024648,
+      "name": "THE OBEROI, BANGALORE",
+      "hotelId": "OBBLROBE",
+      "geoCode": {
+        "latitude": 12.97346,
+        "longitude": 77.6187
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:10"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372449,
+      "name": "TEST1 HOTEL",
+      "hotelId": "OIBLR2OQ",
+      "geoCode": {
+        "latitude": 12.92876,
+        "longitude": 77.6765
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-01T09:00:16"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372443,
+      "name": "TEST HOTEL",
+      "hotelId": "OIBLR90Y",
+      "geoCode": {
+        "latitude": 12.92876,
+        "longitude": 77.6765
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-31T09:00:21"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372450,
+      "name": "TEST1 HOTEL",
+      "hotelId": "OIBLR9OY",
+      "geoCode": {
+        "latitude": 12.92876,
+        "longitude": 77.6765
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-01T09:00:16"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 700095230,
+      "name": "HALCYON BANGALORE",
+      "hotelId": "OIBLR049",
+      "geoCode": {
+        "latitude": 12.93179,
+        "longitude": 77.62211
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-09-12T15:37:37"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346593,
+      "name": "ENCORE",
+      "hotelId": "OIBLRJIV",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-25T10:31:08"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346486,
+      "name": "ENCORE",
+      "hotelId": "OIBLR1P0",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-11T09:47:33"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346731,
+      "name": "GINGER",
+      "hotelId": "OIBLR3IO",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-03T05:45:54"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346459,
+      "name": "TEST1",
+      "hotelId": "OIBLR3WT",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-06T04:56:35"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346768,
+      "name": "RAMADA",
+      "hotelId": "OIBLR59C",
+      "geoCode": {
+        "latitude": 12.95388,
+        "longitude": 77.68965
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-15T09:00:23"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346471,
+      "name": "GINGER",
+      "hotelId": "OIBLR6HB",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-06T12:05:05"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346687,
+      "name": "GINGER",
+      "hotelId": "OIBLR9ZW",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-04-18T10:40:52"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346460,
+      "name": "TEST2",
+      "hotelId": "OIBLRBLR",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-06T05:38:04"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346809,
+      "name": "ENCORE",
+      "hotelId": "OIBLRJI6",
+      "geoCode": {
+        "latitude": 12.95388,
+        "longitude": 77.68965
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-30T05:30:56"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346484,
+      "name": "GINGER",
+      "hotelId": "OIBLRRQ4",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-11T05:42:59"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346604,
+      "name": "ENCORE",
+      "hotelId": "OIBLRV9A",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-28T10:21:52"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346472,
+      "name": "ENCORE",
+      "hotelId": "OIBLRXVZ",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-07T10:39:55"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346485,
+      "name": "ENCORE",
+      "hotelId": "OIBLRYCW",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-11T09:10:33"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372416,
+      "name": "GINGER",
+      "hotelId": "OIBLRA6A",
+      "geoCode": {
+        "latitude": 12.92876,
+        "longitude": 77.6765
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-30T11:20:29"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502310890,
+      "name": "TEST PROPERTY",
+      "hotelId": "OIBLR777",
+      "geoCode": {
+        "latitude": 12.91617,
+        "longitude": 77.63826
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-17T11:06:12"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346583,
+      "name": "GINGER",
+      "hotelId": "OIBLRRIU",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-25T09:33:19"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346470,
+      "name": "TEST4",
+      "hotelId": "OIBLR3PG",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-06T09:46:15"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346582,
+      "name": "GINGER",
+      "hotelId": "OIBLRKQ4",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-25T09:24:50"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502177867,
+      "name": "NEWP",
+      "hotelId": "OIBLR789",
+      "geoCode": {
+        "latitude": 12.93085,
+        "longitude": 77.68339
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:22:14"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372463,
+      "name": "HOTEL TEST1",
+      "hotelId": "OIBLRHT1",
+      "geoCode": {
+        "latitude": 13.01321,
+        "longitude": 77.59358
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-05T09:00:16"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372462,
+      "name": "RIVER TEST",
+      "hotelId": "OIBLRZHR",
+      "geoCode": {
+        "latitude": 13.01321,
+        "longitude": 77.59358
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-13T05:54:06"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346594,
+      "name": "HOTEL SWAGATH",
+      "hotelId": "OIBLRWOG",
+      "geoCode": {
+        "latitude": 13.01259,
+        "longitude": 77.66535
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-07T15:36:39"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502347289,
+      "name": "LK PENTEST PROPERTY",
+      "hotelId": "OIBLRWRM",
+      "geoCode": {
+        "latitude": 13.01259,
+        "longitude": 77.66535
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-19T09:00:17"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502345597,
+      "name": "TEST HOTEL FOR OCTORATE CERTIFICATION",
+      "hotelId": "OIBLROCT",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-12-21T15:02:33"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346255,
+      "name": "TEST VIG",
+      "hotelId": "OIBLRVIG",
+      "geoCode": {
+        "latitude": 13.03174,
+        "longitude": 77.57022
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-07T15:35:27"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346371,
+      "name": "TEST HOTEL FOR BOOKING EXPERT CERTIFICAT",
+      "hotelId": "OIBLRBEK",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-04-08T10:53:33"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502346369,
+      "name": "TEST HOTEL FOR KE-BOOKING CERTIFICATION",
+      "hotelId": "OIBLRKBE",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-28T10:22:38"
+    },
+    {
+      "chainCode": "OI",
+      "iataCode": "BLR",
+      "dupeId": 502372521,
+      "name": "TEST HOTEL FOR TRAVELSTAYTION",
+      "hotelId": "OIBLRTSN",
+      "geoCode": {
+        "latitude": 13.00303,
+        "longitude": 77.54933
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-12T09:00:17"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700083153,
+      "name": "THE CHEVRON HOTEL",
+      "hotelId": "ONBLRCHE",
+      "geoCode": {
+        "latitude": 12.98097,
+        "longitude": 77.60211
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:15:25"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700053475,
+      "name": "AJ INTERNATIONAL",
+      "hotelId": "ONBLRAJI",
+      "geoCode": {
+        "latitude": 12.98187,
+        "longitude": 77.60414
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:14:07"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700127596,
+      "name": "THE GRAND MAGRATH",
+      "hotelId": "ONBLRTGM",
+      "geoCode": {
+        "latitude": 12.90523,
+        "longitude": 77.60386
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:25:55"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700176163,
+      "name": "WOOD LANDS HOTEL PVT LTD",
+      "hotelId": "ONBLRWLH",
+      "geoCode": {
+        "latitude": 12.96601,
+        "longitude": 77.59538
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:18:18"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700054748,
+      "name": "MONARCH LUXUR",
+      "hotelId": "ONBLRMON",
+      "geoCode": {
+        "latitude": 12.98016,
+        "longitude": 77.60493
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:37"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700172703,
+      "name": "SAFINA HOTEL",
+      "hotelId": "ONBLRSAF",
+      "geoCode": {
+        "latitude": 12.97961,
+        "longitude": 77.60704
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:05"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700071686,
+      "name": "THE BELL HOTEL",
+      "hotelId": "ONBLRBEL",
+      "geoCode": {
+        "latitude": 12.97068,
+        "longitude": 77.58423
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:15:41"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700095117,
+      "name": "HOTEL KOMFORT TERRACES",
+      "hotelId": "ONBLRHKT",
+      "geoCode": {
+        "latitude": 12.97505,
+        "longitude": 77.60684
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:23:01"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700212944,
+      "name": "THE IRIS INN HOTEL",
+      "hotelId": "ONBLRIRI",
+      "geoCode": {
+        "latitude": 12.99098,
+        "longitude": 77.68798
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:25"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700095085,
+      "name": "MANIPAL COUNTY",
+      "hotelId": "ONBLRMAN",
+      "geoCode": {
+        "latitude": 12.87298,
+        "longitude": 77.642
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:22"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700095249,
+      "name": "IVY UNWIND ISLAND HOTEL",
+      "hotelId": "ONBLRIVY",
+      "geoCode": {
+        "latitude": 12.94228,
+        "longitude": 77.69732
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:08:21"
+    },
+    {
+      "chainCode": "ON",
+      "iataCode": "BLR",
+      "dupeId": 700172682,
+      "name": "WOODSTOCK EXPRESS",
+      "hotelId": "ONBLRWOO",
+      "geoCode": {
+        "latitude": 12.87424,
+        "longitude": 77.64735
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:53"
+    },
+    {
+      "chainCode": "QI",
+      "iataCode": "BLR",
+      "dupeId": 700172727,
+      "name": "QUALITY INN SHRAVANTHI",
+      "hotelId": "QIBLR128",
+      "geoCode": {
+        "latitude": 12.89956,
+        "longitude": 77.57492
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:06:17"
+    },
+    {
+      "chainCode": "RA",
+      "iataCode": "BLR",
+      "dupeId": 700095090,
+      "name": "RAMADA BANGALORE",
+      "hotelId": "RABLRHHC",
+      "geoCode": {
+        "latitude": 12.98417,
+        "longitude": 77.60046
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:52:08"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502326078,
+      "name": "VEERA MOHAN TEST PROP",
+      "hotelId": "RTBLR001",
+      "geoCode": {
+        "latitude": 40.41669,
+        "longitude": -3.70035
+      },
+      "address": {
+        "countryCode": "ES"
+      },
+      "lastUpdate": "2023-06-15T11:04:51"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502322281,
+      "name": "VEE TEST NRT PROPERTY2",
+      "hotelId": "RTBLR222",
+      "geoCode": {
+        "latitude": 40.41669,
+        "longitude": -3.70035
+      },
+      "address": {
+        "countryCode": "ES"
+      },
+      "lastUpdate": "2023-06-15T11:05:56"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502322423,
+      "name": "VEE TEST NRT PROPERTTT",
+      "hotelId": "RTBLR444",
+      "geoCode": {
+        "latitude": 40.41669,
+        "longitude": -3.70035
+      },
+      "address": {
+        "countryCode": "ES"
+      },
+      "lastUpdate": "2023-06-15T11:07:21"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502372418,
+      "name": "TEST PROP FOR DXM 22AUG24",
+      "hotelId": "RTBLR555",
+      "geoCode": {
+        "latitude": 12.92876,
+        "longitude": 77.6765
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-24T09:00:16"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502322169,
+      "name": "TEST PROP VEERA",
+      "hotelId": "RTBLR110",
+      "geoCode": {
+        "latitude": 12.95448,
+        "longitude": 77.70032
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:08:57"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502196191,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "RTBLR671",
+      "geoCode": {
+        "latitude": 12.92677,
+        "longitude": 80.15233
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:09"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502196192,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "RTBLR672",
+      "geoCode": {
+        "latitude": 12.92677,
+        "longitude": 80.15233
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:09"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502195741,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "RTBLR901",
+      "geoCode": {
+        "latitude": 12.92677,
+        "longitude": 80.15233
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:38"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502195742,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "RTBLR902",
+      "geoCode": {
+        "latitude": 12.92677,
+        "longitude": 80.15233
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:38"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 502195744,
+      "name": "TEST PROPERTY FOR DXM",
+      "hotelId": "RTBLR904",
+      "geoCode": {
+        "latitude": 12.92677,
+        "longitude": 80.15233
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:24:52"
+    },
+    {
+      "chainCode": "RT",
+      "iataCode": "BLR",
+      "dupeId": 700117806,
+      "name": "GRAND MERCURE BANGALORE",
+      "hotelId": "RTBLRMER",
+      "geoCode": {
+        "latitude": 12.92897,
+        "longitude": 77.62726
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:45:35"
+    },
+    {
+      "chainCode": "RZ",
+      "iataCode": "BLR",
+      "dupeId": 700211593,
+      "name": "THE RITZ-CARLTON BANGALORE",
+      "hotelId": "RZBLRRZZ",
+      "geoCode": {
+        "latitude": 12.96914,
+        "longitude": 77.60165
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:33:48"
+    },
+    {
+      "chainCode": "SB",
+      "iataCode": "BLR",
+      "dupeId": 700218144,
+      "name": "TEST PROP FOR BK AUTOMATION SB871",
+      "hotelId": "SBBLR871",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-03-18T05:30:04"
+    },
+    {
+      "chainCode": "SI",
+      "iataCode": "BLR",
+      "dupeId": 700172690,
+      "name": "SHERATON BANGALORE",
+      "hotelId": "SIBLR110",
+      "geoCode": {
+        "latitude": 13.01241,
+        "longitude": 77.55506
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-29T06:17:12"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "BLR",
+      "dupeId": 700156096,
+      "name": "LEMON TREE HOTEL WHITEFIELD",
+      "hotelId": "SXBLRWHI",
+      "geoCode": {
+        "latitude": 12.9724,
+        "longitude": 77.7178
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:35:37"
+    },
+    {
+      "chainCode": "SX",
+      "iataCode": "BLR",
+      "dupeId": 700153995,
+      "name": "LEMON TREE PREMIER ULSOOR LAKE BENGALURU",
+      "hotelId": "SXBLRLTH",
+      "geoCode": {
+        "latitude": 12.98655,
+        "longitude": 77.61584
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:58"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "BLR",
+      "dupeId": 700054754,
+      "name": "ST. MARKS HOTEL",
+      "hotelId": "TABLR017",
+      "geoCode": {
+        "latitude": 12.96906,
+        "longitude": 77.60034
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:58:41"
+    },
+    {
+      "chainCode": "TA",
+      "iataCode": "BLR",
+      "dupeId": 700155158,
+      "name": "PREMIER INN BANGALORE WHITEFIELD",
+      "hotelId": "TABLR488",
+      "geoCode": {
+        "latitude": 12.98155,
+        "longitude": 77.70878
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:23:33"
+    },
+    {
+      "chainCode": "TJ",
+      "iataCode": "BLR",
+      "dupeId": 700031650,
+      "name": "THE GATEWAY HOTEL RESIDENCY RD",
+      "hotelId": "TJBLRGAT",
+      "geoCode": {
+        "latitude": 12.96872,
+        "longitude": 77.6014
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:27"
+    },
+    {
+      "chainCode": "TJ",
+      "iataCode": "BLR",
+      "dupeId": 700024649,
+      "name": "VIVANTA BY TAJ M G ROAD",
+      "hotelId": "TJBLRTAJ",
+      "geoCode": {
+        "latitude": 12.97333,
+        "longitude": 77.61987
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:27"
+    },
+    {
+      "chainCode": "TJ",
+      "iataCode": "BLR",
+      "dupeId": 700172689,
+      "name": "VIVANTA BY TAJ YESHWANTPUR",
+      "hotelId": "TJBLRYES",
+      "geoCode": {
+        "latitude": 13.02896,
+        "longitude": 77.53995
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:58:57"
+    },
+    {
+      "chainCode": "TJ",
+      "iataCode": "BLR",
+      "dupeId": 700142603,
+      "name": "VIVANTA BY TAJ WHITEFIELD",
+      "hotelId": "TJBLRITP",
+      "geoCode": {
+        "latitude": 12.98668,
+        "longitude": 77.73773
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:10:28"
+    },
+    {
+      "chainCode": "TJ",
+      "iataCode": "BLR",
+      "dupeId": 700120479,
+      "name": "THE GATEWAY HOTEL KM ROAD",
+      "hotelId": "TJBLRTGR",
+      "geoCode": {
+        "latitude": 13.33653,
+        "longitude": 75.81744
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:11"
+    },
+    {
+      "chainCode": "UI",
+      "iataCode": "BLR",
+      "dupeId": 700141182,
+      "name": "FORTUNE PARK JP CELESTIAL",
+      "hotelId": "UIBLRJPC",
+      "geoCode": {
+        "latitude": 12.98088,
+        "longitude": 77.57594
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:14:55"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700182579,
+      "name": "OLDE BANGALORE RESORT",
+      "hotelId": "UZBLR219",
+      "geoCode": {
+        "latitude": 13.19315,
+        "longitude": 77.62253
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:05:46"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700095271,
+      "name": "SHILTON ROYALE",
+      "hotelId": "UZBLR039",
+      "geoCode": {
+        "latitude": 12.93859,
+        "longitude": 77.62981
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:12:02"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700172688,
+      "name": "STERLING SUITES LANGFORD TOWN",
+      "hotelId": "UZBLR760",
+      "geoCode": {
+        "latitude": 12.9588,
+        "longitude": 77.60384
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:13:52"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700145865,
+      "name": "LORDS PLAZA BENGALURU",
+      "hotelId": "UZBLRLPB",
+      "geoCode": {
+        "latitude": 12.84407,
+        "longitude": 77.68496
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:54"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700176151,
+      "name": "HOTEL EMPIRE INTERNATIONAL CEN",
+      "hotelId": "UZBLR919",
+      "geoCode": {
+        "latitude": 12.97573,
+        "longitude": 77.60234
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:43:30"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700176159,
+      "name": "STERLING SUITES RESIDENCY ROAD",
+      "hotelId": "UZBLR522",
+      "geoCode": {
+        "latitude": 12.96656,
+        "longitude": 77.60186
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:14:07"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700176153,
+      "name": "HOTEL EMPIRE SUITES- CASTLE STREET",
+      "hotelId": "UZBLR389",
+      "geoCode": {
+        "latitude": 12.96715,
+        "longitude": 77.60908
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:46:07"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700172699,
+      "name": "STERLING SUITES MARATHAHALLI",
+      "hotelId": "UZBLR629",
+      "geoCode": {
+        "latitude": 12.92058,
+        "longitude": 77.66477
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:14:07"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700212747,
+      "name": "AURICK HOTEL",
+      "hotelId": "UZBLRAKH",
+      "geoCode": {
+        "latitude": 12.90641,
+        "longitude": 77.5781
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:04:41"
+    },
+    {
+      "chainCode": "UZ",
+      "iataCode": "BLR",
+      "dupeId": 700192697,
+      "name": "HOTEL PANCHVATI COMFORTS",
+      "hotelId": "UZBLR553",
+      "geoCode": {
+        "latitude": 12.89186,
+        "longitude": 77.55982
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:26:26"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345474,
+      "name": "TEST PROPERTY FOR RESALYS FOR CERTIFICAT",
+      "hotelId": "VPBLRAH8",
+      "geoCode": {
+        "latitude": 12.91458,
+        "longitude": 77.59954
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-17T05:09:07"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345137,
+      "name": "TEST PROPERTY FOR SMARTHOTEL",
+      "hotelId": "VPBLR123",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-04T08:28:06"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502372870,
+      "name": "TEST PROP FOR DOCS",
+      "hotelId": "VPBLR0RB",
+      "geoCode": {
+        "latitude": 13.00639,
+        "longitude": 77.59316
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-04T09:00:17"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345592,
+      "name": "TEST PROPERTY FOR RESALYS",
+      "hotelId": "VPBLR101",
+      "geoCode": {
+        "latitude": 12.89288,
+        "longitude": 77.57174
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-07T09:00:20"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345684,
+      "name": "TEST PROP FOR LEISURE TEAM",
+      "hotelId": "VPBLR323",
+      "geoCode": {
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-29T14:14:34"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346070,
+      "name": "TEST HOTEL FOR OCTORATE CERTIFICATION",
+      "hotelId": "VPBLR16R",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-17T06:20:46"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346363,
+      "name": "TEST HOTEL FOR TRAVEL CLICK CERTIFICATIO",
+      "hotelId": "VPBLR18H",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-30T13:34:36"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502372459,
+      "name": "TEST HOTEL 4 FOR SYNXIS",
+      "hotelId": "VPBLR19Y",
+      "geoCode": {
+        "latitude": 13.00303,
+        "longitude": 77.54933
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-16T04:30:10"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346364,
+      "name": "TEST HOTEL FOR HNS CERTIFICATION",
+      "hotelId": "VPBLR3RR",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-04T04:36:43"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345878,
+      "name": "TEST HOTEL FOR SITEMINDER",
+      "hotelId": "VPBLR401",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-15T20:34:48"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346403,
+      "name": "TEST HOTEL FOR TGT CERTIFICATION",
+      "hotelId": "VPBLR4QU",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-05-10T06:19:59"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346933,
+      "name": "TEST HOTEL FOR SYNXIS",
+      "hotelId": "VPBLR62W",
+      "geoCode": {
+        "latitude": 12.99754,
+        "longitude": 77.55022
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-13T06:45:18"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346370,
+      "name": "TEST HOTEL FOR BOOKING EXPERT CERTIFICAT",
+      "hotelId": "VPBLR6N1",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-17T06:22:45"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502372871,
+      "name": "TEST HOTEL FOR OMNIBEES",
+      "hotelId": "VPBLR7O6",
+      "geoCode": {
+        "latitude": 13.00303,
+        "longitude": 77.54933
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-04T09:00:17"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346069,
+      "name": "TEST HOTEL FOR PRIMALRES CERTIFICATION",
+      "hotelId": "VPBLRAHF",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-17T06:20:16"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345999,
+      "name": "TEST HOTEL FOR RESERVIT",
+      "hotelId": "VPBLRGR3",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-02T11:04:04"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502372458,
+      "name": "TEST HOTEL 3 FOR SYNXIS",
+      "hotelId": "VPBLR01W",
+      "geoCode": {
+        "latitude": 13.00303,
+        "longitude": 77.54933
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-16T04:40:17"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502372457,
+      "name": "TEST HOTEL 2 FOR SYNXIS",
+      "hotelId": "VPBLR1I8",
+      "geoCode": {
+        "latitude": 13.00303,
+        "longitude": 77.54933
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-09-16T04:54:19"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502345879,
+      "name": "TEST HOTEL FOR CLOUDBEDS CERTIFICATION",
+      "hotelId": "VPBLR501",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-10-07T10:20:57"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346365,
+      "name": "TEST HOTEL FOR KE-BOOKING CERTIFICATION",
+      "hotelId": "VPBLR6II",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-07-17T06:22:34"
+    },
+    {
+      "chainCode": "VP",
+      "iataCode": "BLR",
+      "dupeId": 502346863,
+      "name": "TEST HOTEL FOR DINGUS",
+      "hotelId": "VPBLR3YL",
+      "geoCode": {
+        "latitude": 13.00724,
+        "longitude": 77.54873
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2024-08-30T11:20:30"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700150828,
+      "name": "THE CHANCERY PAVILION",
+      "hotelId": "WVBLR907",
+      "geoCode": {
+        "latitude": 12.96838,
+        "longitude": 77.60101
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:21:27"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700054734,
+      "name": "HOTEL CHANCERY",
+      "hotelId": "WVBLRR12",
+      "geoCode": {
+        "latitude": 12.96929,
+        "longitude": 77.59725
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:21:43"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 501444428,
+      "name": "CITRUS CUNNINGHAM ROAD BANGALORE",
+      "hotelId": "WVBLR396",
+      "geoCode": {
+        "latitude": 12.99045,
+        "longitude": 77.59162
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:09:09"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700153996,
+      "name": "STERLINGS MAC HOTEL",
+      "hotelId": "WVBLRMAT",
+      "geoCode": {
+        "latitude": 12.9595,
+        "longitude": 77.65253
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:20:56"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700095273,
+      "name": "THE PAUL BANGALORE",
+      "hotelId": "WVBLRPAL",
+      "geoCode": {
+        "latitude": 12.95644,
+        "longitude": 77.64148
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:29:20"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700191296,
+      "name": "CREST EXECUTIVE SUITES",
+      "hotelId": "WVBLR429",
+      "geoCode": {
+        "latitude": 12.99213,
+        "longitude": 77.69895
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:29:35"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700163327,
+      "name": "ALILA BANGALORE HOTEL AND RESIDENCE",
+      "hotelId": "WVBLRABA",
+      "geoCode": {
+        "latitude": 12.95595,
+        "longitude": 77.72803
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:28:48"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700095136,
+      "name": "FORTUNE SELECT JP COSMOS",
+      "hotelId": "WVBLR845",
+      "geoCode": {
+        "latitude": 12.98971,
+        "longitude": 77.59462
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:41:40"
+    },
+    {
+      "chainCode": "WV",
+      "iataCode": "BLR",
+      "dupeId": 700172702,
+      "name": "CITRUS BENGALURU",
+      "hotelId": "WVBLR273",
+      "geoCode": {
+        "latitude": 12.92506,
+        "longitude": 77.67514
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:19:53"
+    },
+    {
+      "chainCode": "XL",
+      "iataCode": "BLR",
+      "dupeId": 501506518,
+      "name": "MY FORTUNE BENGALURU SUMMIT",
+      "hotelId": "XLBLRFHH",
+      "geoCode": {
+        "latitude": 12.96895,
+        "longitude": 77.61447
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:11:07"
+    },
+    {
+      "chainCode": "XL",
+      "iataCode": "BLR",
+      "dupeId": 700151102,
+      "name": "THE ZURI WHITEFIELD BENGALURU",
+      "hotelId": "XLBLRTZH",
+      "geoCode": {
+        "latitude": 12.96554,
+        "longitude": 77.58431
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:42:42"
+    },
+    {
+      "chainCode": "YH",
+      "iataCode": "BLR",
+      "dupeId": 501365115,
+      "name": "GINGER BANGALORE  IRR",
+      "hotelId": "YHBLRGBI",
+      "geoCode": {
+        "latitude": 12.95766,
+        "longitude": 77.64138
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:30:39"
+    },
+    {
+      "chainCode": "YH",
+      "iataCode": "BLR",
+      "dupeId": 700156280,
+      "name": "GINGER BANGALORE WHITEFIELD",
+      "hotelId": "YHBLR01E",
+      "geoCode": {
+        "latitude": 12.97315,
+        "longitude": 77.71848
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:13:52"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700120461,
+      "name": "PALM MEADOWS CLUB",
+      "hotelId": "YXBLRMEA",
+      "geoCode": {
+        "latitude": 12.97765,
+        "longitude": 77.74307
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:43:14"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700145463,
+      "name": "JUSTA THE RESIDENCE MG ROAD",
+      "hotelId": "YXBLRJRM",
+      "geoCode": {
+        "latitude": 12.9723,
+        "longitude": 77.61569
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:45:36"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700042679,
+      "name": "THECAPITOL BANGALORE",
+      "hotelId": "YXBLRR10",
+      "geoCode": {
+        "latitude": 12.98206,
+        "longitude": 77.59433
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:43:14"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700191303,
+      "name": "SPRINGS HOTEL AND SPA BANGALOR",
+      "hotelId": "YXBLRSPR",
+      "geoCode": {
+        "latitude": 12.96627,
+        "longitude": 77.58707
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:31:10"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700117829,
+      "name": "MGM MARK WHITEFIELD",
+      "hotelId": "YXBLRMBB",
+      "geoCode": {
+        "latitude": 12.98515,
+        "longitude": 77.74057
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:29:51"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700152402,
+      "name": "SVENSKA DESIGN HOTEL BANGALORE",
+      "hotelId": "YXBLRSVE",
+      "geoCode": {
+        "latitude": 12.88879,
+        "longitude": 77.68165
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:24:37"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700076909,
+      "name": "JUSTA THE RESIDENCE OFF MG ROA",
+      "hotelId": "YXBLR184",
+      "geoCode": {
+        "latitude": 12.96554,
+        "longitude": 77.58431
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:58:10"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700095215,
+      "name": "JUSTA THE RESIDENCE INDIRANAGA",
+      "hotelId": "YXBLRJRI",
+      "geoCode": {
+        "latitude": 12.97096,
+        "longitude": 77.64062
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:04:11"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700212929,
+      "name": "SUNRAY HOTEL - BANGALORE",
+      "hotelId": "YXBLRSHB",
+      "geoCode": {
+        "latitude": 12.92509,
+        "longitude": 77.74393
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T11:07:32"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700140791,
+      "name": "RADHA REGENT - BANGALORE",
+      "hotelId": "YXBLR512",
+      "geoCode": {
+        "latitude": 12.84626,
+        "longitude": 77.67148
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:24:37"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700095156,
+      "name": "MAIA BEACON RESIDENCES",
+      "hotelId": "YXBLRTWW",
+      "geoCode": {
+        "latitude": 12.9409,
+        "longitude": 77.52083
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:10:59"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700172728,
+      "name": "DAVANAM SAROVAR PORTICO SUITES",
+      "hotelId": "YXBLRDSP",
+      "geoCode": {
+        "latitude": 12.92651,
+        "longitude": 77.61687
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T09:57:39"
+    },
+    {
+      "chainCode": "YX",
+      "iataCode": "BLR",
+      "dupeId": 700140790,
+      "name": "CLARKS EXOTICA RESORT AND SPA",
+      "hotelId": "YXBLR009",
+      "geoCode": {
+        "latitude": 12.96685,
+        "longitude": 77.58741
+      },
+      "address": {
+        "countryCode": "IN"
+      },
+      "lastUpdate": "2023-06-15T10:22:47"
+    }
+  ],
+  "meta": {
+    "count": 205,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=BLR"
+    }
+  }
+}

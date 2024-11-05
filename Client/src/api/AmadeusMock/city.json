@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "count": 7,
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=Barcelona&max=1000"
+    }
+  },
+  "data": [
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona",
+      "iataCode": "BCN",
+      "address": {
+        "countryCode": "ES",
+        "stateCode": "ES-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 41.38879,
+        "longitude": 2.15899
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona",
+      "iataCode": "BLA",
+      "address": {
+        "countryCode": "VE",
+        "stateCode": "VE-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 10.13625,
+        "longitude": -64.68618
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona",
+      "address": {
+        "countryCode": "PH",
+        "stateCode": "PH-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 8.15917,
+        "longitude": 126.43417
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona",
+      "address": {
+        "countryCode": "PH",
+        "stateCode": "PH-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 12.8683,
+        "longitude": 124.1419
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona",
+      "address": {
+        "countryCode": "PH",
+        "stateCode": "PH-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 13.7715,
+        "longitude": 123.0485
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Barcelona", 
+      "address": {
+        "countryCode": "PH",
+        "stateCode": "PH-ZZZ"
+      }, 
+      "geoCode": {
+        "latitude": 8.5275,
+        "longitude": 123.4587
+      }
+    },
+    {
+      "type": "location",
+      "subType": "city",
+      "name": "Aragua de Barcelona",
+      "address": {
+        "countryCode": "VE",
+        "stateCode": "VE-ZZZ"
+      },
+      "geoCode": {
+        "latitude": 9.45588,
+        "longitude": -64.82928
+      }
+    }
+  ]
+}
