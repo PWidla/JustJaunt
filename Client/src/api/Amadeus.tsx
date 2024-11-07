@@ -1,3 +1,6 @@
+import hotelsMockData from "./AmadeusMock/hotels.json";
+import cityMockData from "./AmadeusMock/city.json";
+import activitiesMockData from "./AmadeusMock/activities.json";
 //todo extract interfaces
 let accessToken: string | null = null;
 let tokenExpiration: number | null = null;
@@ -29,6 +32,7 @@ const getAmadeusAccessToken = async (): Promise<string | null> => {
     if (response.ok) {
       accessToken = data.access_token;
       tokenExpiration = Date.now() + data.expires_in * 1000;
+      console.log(accessToken);
       return accessToken;
     } else {
       console.error("Error fetching access token:", data);
@@ -50,10 +54,10 @@ export const ensureToken = async (): Promise<string | null> => {
 export async function fetchWithToken<T>(
   url: string,
   method: string = "GET"
-): Promise<T> {
+): Promise<[T, { message: string; status?: number } | null]> {
   const token = await ensureToken();
   if (!token) {
-    throw new Error("Missing or invalid access token");
+    return [[] as T, { message: "Missing or invalid access token" }];
   }
 
   const options: RequestInit = {
@@ -68,15 +72,22 @@ export async function fetchWithToken<T>(
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(
-        `Error while fetching data: ${data.message || "An unexpected error occurred."}`
-      );
+      return [
+        [] as T,
+        {
+          message: data.message || "An unexpected error occurred.",
+          status: response.status,
+        },
+      ];
     }
 
-    return data.data as T;
+    return [data.data as T, null];
   } catch (error) {
     console.error("Error in fetchWithToken:", error);
-    throw new Error("Error while fetching data. Please try again later.");
+    return [
+      [] as T,
+      { message: "Error while fetching data. Please try again later." },
+    ];
   }
 }
 
@@ -97,11 +108,47 @@ interface Address {
   regionCode: string;
 }
 
+const mapToAmadeusLocation = (data: any[]): AmadeusLocation[] => {
+  return data.map((item) => ({
+    type: item.type,
+    subType: item.subType,
+    name: item.name,
+    iataCode: item.iataCode,
+    geoCode: {
+      latitude: item.geoCode.latitude,
+      longitude: item.geoCode.longitude,
+    },
+    address: {
+      cityName: item.address.cityName,
+      cityCode: item.address.cityCode,
+      countryName: item.address.countryName,
+      countryCode: item.address.countryCode,
+      regionCode: item.address.regionCode,
+    },
+  }));
+};
+
 export const getLocations = async (
   cityName: string
-): Promise<Array<AmadeusLocation> | null> => {
+): Promise<AmadeusLocation[]> => {
+  console.log("getlocations");
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=${cityName}`;
-  return await fetchWithToken(url);
+  console.log(url);
+
+  const [result, error] = await fetchWithToken<AmadeusLocation[]>(url);
+
+  if (error) {
+    if (error.status === 500) {
+      console.error(
+        "Fetching locations failed due to amadeus server problem, returning mock data."
+      );
+      return mapToAmadeusLocation(cityMockData.data);
+    } else {
+      throw new Error(error.message);
+    }
+  }
+
+  return result;
 };
 
 //activity
@@ -113,6 +160,19 @@ export interface AmadeusActivity {
   pictures: string;
 }
 
+const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
+  return data.map((item) => ({
+    id: item.id,
+    name: item.name,
+    description: item.description,
+    geoCode: {
+      latitude: item.geoCode.latitude,
+      longitude: item.geoCode.longitude,
+    },
+    pictures: item.pictures && item.pictures.length > 0 ? item.pictures[0] : "",
+  }));
+};
+
 export const getActivities = async (
   city: AmadeusLocation
 ): Promise<AmadeusActivity[]> => {
@@ -120,13 +180,27 @@ export const getActivities = async (
   const longitude = city.geoCode.longitude;
 
   const url = `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`; //todo think about radius
-  return await fetchWithToken(url);
+  const [result, error] = await fetchWithToken<AmadeusActivity[]>(url);
+
+  if (error) {
+    if (error.status === 500) {
+      console.error(
+        "Fetching hotels failed due to amadeus server problem, returning mock data."
+      );
+      return mapToAmadeusActivity(activitiesMockData.data);
+    } else {
+      throw new Error(error.message);
+    }
+  }
+
+  return result;
 };
 
 //hotels
 export interface AmadeusHotel {
   // jsonprop na id?
-  dupeId: string;
+  // dupeId: string;
+  dupeId: number;
   name: string;
   geoCode: Geocode;
 }
@@ -135,7 +209,20 @@ export const getHotels = async (
   city: AmadeusLocation
 ): Promise<AmadeusHotel[]> => {
   const cityCode = city.iataCode;
-
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${cityCode}`;
-  return await fetchWithToken(url);
+
+  const [result, error] = await fetchWithToken<AmadeusHotel[]>(url);
+
+  if (error) {
+    if (error.status === 500) {
+      console.error(
+        "Fetching hotels failed due to amadeus server problem, returning mock data."
+      );
+      return hotelsMockData.data;
+    } else {
+      throw new Error(error.message);
+    }
+  }
+
+  return result;
 };
