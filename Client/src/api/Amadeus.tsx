@@ -169,7 +169,7 @@ const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
       latitude: item.geoCode.latitude,
       longitude: item.geoCode.longitude,
     },
-    pictures: item.pictures && item.pictures.length > 0 ? item.pictures[0] : "", // Wybieramy pierwsze zdjęcie
+    pictures: item.pictures && item.pictures.length > 0 ? item.pictures[0] : "",
   }));
 };
 
