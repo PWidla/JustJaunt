@@ -51,39 +51,6 @@ export const ensureToken = async (): Promise<string | null> => {
   return accessToken;
 };
 
-export async function gfetchWithToken<T>(
-  url: string,
-  method: string = "GET"
-): Promise<T> {
-  const token = await ensureToken();
-  if (!token) {
-    throw new Error("Missing or invalid access token");
-  }
-
-  const options: RequestInit = {
-    method: method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        `Error while fetching data: ${data.message || "An unexpected error occurred."}`
-      );
-    }
-
-    return data.data as T;
-  } catch (error) {
-    console.error("Error in fetchWithToken:", error);
-    throw new Error("Error while fetching data. Please try again later.");
-  }
-}
-
 export async function fetchWithToken<T>(
   url: string,
   method: string = "GET"
@@ -193,6 +160,19 @@ export interface AmadeusActivity {
   pictures: string;
 }
 
+const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
+  return data.map((item) => ({
+    id: item.id,
+    name: item.name,
+    description: item.description,
+    geoCode: {
+      latitude: item.geoCode.latitude,
+      longitude: item.geoCode.longitude,
+    },
+    pictures: item.pictures && item.pictures.length > 0 ? item.pictures[0] : "", // Wybieramy pierwsze zdjęcie
+  }));
+};
+
 export const getActivities = async (
   city: AmadeusLocation
 ): Promise<AmadeusActivity[]> => {
@@ -200,7 +180,20 @@ export const getActivities = async (
   const longitude = city.geoCode.longitude;
 
   const url = `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=5`; //todo think about radius
-  return await gfetchWithToken(url);
+  const [result, error] = await fetchWithToken<AmadeusActivity[]>(url);
+
+  if (error) {
+    if (error.status === 500) {
+      console.error(
+        "Fetching hotels failed due to amadeus server problem, returning mock data."
+      );
+      return mapToAmadeusActivity(activitiesMockData.data);
+    } else {
+      throw new Error(error.message);
+    }
+  }
+
+  return result;
 };
 
 //hotels
