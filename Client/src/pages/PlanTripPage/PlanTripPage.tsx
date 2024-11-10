@@ -7,8 +7,8 @@ import {
   getHotels,
   getLocations,
 } from "../../api/Amadeus";
-import HorizontalActivitiesList from "../../components/HorizontalLists/HorizontalActivitiesList";
-import HorizontalHotelsList from "../../components/HorizontalLists/HorizontalHotelsList";
+import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
+import HotelsMap from "../../components/EntityMaps/HotelsMap";
 
 const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
@@ -115,14 +115,11 @@ const PlanTripPage = () => {
         ))}
 
       {activities.length > 0 && (
-        <HorizontalActivitiesList
-          activities={activities}
-          searchedCity={searchedCity!}
-        />
+        <ActivitiesMap activities={activities} searchedCity={searchedCity!} />
       )}
 
       {hotels.length > 0 && (
-        <HorizontalHotelsList hotels={hotels} searchedCity={searchedCity!} />
+        <HotelsMap hotels={hotels} searchedCity={searchedCity!} />
       )}
     </div>
   );

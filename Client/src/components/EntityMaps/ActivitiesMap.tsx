@@ -5,14 +5,14 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 
-interface HorizontalActivitiesListProps {
+interface ActivitiesMapProps {
   activities: AmadeusActivity[];
   searchedCity: AmadeusLocation;
 }
 
-const HorizontalActivitiesList = ({
+const ActivitiesMap = ({
   activities,
-}: HorizontalActivitiesListProps) => {
+}: ActivitiesMapProps) => {
   const filteredActivities = useMemo(() => {
     return activities.filter((activity) => activity.description);
   }, [activities]);
@@ -121,4 +121,4 @@ const HorizontalActivitiesList = ({
   );
 };
 
-export default HorizontalActivitiesList;
+export default ActivitiesMap;
