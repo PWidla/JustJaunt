@@ -6,10 +6,7 @@ interface HotelsMapProps {
   searchedCity: AmadeusLocation;
 }
 
-const HotelsMap = ({
-  hotels,
-  searchedCity,
-}: HotelsMapProps) => {
+const HotelsMap = ({ hotels, searchedCity }: HotelsMapProps) => {
   return (
     <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
       {hotels.length > 0 && (
