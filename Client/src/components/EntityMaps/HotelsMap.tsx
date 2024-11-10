@@ -1,15 +1,12 @@
 import { AmadeusHotel, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
 
-interface HorizontalHotelsListProps {
+interface HotelsMapProps {
   hotels: AmadeusHotel[];
   searchedCity: AmadeusLocation;
 }
 
-const HorizontalHotelsList = ({
-  hotels,
-  searchedCity,
-}: HorizontalHotelsListProps) => {
+const HotelsMap = ({ hotels, searchedCity }: HotelsMapProps) => {
   return (
     <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
       {hotels.length > 0 && (
@@ -31,4 +28,4 @@ const HorizontalHotelsList = ({
   );
 };
 
-export default HorizontalHotelsList;
+export default HotelsMap;
