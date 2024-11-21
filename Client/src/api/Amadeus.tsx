@@ -1,5 +1,5 @@
 import hotelsMockData from "./AmadeusMock/hotels.json";
-import cityMockData from "./AmadeusMock/city.json";
+import locationMockData from "./AmadeusMock/locations.json";
 import activitiesMockData from "./AmadeusMock/activities.json";
 //todo extract interfaces
 let accessToken: string | null = null;
@@ -108,7 +108,7 @@ interface Address {
   regionCode: string;
 }
 
-const mapToAmadeusLocation = (data: any[]): AmadeusLocation[] => {
+export const mapToAmadeusLocation = (data: any[]): AmadeusLocation[] => {
   return data.map((item) => ({
     type: item.type,
     subType: item.subType,
@@ -128,11 +128,15 @@ const mapToAmadeusLocation = (data: any[]): AmadeusLocation[] => {
   }));
 };
 
+export const getMockLocations = () => {
+  return mapToAmadeusLocation(locationMockData.data);
+};
+
 export const getLocations = async (
   cityName: string
 ): Promise<AmadeusLocation[]> => {
   console.log("getlocations");
-  const url = `https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=${cityName}`;
+  const url = `https://test.api.amadeus.com/v1/reference-data/locations/cities?keyword=${cityName}&max=5`;
   console.log(url);
 
   const [result, error] = await fetchWithToken<AmadeusLocation[]>(url);
@@ -142,7 +146,7 @@ export const getLocations = async (
       console.error(
         "Fetching locations failed due to amadeus server problem, returning mock data."
       );
-      return mapToAmadeusLocation(cityMockData.data);
+      return getMockLocations();
     } else {
       throw new Error(error.message);
     }
@@ -173,9 +177,13 @@ const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
   }));
 };
 
+export const getMockActivities = () => {
+  return mapToAmadeusActivity(activitiesMockData.data);
+};
+
 export const getActivities = async (
   city: AmadeusLocation
-): Promise<AmadeusActivity[]> => {
+): Promise<{ activities: AmadeusActivity[]; isMock: boolean }> => {
   const latitude = city.geoCode.latitude;
   const longitude = city.geoCode.longitude;
 
@@ -187,13 +195,14 @@ export const getActivities = async (
       console.error(
         "Fetching hotels failed due to amadeus server problem, returning mock data."
       );
-      return mapToAmadeusActivity(activitiesMockData.data);
+
+      return { activities: [], isMock: true };
     } else {
       throw new Error(error.message);
     }
   }
 
-  return result;
+  return { activities: result, isMock: false };
 };
 
 //hotels
@@ -205,9 +214,13 @@ export interface AmadeusHotel {
   geoCode: Geocode;
 }
 
+export const getMockHotels = () => {
+  return hotelsMockData.data;
+};
+
 export const getHotels = async (
   city: AmadeusLocation
-): Promise<AmadeusHotel[]> => {
+): Promise<{ hotels: AmadeusHotel[]; isMock: boolean }> => {
   const cityCode = city.iataCode;
   const url = `https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=${cityCode}`;
 
@@ -218,11 +231,11 @@ export const getHotels = async (
       console.error(
         "Fetching hotels failed due to amadeus server problem, returning mock data."
       );
-      return hotelsMockData.data;
+      return { hotels: [], isMock: true };
     } else {
       throw new Error(error.message);
     }
   }
 
-  return result;
+  return { hotels: result, isMock: true };
 };

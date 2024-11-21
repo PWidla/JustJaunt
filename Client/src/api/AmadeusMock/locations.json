@@ -76,11 +76,11 @@
     {
       "type": "location",
       "subType": "city",
-      "name": "Barcelona", 
+      "name": "Barcelona",
       "address": {
         "countryCode": "PH",
         "stateCode": "PH-ZZZ"
-      }, 
+      },
       "geoCode": {
         "latitude": 8.5275,
         "longitude": 123.4587
