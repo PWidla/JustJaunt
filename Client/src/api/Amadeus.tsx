@@ -237,5 +237,5 @@ export const getHotels = async (
     }
   }
 
-  return { hotels: result, isMock: true };
+  return { hotels: result, isMock: false };
 };
