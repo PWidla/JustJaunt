@@ -201,7 +201,6 @@ export const getActivities = async (
       throw new Error(error.message);
     }
   }
-  return mapToAmadeusActivity(activitiesMockData.data);
 
   return { activities: result, isMock: false };
 };
@@ -237,7 +236,6 @@ export const getHotels = async (
       throw new Error(error.message);
     }
   }
-  return hotelsMockData.data;
 
-  return { hotels: result, isMock: true };
+  return { hotels: result, isMock: false };
 };
