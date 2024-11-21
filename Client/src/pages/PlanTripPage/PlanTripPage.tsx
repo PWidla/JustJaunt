@@ -6,6 +6,9 @@ import {
   getActivities,
   getHotels,
   getLocations,
+  getMockActivities,
+  getMockHotels,
+  getMockLocations,
 } from "../../api/Amadeus";
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
@@ -18,11 +21,15 @@ const PlanTripPage = () => {
     null
   );
 
+  const locationMock = getMockLocations();
+
   const fetchActivities = async (city: AmadeusLocation) => {
     try {
-      const activities = await getActivities(city);
+      const { activities, isMock: isActivitiesMock } =
+        await getActivities(city);
+
       console.log(activities);
-      return activities;
+      return { activities, isMock: isActivitiesMock };
     } catch (error) {
       console.error("Error fetching activities:", error);
       return null;
@@ -31,9 +38,10 @@ const PlanTripPage = () => {
 
   const fetchHotels = async (city: AmadeusLocation) => {
     try {
-      const hotels = await getHotels(city);
+      const { hotels, isMock: isHotelsMock } = await getHotels(city);
+
       console.log(hotels);
-      return hotels;
+      return { hotels, isMock: isHotelsMock };
     } catch (error) {
       console.error("Error fetching hotels:", error);
       return null;
@@ -51,22 +59,19 @@ const PlanTripPage = () => {
         const city = locations[0];
         setSearchedCity(city);
 
-        const [fetchedActivities, fetchedHotels] = await Promise.all([
+        const [activitiesResult, hotelsResult] = await Promise.all([
           fetchActivities(city),
           fetchHotels(city),
         ]);
 
-        if (fetchedActivities) {
-          setActivities(fetchedActivities);
-        } else {
-          console.error("Failed to fetch activities.");
+        if (activitiesResult?.isMock || hotelsResult?.isMock) {
+          activitiesResult!.activities = getMockActivities();
+          hotelsResult!.hotels = getMockHotels();
+          setSearchedCity(locationMock[0]);
         }
 
-        if (fetchedHotels) {
-          setHotels(fetchedHotels);
-        } else {
-          console.error("Failed to fetch hotels.");
-        }
+        setActivities(activitiesResult!.activities);
+        setHotels(hotelsResult!.hotels);
       } else {
         console.error(
           `We couldn't find data for city '${cityInput}'. Please make sure it's correct and try again.`
