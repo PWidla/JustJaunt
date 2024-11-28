@@ -7,6 +7,7 @@ import {
   AmadeusHotel,
   AmadeusLocation,
 } from "../../api/Amadeus";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 const customIcon = new Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
@@ -32,15 +33,17 @@ const MapView = ({ markers, centerLocation }: MapProps) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {markers.map((marker, index) => (
-        <Marker
-          key={index}
-          position={[marker.geoCode.latitude, marker.geoCode.longitude]}
-          icon={customIcon}
-        >
-          <Popup>{marker.name}</Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup>
+        {markers.map((marker, index) => (
+          <Marker
+            key={index}
+            position={[marker.geoCode.latitude, marker.geoCode.longitude]}
+            icon={customIcon}
+          >
+            <Popup>{marker.name}</Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 };

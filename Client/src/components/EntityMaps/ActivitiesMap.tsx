@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
+ import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
 
 interface ActivitiesMapProps {

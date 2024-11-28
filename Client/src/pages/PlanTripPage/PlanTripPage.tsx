@@ -27,7 +27,7 @@ const PlanTripPage = () => {
     try {
       const { activities, isMock: isActivitiesMock } =
         await getActivities(city);
-
+      console.log(city);
       console.log(activities);
       return { activities, isMock: isActivitiesMock };
     } catch (error) {
