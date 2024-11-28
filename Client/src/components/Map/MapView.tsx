@@ -53,11 +53,13 @@ const MapView = ({ markers, centerLocation }: MapProps) => {
 
                 {isActivity(marker) && (
                   <>
-                    <img
-                      src={marker.pictures} //walidacja
-                      alt={marker.name}
-                      className="w-full h-auto max-h-48 object-contain mb-2"
-                    />
+                    {marker.pictures && (
+                      <img
+                        src={marker.pictures}
+                        alt={marker.name}
+                        className="w-full h-auto max-h-48 object-contain mb-2"
+                      />
+                    )}
                     <p className="text-sm max-h-40 overflow-auto">
                       {marker.description}
                     </p>{" "}
