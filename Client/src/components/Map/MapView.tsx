@@ -1,3 +1,4 @@
+import "./MapViewStyles.css";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
@@ -18,6 +19,12 @@ interface MapProps {
   markers: AmadeusActivity[] | AmadeusHotel[];
   centerLocation: AmadeusLocation;
 }
+
+const isActivity = (
+  marker: AmadeusActivity | AmadeusHotel
+): marker is AmadeusActivity => {
+  return (marker as AmadeusActivity).description !== undefined;
+};
 
 const MapView = ({ markers, centerLocation }: MapProps) => {
   return (
@@ -40,7 +47,24 @@ const MapView = ({ markers, centerLocation }: MapProps) => {
             position={[marker.geoCode.latitude, marker.geoCode.longitude]}
             icon={customIcon}
           >
-            <Popup>{marker.name}</Popup>
+            <Popup>
+              <div className="flex flex-col items-center justify-center text-center">
+                <h2 className="text-xl font-bold mb-2">{marker.name}</h2>
+
+                {isActivity(marker) && (
+                  <>
+                    <img
+                      src={marker.pictures} //walidacja
+                      alt={marker.name}
+                      className="w-full h-auto max-h-48 object-contain mb-2"
+                    />
+                    <p className="text-sm max-h-40 overflow-auto">
+                      {marker.description}
+                    </p>{" "}
+                  </>
+                )}
+              </div>
+            </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>

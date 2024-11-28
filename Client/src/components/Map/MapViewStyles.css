@@ -1,0 +1,32 @@
+/* mapviewstyles.css */
+
+.leaflet-popup {
+  max-width: 70vw !important; /* Ustala maksymalną szerokość na 70% szerokości ekranu */
+  min-width: 200px; /* Minimalna szerokość popupu */
+  padding: 10px; /* Padding wewnątrz popupu */
+}
+
+.leaflet-popup-content {
+  max-width: 100%;
+  padding: 0;
+  overflow: auto; /* Włącza przewijanie, jeśli treść przekroczy rozmiar */
+}
+
+.leaflet-popup-content img {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Ustawia maksymalną wysokość obrazka w popupie */
+}
+
+/* Dostosowanie do urządzeń mobilnych */
+@media (max-width: 768px) {
+  .leaflet-popup {
+    max-width: 70vw !important; /* Na urządzeniach mobilnych popup ma mieć 70% szerokości */
+    min-width: 150px; /* Ustala minimalną szerokość na 150px */
+  }
+
+  .leaflet-popup-content {
+    max-height: 300px; /* Maksymalna wysokość zawartości w popupie */
+    overflow: auto; /* Umożliwia przewijanie zawartości, jeśli jest za wysoka */
+  }
+}
