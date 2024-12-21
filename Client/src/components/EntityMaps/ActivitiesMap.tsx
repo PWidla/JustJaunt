@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
+import {
+  AmadeusActivity,
+  AmadeusHotel,
+  AmadeusLocation,
+} from "../../api/Amadeus";
 import MapView from "../Map/MapView";
 
 interface ActivitiesMapProps {
@@ -12,10 +16,11 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     AmadeusActivity[]
   >([]);
 
-  const addAttractionToList = (attraction: AmadeusActivity) => {
+  const addAttractionToList = (attraction: AmadeusActivity | AmadeusHotel) => {
+    //to refactor
     setSelectedAttractions((prevAttractions) => [
       ...prevAttractions,
-      attraction,
+      attraction as AmadeusActivity,
     ]);
     console.log(selectedAttractions);
   };
@@ -24,8 +29,12 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     AmadeusActivity[]
   >([]);
 
-  const addFoodPlaceToList = (foodPlace: AmadeusActivity) => {
-    setSelectedFoodPlaces((prevFoodPlaces) => [...prevFoodPlaces, foodPlace]);
+  const addFoodPlaceToList = (foodPlace: AmadeusActivity | AmadeusHotel) => {
+    //to refactor
+    setSelectedFoodPlaces((prevFoodPlaces) => [
+      ...prevFoodPlaces,
+      foodPlace as AmadeusActivity,
+    ]);
     console.log(selectedFoodPlaces);
   };
 
@@ -155,7 +164,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           <MapView
             markers={eatingPlaces}
             centerLocation={searchedCity}
-            selectMarkup={addFoodPlaceToList} // Funkcja do dodania aktywności do listy
+            selectMarkup={addFoodPlaceToList}
           />
         </div>
       </div>

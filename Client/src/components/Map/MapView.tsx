@@ -63,14 +63,15 @@ const MapView = ({ markers, centerLocation, selectMarkup }: MapProps) => {
                     <p className="text-sm max-h-40 overflow-auto mb-2">
                       {marker.description}
                     </p>
-                    <button
-                      className="px-4 py-2 bg-blue-500 text-white rounded mt-2"
-                      onClick={() => selectMarkup(marker)}
-                    >
-                      Add to My Plan
-                    </button>
                   </>
                 )}
+
+                <button
+                  className="px-4 py-2 bg-blue-500 text-white rounded mt-2"
+                  onClick={() => selectMarkup(marker)}
+                >
+                  Add to My Plan
+                </button>
               </div>
             </Popup>
           </Marker>
