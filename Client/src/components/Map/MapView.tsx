@@ -8,9 +8,16 @@ import {
   AmadeusLocation,
 } from "../../api/Amadeus";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import markerIconUrl from "../../assets/images/markerIcon.png";
+import selectedMarkerIconUrl from "../../assets/images/selectedMarkerIcon.png";
 
-const customIcon = new Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
+const markerIcon = new Icon({
+  iconUrl: markerIconUrl,
+  iconSize: [38, 38],
+});
+
+const selectedMarkerIcon = new Icon({
+  iconUrl: selectedMarkerIconUrl,
   iconSize: [38, 38],
 });
 
@@ -45,7 +52,7 @@ const MapView = ({ markers, centerLocation, selectMarkup }: MapProps) => {
           <Marker
             key={index}
             position={[marker.geoCode.latitude, marker.geoCode.longitude]}
-            icon={customIcon}
+            icon={markerIcon}
           >
             <Popup>
               <div className="flex flex-col items-center justify-center text-center w-full max-w-xs p-2">
