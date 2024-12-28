@@ -126,15 +126,20 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           </div>
         )}
 
+        {/* attractions map */}
         <div id="map" className="h-[70vh] w-full">
           <MapView
             markers={attractions}
             centerLocation={searchedCity}
             toggleMarkup={handleAttractionInList}
+            isSelected={(attraction) =>
+              selectedAttractions.some((a) => a.id === attraction.id)
+            }
           />
         </div>
       </div>
 
+      {/* eating places map */}
       <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
         {eatingPlaces.length > 0 && (
           <div className="mb-4">

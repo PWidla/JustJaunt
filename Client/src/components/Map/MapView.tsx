@@ -25,6 +25,7 @@ interface MapProps {
   markers: AmadeusActivity[] | AmadeusHotel[];
   centerLocation: AmadeusLocation;
   toggleMarkup: (markup: AmadeusActivity | AmadeusHotel) => void;
+  isSelected: (marker: AmadeusActivity | AmadeusHotel) => boolean;
 }
 
 const isActivity = (
@@ -33,7 +34,12 @@ const isActivity = (
   return (marker as AmadeusActivity).description !== undefined;
 };
 
-const MapView = ({ markers, centerLocation, toggleMarkup }: MapProps) => {
+const MapView = ({
+  markers,
+  centerLocation,
+  toggleMarkup,
+  isSelected,
+}: MapProps) => {
   return (
     <MapContainer
       style={{ height: "100%", width: "100%", borderRadius: "2rem" }}
