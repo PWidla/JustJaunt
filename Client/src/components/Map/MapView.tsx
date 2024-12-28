@@ -24,7 +24,7 @@ const selectedMarkerIcon = new Icon({
 interface MapProps {
   markers: AmadeusActivity[] | AmadeusHotel[];
   centerLocation: AmadeusLocation;
-  selectMarkup: (markup: AmadeusActivity | AmadeusHotel) => void;
+  toggleMarkup: (markup: AmadeusActivity | AmadeusHotel) => void;
 }
 
 const isActivity = (
@@ -33,7 +33,7 @@ const isActivity = (
   return (marker as AmadeusActivity).description !== undefined;
 };
 
-const MapView = ({ markers, centerLocation, selectMarkup }: MapProps) => {
+const MapView = ({ markers, centerLocation, toggleMarkup }: MapProps) => {
   return (
     <MapContainer
       style={{ height: "100%", width: "100%", borderRadius: "2rem" }}
@@ -75,7 +75,7 @@ const MapView = ({ markers, centerLocation, selectMarkup }: MapProps) => {
 
                 <button
                   className="px-4 py-2 bg-blue-500 text-white rounded mt-2"
-                  onClick={() => selectMarkup(marker)}
+                  onClick={() => toggleMarkup(marker)}
                 >
                   Add to My Plan
                 </button>

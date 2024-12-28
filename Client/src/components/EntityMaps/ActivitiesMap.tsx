@@ -1,10 +1,7 @@
-import { useState } from "react";
-import {
-  AmadeusActivity,
-  AmadeusHotel,
-  AmadeusLocation,
-} from "../../api/Amadeus";
+import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
+import { useContext } from "react";
 import MapView from "../Map/MapView";
+import { useAttractions } from "../../context/AttractionsContext";
 
 interface ActivitiesMapProps {
   activities: AmadeusActivity[];
@@ -12,32 +9,6 @@ interface ActivitiesMapProps {
 }
 
 const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
-  const [selectedAttractions, setSelectedAttractions] = useState<
-    AmadeusActivity[]
-  >([]);
-
-  const addAttractionToList = (attraction: AmadeusActivity | AmadeusHotel) => {
-    //to refactor
-    setSelectedAttractions((prevAttractions) => [
-      ...prevAttractions,
-      attraction as AmadeusActivity,
-    ]);
-    console.log(selectedAttractions);
-  };
-
-  const [selectedFoodPlaces, setSelectedFoodPlaces] = useState<
-    AmadeusActivity[]
-  >([]);
-
-  const addFoodPlaceToList = (foodPlace: AmadeusActivity | AmadeusHotel) => {
-    //to refactor
-    setSelectedFoodPlaces((prevFoodPlaces) => [
-      ...prevFoodPlaces,
-      foodPlace as AmadeusActivity,
-    ]);
-    console.log(selectedFoodPlaces);
-  };
-
   const attractionKeywords = [
     "museum",
     "park",
@@ -107,6 +78,23 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     "sushi",
   ];
 
+  const isSelected = (attractionId: string) => {
+    return selectedAttractions.some(
+      (attraction) => attraction.id === attractionId
+    );
+  };
+
+  const { selectedAttractions, addAttraction, removeAttraction } =
+    useAttractions();
+
+  const handleAttractionInList = (attraction: AmadeusActivity) => {
+    if (isSelected(attraction.id)) {
+      removeAttraction(attraction.id);
+    } else {
+      addAttraction(attraction);
+    }
+  };
+
   const attractions = activities.filter((activity) =>
     attractionKeywords.some(
       (keyword) =>
@@ -142,7 +130,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           <MapView
             markers={attractions}
             centerLocation={searchedCity}
-            selectMarkup={addAttractionToList}
+            toggleMarkup={handleAttractionInList}
           />
         </div>
       </div>
@@ -164,7 +152,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           <MapView
             markers={eatingPlaces}
             centerLocation={searchedCity}
-            selectMarkup={addFoodPlaceToList}
+            toggleMarkup={handleFoodPlaceInList}
           />
         </div>
       </div>

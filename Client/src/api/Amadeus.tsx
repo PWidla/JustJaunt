@@ -162,7 +162,6 @@ export interface AmadeusActivity {
   description: string;
   geoCode: Geocode;
   pictures: string;
-  isSelected: boolean;
 }
 
 const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
@@ -175,7 +174,6 @@ const mapToAmadeusActivity = (data: any[]): AmadeusActivity[] => {
       longitude: item.geoCode.longitude,
     },
     pictures: item.pictures && item.pictures.length > 0 ? item.pictures[0] : "",
-    isSelected: false,
   }));
 };
 
@@ -214,7 +212,6 @@ export interface AmadeusHotel {
   dupeId: number;
   name: string;
   geoCode: Geocode;
-  isSelected: boolean;
 }
 
 export const getMockHotels = () => {

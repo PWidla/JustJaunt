@@ -18,7 +18,7 @@ export const AttractionsProvider = ({ children }: { children: ReactNode }) => {
 
   const addAttraction = (attraction: AmadeusActivity) => {
     setSelectedAttractions((prev) => {
-      if (prev.some((attraction) => attraction.id === attraction.id)) {
+      if (prev.some((a) => a.id === attraction.id)) {
         return prev;
       }
       return [...prev, attraction];
