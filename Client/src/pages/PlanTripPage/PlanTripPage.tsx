@@ -12,6 +12,9 @@ import {
 } from "../../api/Amadeus";
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
+import { useHotels } from "../../context/HotelsContext";
+import { useAttractions } from "../../context/AttractionsContext";
+import { useFoodPlaces } from "../../context/FoodPlacesContext";
 
 const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
@@ -20,6 +23,10 @@ const PlanTripPage = () => {
   const [searchedCity, setSearchedCity] = useState<AmadeusLocation | null>(
     null
   );
+
+  const { selectedHotels } = useHotels();
+  const { selectedAttractions } = useAttractions();
+  const { selectedFoodPlaces } = useFoodPlaces();
 
   const locationMock = getMockLocations();
 
@@ -126,6 +133,25 @@ const PlanTripPage = () => {
       {hotels.length > 0 && (
         <HotelsMap hotels={hotels} searchedCity={searchedCity!} />
       )}
+
+      {activities.length > 0 && hotels.length > 0 ? (
+        selectedAttractions.length > 2 &&
+        selectedFoodPlaces.length > 2 &&
+        selectedHotels.length > 0 ? (
+          <button
+            type="button"
+            className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+            // onClick={handleSearchCity}
+          >
+            Search
+          </button>
+        ) : (
+          <p>
+            Please select at least 3 attractions, 3 food places, and 1 hotel to
+            proceed.
+          </p>
+        )
+      ) : null}
     </div>
   );
 };
