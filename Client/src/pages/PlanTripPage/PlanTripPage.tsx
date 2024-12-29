@@ -11,6 +11,7 @@ import {
   getMockLocations,
 } from "../../api/Amadeus";
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
+import HotelsMap from "../../components/EntityMaps/HotelsMap";
 
 const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
@@ -122,9 +123,9 @@ const PlanTripPage = () => {
         <ActivitiesMap activities={activities} searchedCity={searchedCity!} />
       )}
 
-      {/* {hotels.length > 0 && (
+      {hotels.length > 0 && (
         <HotelsMap hotels={hotels} searchedCity={searchedCity!} />
-      )} */}
+      )}
     </div>
   );
 };
