@@ -24,7 +24,7 @@ export const FoodPlacesProvider = ({ children }: { children: ReactNode }) => {
       return [...prev, foodPlace];
     });
   };
-
+ 
   const removeFoodPlace = (foodPlaceId: string) => {
     setSelectedFoodPlaces((prev) =>
       prev.filter((place) => place.id !== foodPlaceId)

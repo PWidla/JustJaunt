@@ -94,8 +94,18 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     )
   );
 
-  const isSelected = (attractionId: string) => {
+  const isAttractionSelected = (attractionId: string) => {
+    console.log("selectedAttractions");
+    console.log(selectedAttractions);
     return selectedAttractions.some(
+      (attraction) => attraction.id === attractionId
+    );
+  };
+
+  const isFoodPlaceSelected = (attractionId: string) => {
+    console.log("selectedFoodPlaces");
+    console.log(selectedFoodPlaces);
+    return selectedFoodPlaces.some(
       (attraction) => attraction.id === attractionId
     );
   };
@@ -104,29 +114,26 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     useAttractions();
 
   const handleAttractionInList = (attraction: AmadeusActivity) => {
-    if (isSelected(attraction.id)) {
+    if (isAttractionSelected(attraction.id)) {
       removeAttraction(attraction.id);
     } else {
       addAttraction(attraction);
     }
-    console.log("selectedAttractions");
-    console.log(selectedAttractions);
   };
 
   const { selectedFoodPlaces, addFoodPlace, removeFoodPlace } = useFoodPlaces();
 
   const handleFoodPlaceInList = (foodPlace: AmadeusActivity) => {
-    if (isSelected(foodPlace.id)) {
+    if (isFoodPlaceSelected(foodPlace.id)) {
       removeFoodPlace(foodPlace.id);
     } else {
       addFoodPlace(foodPlace);
     }
-    console.log("selectedFoodPlaces");
-    console.log(selectedFoodPlaces);
   };
 
   return (
     <>
+      {/* attractions */}
       <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
         {attractions.length > 0 && (
           <div className="mb-4">
@@ -140,7 +147,6 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           </div>
         )}
 
-        {/* attractions map */}
         <div id="map" className="h-[70vh] w-full">
           <MapView
             markers={attractions}
@@ -153,7 +159,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
         </div>
       </div>
 
-      {/* eating places map */}
+      {/* eating places  */}
       <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
         {eatingPlaces.length > 0 && (
           <div className="mb-4">
