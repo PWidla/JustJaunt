@@ -94,19 +94,15 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     )
   );
 
-  const isAttractionSelected = (attractionId: string) => {
-    console.log("selectedAttractions");
-    console.log(selectedAttractions);
+  const isAttractionSelected = (attraction: AmadeusActivity) => {
     return selectedAttractions.some(
-      (attraction) => attraction.id === attractionId
+      (selectedAttraction) => selectedAttraction.id === attraction.id
     );
   };
 
-  const isFoodPlaceSelected = (attractionId: string) => {
-    console.log("selectedFoodPlaces");
-    console.log(selectedFoodPlaces);
+  const isFoodPlaceSelected = (foodPlace: AmadeusActivity) => {
     return selectedFoodPlaces.some(
-      (attraction) => attraction.id === attractionId
+      (selectedFoodPlace) => selectedFoodPlace.id === foodPlace.id
     );
   };
 
@@ -114,7 +110,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     useAttractions();
 
   const handleAttractionInList = (attraction: AmadeusActivity) => {
-    if (isAttractionSelected(attraction.id)) {
+    console.log("selectedAttractions");
+    console.log(selectedAttractions);
+    if (isAttractionSelected(attraction)) {
       removeAttraction(attraction.id);
     } else {
       addAttraction(attraction);
@@ -124,7 +122,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
   const { selectedFoodPlaces, addFoodPlace, removeFoodPlace } = useFoodPlaces();
 
   const handleFoodPlaceInList = (foodPlace: AmadeusActivity) => {
-    if (isFoodPlaceSelected(foodPlace.id)) {
+    console.log("selectedFoodPlaces");
+    console.log(selectedFoodPlaces);
+    if (isFoodPlaceSelected(foodPlace)) {
       removeFoodPlace(foodPlace.id);
     } else {
       addFoodPlace(foodPlace);
@@ -152,9 +152,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
             markers={attractions}
             centerLocation={searchedCity}
             toggleMarkup={handleAttractionInList}
-            isSelected={(attraction) =>
-              selectedAttractions.some((a) => a.id === attraction.id)
-            }
+            isSelected={isAttractionSelected}
           />
         </div>
       </div>
@@ -178,9 +176,7 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
             markers={eatingPlaces}
             centerLocation={searchedCity}
             toggleMarkup={handleFoodPlaceInList}
-            isSelected={(foodPlace) =>
-              selectedFoodPlaces.some((a) => a.id === foodPlace.id)
-            }
+            isSelected={isFoodPlaceSelected}
           />
         </div>
       </div>
