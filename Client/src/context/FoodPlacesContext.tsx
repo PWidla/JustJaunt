@@ -18,7 +18,7 @@ export const FoodPlacesProvider = ({ children }: { children: ReactNode }) => {
 
   const addFoodPlace = (foodPlace: AmadeusActivity) => {
     setSelectedFoodPlaces((prev) => {
-      if (prev.some((place) => place.id === foodPlace.id)) {
+      if (prev.some((a) => a.id === foodPlace.id)) {
         return prev;
       }
       return [...prev, foodPlace];

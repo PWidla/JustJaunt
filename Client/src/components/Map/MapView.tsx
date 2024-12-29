@@ -21,25 +21,25 @@ const selectedMarkerIcon = new Icon({
   iconSize: [38, 38],
 });
 
-interface MapProps {
-  markers: AmadeusActivity[] | AmadeusHotel[];
+interface MapProps<T> {
+  markers: T[];
   centerLocation: AmadeusLocation;
-  toggleMarkup: (markup: AmadeusActivity | AmadeusHotel) => void;
-  isSelected: (marker: AmadeusActivity | AmadeusHotel) => boolean;
+  toggleMarkup: (markup: T) => void;
+  isSelected: (marker: T) => boolean;
 }
 
-const isActivity = (
-  marker: AmadeusActivity | AmadeusHotel
-): marker is AmadeusActivity => {
-  return (marker as AmadeusActivity).description !== undefined;
-};
-
-const MapView = ({
+const MapView = <T extends AmadeusActivity | AmadeusHotel>({
   markers,
   centerLocation,
   toggleMarkup,
   isSelected,
-}: MapProps) => {
+}: MapProps<T>) => {
+  const isActivity = (
+    marker: AmadeusActivity | AmadeusHotel
+  ): marker is AmadeusActivity => {
+    return (marker as AmadeusActivity).description !== undefined;
+  };
+
   return (
     <MapContainer
       style={{ height: "100%", width: "100%", borderRadius: "2rem" }}
@@ -58,7 +58,7 @@ const MapView = ({
           <Marker
             key={index}
             position={[marker.geoCode.latitude, marker.geoCode.longitude]}
-            icon={markerIcon}
+            icon={isSelected(marker) ? selectedMarkerIcon : markerIcon}
           >
             <Popup>
               <div className="flex flex-col items-center justify-center text-center w-full max-w-xs p-2">
@@ -83,7 +83,9 @@ const MapView = ({
                   className="px-4 py-2 bg-blue-500 text-white rounded mt-2"
                   onClick={() => toggleMarkup(marker)}
                 >
-                  Add to My Plan
+                  {isSelected(marker)
+                    ? "Remove from My Plan"
+                    : "Add to My Plan"}
                 </button>
               </div>
             </Popup>

@@ -1,7 +1,7 @@
 import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
-import { useContext } from "react";
 import MapView from "../Map/MapView";
 import { useAttractions } from "../../context/AttractionsContext";
+import { useFoodPlaces } from "../../context/FoodPlacesContext";
 
 interface ActivitiesMapProps {
   activities: AmadeusActivity[];
@@ -78,23 +78,6 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     "sushi",
   ];
 
-  const isSelected = (attractionId: string) => {
-    return selectedAttractions.some(
-      (attraction) => attraction.id === attractionId
-    );
-  };
-
-  const { selectedAttractions, addAttraction, removeAttraction } =
-    useAttractions();
-
-  const handleAttractionInList = (attraction: AmadeusActivity) => {
-    if (isSelected(attraction.id)) {
-      removeAttraction(attraction.id);
-    } else {
-      addAttraction(attraction);
-    }
-  };
-
   const attractions = activities.filter((activity) =>
     attractionKeywords.some(
       (keyword) =>
@@ -110,6 +93,37 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
         activity.name?.toLowerCase().includes(keyword)
     )
   );
+
+  const isSelected = (attractionId: string) => {
+    return selectedAttractions.some(
+      (attraction) => attraction.id === attractionId
+    );
+  };
+
+  const { selectedAttractions, addAttraction, removeAttraction } =
+    useAttractions();
+
+  const handleAttractionInList = (attraction: AmadeusActivity) => {
+    if (isSelected(attraction.id)) {
+      removeAttraction(attraction.id);
+    } else {
+      addAttraction(attraction);
+    }
+    console.log("selectedAttractions");
+    console.log(selectedAttractions);
+  };
+
+  const { selectedFoodPlaces, addFoodPlace, removeFoodPlace } = useFoodPlaces();
+
+  const handleFoodPlaceInList = (foodPlace: AmadeusActivity) => {
+    if (isSelected(foodPlace.id)) {
+      removeFoodPlace(foodPlace.id);
+    } else {
+      addFoodPlace(foodPlace);
+    }
+    console.log("selectedFoodPlaces");
+    console.log(selectedFoodPlaces);
+  };
 
   return (
     <>
@@ -158,6 +172,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
             markers={eatingPlaces}
             centerLocation={searchedCity}
             toggleMarkup={handleFoodPlaceInList}
+            isSelected={(foodPlace) =>
+              selectedFoodPlaces.some((a) => a.id === foodPlace.id)
+            }
           />
         </div>
       </div>
