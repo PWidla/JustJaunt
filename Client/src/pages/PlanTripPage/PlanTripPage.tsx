@@ -134,24 +134,26 @@ const PlanTripPage = () => {
         <HotelsMap hotels={hotels} searchedCity={searchedCity!} />
       )}
 
-      {activities.length > 0 && hotels.length > 0 ? (
-        selectedAttractions.length > 2 &&
-        selectedFoodPlaces.length > 2 &&
-        selectedHotels.length > 0 ? (
-          <button
-            type="button"
-            className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-            // onClick={handleSearchCity}
-          >
-            Search
-          </button>
-        ) : (
-          <p>
-            Please select at least 3 attractions, 3 food places, and 1 hotel to
-            proceed.
-          </p>
-        )
-      ) : null}
+      <div className="flex flex-col items-center justify-start text-white w-full">
+        {activities.length > 0 && hotels.length > 0 ? (
+          selectedAttractions.length > 2 &&
+          selectedFoodPlaces.length > 2 &&
+          selectedHotels.length > 0 ? (
+            <button
+              type="button"
+              className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+              // onClick={handleSearchCity}
+            >
+              Search
+            </button>
+          ) : (
+            <p className="text-center font-primaryBold md:text-3xl pb-20">
+              Please select at least 3 attractions, 3 food places, and 1 hotel
+              to proceed.
+            </p>
+          )
+        ) : null}
+      </div>
     </div>
   );
 };
