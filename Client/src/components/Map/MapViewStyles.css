@@ -1,0 +1,29 @@
+.leaflet-popup {
+  max-width: 70vw !important;
+  min-width: 200px;
+  padding: 10px;
+}
+
+.leaflet-popup-content {
+  max-width: 100%;
+  padding: 0;
+  overflow: auto;
+}
+
+.leaflet-popup-content img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+@media (max-width: 768px) {
+  .leaflet-popup {
+    max-width: 70vw !important;
+    min-width: 150px;
+  }
+
+  .leaflet-popup-content {
+    max-height: 300px;
+    overflow: auto;
+  }
+}

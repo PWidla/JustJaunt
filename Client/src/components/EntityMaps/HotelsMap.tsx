@@ -1,5 +1,6 @@
 import { AmadeusHotel, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
+import { useHotels } from "../../context/HotelsContext";
 
 interface HotelsMapProps {
   hotels: AmadeusHotel[];
@@ -7,6 +8,24 @@ interface HotelsMapProps {
 }
 
 const HotelsMap = ({ hotels, searchedCity }: HotelsMapProps) => {
+  const isHotelSelected = (hotel: AmadeusHotel) => {
+    return selectedHotels.some(
+      (selectedHotel) => selectedHotel.dupeId === hotel.dupeId
+    );
+  };
+
+  const { selectedHotels, addHotel, removeHotel } = useHotels();
+
+  const handleHotelInList = (hotel: AmadeusHotel) => {
+    console.log("selectedHotels");
+    console.log(selectedHotels);
+    if (isHotelSelected(hotel)) {
+      removeHotel(hotel.dupeId);
+    } else {
+      addHotel(hotel);
+    }
+  };
+
   return (
     <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
       {hotels.length > 0 && (
@@ -22,7 +41,12 @@ const HotelsMap = ({ hotels, searchedCity }: HotelsMapProps) => {
       )}
 
       <div id="map" className="h-[70vh] w-full">
-        <MapView markers={hotels} centerLocation={searchedCity}></MapView>
+        <MapView
+          markers={hotels}
+          centerLocation={searchedCity}
+          toggleMarkup={handleHotelInList}
+          isSelected={isHotelSelected}
+        ></MapView>
       </div>
     </div>
   );

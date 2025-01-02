@@ -1,6 +1,7 @@
-import { useMemo } from "react";
 import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
+import { useAttractions } from "../../context/AttractionsContext";
+import { useFoodPlaces } from "../../context/FoodPlacesContext";
 
 interface ActivitiesMapProps {
   activities: AmadeusActivity[];
@@ -93,8 +94,46 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     )
   );
 
+  const isAttractionSelected = (attraction: AmadeusActivity) => {
+    return selectedAttractions.some(
+      (selectedAttraction) => selectedAttraction.id === attraction.id
+    );
+  };
+
+  const isFoodPlaceSelected = (foodPlace: AmadeusActivity) => {
+    return selectedFoodPlaces.some(
+      (selectedFoodPlace) => selectedFoodPlace.id === foodPlace.id
+    );
+  };
+
+  const { selectedAttractions, addAttraction, removeAttraction } =
+    useAttractions();
+
+  const handleAttractionInList = (attraction: AmadeusActivity) => {
+    console.log("selectedAttractions");
+    console.log(selectedAttractions);
+    if (isAttractionSelected(attraction)) {
+      removeAttraction(attraction.id);
+    } else {
+      addAttraction(attraction);
+    }
+  };
+
+  const { selectedFoodPlaces, addFoodPlace, removeFoodPlace } = useFoodPlaces();
+
+  const handleFoodPlaceInList = (foodPlace: AmadeusActivity) => {
+    console.log("selectedFoodPlaces");
+    console.log(selectedFoodPlaces);
+    if (isFoodPlaceSelected(foodPlace)) {
+      removeFoodPlace(foodPlace.id);
+    } else {
+      addFoodPlace(foodPlace);
+    }
+  };
+
   return (
     <>
+      {/* attractions */}
       <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
         {attractions.length > 0 && (
           <div className="mb-4">
@@ -112,10 +151,13 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           <MapView
             markers={attractions}
             centerLocation={searchedCity}
-          ></MapView>{" "}
+            toggleMarkup={handleAttractionInList}
+            isSelected={isAttractionSelected}
+          />
         </div>
       </div>
 
+      {/* eating places  */}
       <div className="border-t-8 flex flex-col justify-start items-center overflow-hidden w-5/6 h-screen mx-auto">
         {eatingPlaces.length > 0 && (
           <div className="mb-4">
@@ -133,7 +175,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
           <MapView
             markers={eatingPlaces}
             centerLocation={searchedCity}
-          ></MapView>{" "}
+            toggleMarkup={handleFoodPlaceInList}
+            isSelected={isFoodPlaceSelected}
+          />
         </div>
       </div>
     </>
