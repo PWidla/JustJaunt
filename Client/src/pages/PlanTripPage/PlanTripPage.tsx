@@ -136,9 +136,9 @@ const PlanTripPage = () => {
 
       <div className="flex flex-col items-center justify-start text-white w-full">
         {activities.length > 0 && hotels.length > 0 ? (
-          selectedAttractions.length > -2 &&
-          selectedFoodPlaces.length > -2 &&
-          selectedHotels.length > -2 ? (
+          selectedAttractions.length > 2 &&
+          selectedFoodPlaces.length > 2 &&
+          selectedHotels.length > 0 ? (
             <button
               type="button"
               className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
