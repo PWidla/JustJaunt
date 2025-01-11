@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
 const LandingPage = () => {
-  const { isLoggedIn, signup } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-r from-dark-green to-light-green text-white w-full h-screen space-y-32 font-primaryRegular">
