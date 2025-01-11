@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
 const LandingPage = () => {
@@ -10,13 +11,14 @@ const LandingPage = () => {
         <p className="mt-4">Plan your dream trip with us!</p>
         {!isLoggedIn && (
           <>
-            <button
-              type="button"
-              className="mt-6 px-8 py-5 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-              onClick={signup}
-            >
-              Sign Up
-            </button>
+            <Link to="/login">
+              <button
+                type="button"
+                className="mt-6 px-8 py-5 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+              >
+                Log in
+              </button>
+            </Link>
           </>
         )}
       </div>
