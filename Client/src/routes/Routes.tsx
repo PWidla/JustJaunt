@@ -4,6 +4,7 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import PlanTripPage from "../pages/PlanTripPage/PlanTripPage";
 import LogInPage from "../pages/LogInPage/LogInPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +13,14 @@ export const router = createBrowserRouter([
     children: [
       { path: "", element: <LandingPage /> },
       { path: "about-us", element: <AboutPage /> },
-      { path: "/trip/create", element: <PlanTripPage /> },
+      {
+        path: "/trip/create",
+        element: (
+          <ProtectedRoute>
+            <PlanTripPage />
+          </ProtectedRoute>
+        ),
+      },
       { path: "login", element: <LogInPage /> },
     ],
   },
