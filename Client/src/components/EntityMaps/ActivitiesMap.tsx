@@ -1,6 +1,5 @@
 import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
-import { useAttractions } from "../../context/AttractionsContext";
 import { useAppStore } from "../../stores/useAppStore";
 
 interface ActivitiesMapProps {
@@ -96,7 +95,8 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
 
   const isAttractionSelected = (attraction: AmadeusActivity) => {
     return selectedAttractions.some(
-      (selectedAttraction) => selectedAttraction.id === attraction.id
+      (selectedAttraction: AmadeusActivity) =>
+        selectedAttraction.id === attraction.id
     );
   };
 
@@ -107,8 +107,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     );
   };
 
-  const { selectedAttractions, addAttraction, removeAttraction } =
-    useAttractions();
+  const selectedAttractions = useAppStore((state) => state.selectedAttractions);
+  const addAttraction = useAppStore((state) => state.addAttraction);
+  const removeAttraction = useAppStore((state) => state.removeAttraction);
 
   const handleAttractionInList = (attraction: AmadeusActivity) => {
     console.log("selectedAttractions");

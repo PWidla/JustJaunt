@@ -13,7 +13,6 @@ import {
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
 import { useHotels } from "../../context/HotelsContext";
-import { useAttractions } from "../../context/AttractionsContext";
 import { useAppStore } from "../../stores/useAppStore";
 
 const PlanTripPage = () => {
@@ -25,7 +24,7 @@ const PlanTripPage = () => {
   );
 
   const { selectedHotels } = useHotels();
-  const { selectedAttractions } = useAttractions();
+  const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
 
   const locationMock = getMockLocations();
