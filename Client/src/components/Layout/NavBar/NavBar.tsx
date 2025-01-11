@@ -5,7 +5,7 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { isLoggedIn, login, logout, signup } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -71,18 +71,20 @@ const NavBar = () => {
             </>
           ) : (
             <li>
-              <button type="button" onClick={login} className="nav-item">
-                Log in
-              </button>
+              <Link to="/login">
+                <button type="button" className="nav-item">
+                  Log in
+                </button>
+              </Link>
             </li>
           )}
-          {!isLoggedIn && (
+          {/* {!isLoggedIn && (
             <li>
               <button type="button" onClick={signup} className="nav-item">
                 Sign up
               </button>
             </li>
-          )}
+          )} */}
         </ul>
 
         {/* mobile menu */}
@@ -115,18 +117,18 @@ const NavBar = () => {
               </>
             ) : (
               <li>
-                <button type="button" onClick={login} className="nav-item">
+                <button type="button" className="nav-item">
                   Log in
                 </button>
               </li>
             )}
-            {!isLoggedIn && (
+            {/* {!isLoggedIn && (
               <li>
                 <button type="button" onClick={signup} className="nav-item">
                   Sign up
                 </button>
               </li>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

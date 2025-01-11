@@ -1,6 +1,7 @@
 import express from "express";
 import { connectDB } from "./dbCon";
 import cors from "cors";
+import authRouter from "./routes/auth";
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +14,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.use("/api", authRouter);
 
 connectDB()
   .then(() => {

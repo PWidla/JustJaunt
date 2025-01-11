@@ -1,10 +1,12 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+import { IUser } from "../../../Server/src/models/user";
 
 type AuthContextType = {
   isLoggedIn: boolean;
-  login: () => void;
+  loggedInUser: IUser | null;
+  login: (user: IUser) => void;
   logout: () => void;
-  signup: () => void;
+  signup: (user: IUser) => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -19,13 +21,29 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState<IUser | null>(null);
 
-  const login = () => setIsLoggedIn(true);
-  const logout = () => setIsLoggedIn(false);
-  const signup = () => setIsLoggedIn(true);
+  const login = (user: IUser) => {
+    console.log("Login:", user);
+    setIsLoggedIn(true);
+    setLoggedInUser(user);
+  };
+
+  const logout = () => {
+    console.log("Logout");
+    setIsLoggedIn(false);
+    setLoggedInUser(null);
+  };
+
+  const signup = (user: IUser) => {
+    setIsLoggedIn(true);
+    setLoggedInUser(user);
+  };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, signup }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, loggedInUser, login, logout, signup }}
+    >
       {children}
     </AuthContext.Provider>
   );
