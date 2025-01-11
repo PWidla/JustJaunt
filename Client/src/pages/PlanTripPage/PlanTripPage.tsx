@@ -12,7 +12,6 @@ import {
 } from "../../api/Amadeus";
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
-import { useHotels } from "../../context/HotelsContext";
 import { useAppStore } from "../../stores/useAppStore";
 
 const PlanTripPage = () => {
@@ -23,7 +22,7 @@ const PlanTripPage = () => {
     null
   );
 
-  const { selectedHotels } = useHotels();
+  const selectedHotels = useAppStore((state) => state.selectedHotels);
   const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
 
