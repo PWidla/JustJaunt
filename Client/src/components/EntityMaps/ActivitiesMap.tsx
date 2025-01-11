@@ -95,15 +95,13 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
 
   const isAttractionSelected = (attraction: AmadeusActivity) => {
     return selectedAttractions.some(
-      (selectedAttraction: AmadeusActivity) =>
-        selectedAttraction.id === attraction.id
+      (selectedAttraction) => selectedAttraction.id === attraction.id
     );
   };
 
   const isFoodPlaceSelected = (foodPlace: AmadeusActivity) => {
     return selectedFoodPlaces.some(
-      (selectedFoodPlace: AmadeusActivity) =>
-        selectedFoodPlace.id === foodPlace.id
+      (selectedFoodPlace) => selectedFoodPlace.id === foodPlace.id
     );
   };
 
