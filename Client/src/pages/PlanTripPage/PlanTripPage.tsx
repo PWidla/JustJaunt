@@ -14,7 +14,7 @@ import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
 import { useHotels } from "../../context/HotelsContext";
 import { useAttractions } from "../../context/AttractionsContext";
-import { useFoodPlaces } from "../../context/FoodPlacesContext";
+import { useAppStore } from "../../stores/useAppStore";
 
 const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
@@ -26,7 +26,7 @@ const PlanTripPage = () => {
 
   const { selectedHotels } = useHotels();
   const { selectedAttractions } = useAttractions();
-  const { selectedFoodPlaces } = useFoodPlaces();
+  const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
 
   const locationMock = getMockLocations();
 

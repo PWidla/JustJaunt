@@ -1,7 +1,7 @@
 import { AmadeusActivity, AmadeusLocation } from "../../api/Amadeus";
 import MapView from "../Map/MapView";
 import { useAttractions } from "../../context/AttractionsContext";
-import { useFoodPlaces } from "../../context/FoodPlacesContext";
+import { useAppStore } from "../../stores/useAppStore";
 
 interface ActivitiesMapProps {
   activities: AmadeusActivity[];
@@ -102,7 +102,8 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
 
   const isFoodPlaceSelected = (foodPlace: AmadeusActivity) => {
     return selectedFoodPlaces.some(
-      (selectedFoodPlace) => selectedFoodPlace.id === foodPlace.id
+      (selectedFoodPlace: AmadeusActivity) =>
+        selectedFoodPlace.id === foodPlace.id
     );
   };
 
@@ -119,7 +120,9 @@ const ActivitiesMap = ({ activities, searchedCity }: ActivitiesMapProps) => {
     }
   };
 
-  const { selectedFoodPlaces, addFoodPlace, removeFoodPlace } = useFoodPlaces();
+  const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
+  const addFoodPlace = useAppStore((state) => state.addFoodPlace);
+  const removeFoodPlace = useAppStore((state) => state.removeFoodPlace);
 
   const handleFoodPlaceInList = (foodPlace: AmadeusActivity) => {
     console.log("selectedFoodPlaces");
