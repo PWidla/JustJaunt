@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthProvider";
-import { User } from "../../../../Server/src/models/user";
 import { useNavigate } from "react-router-dom";
 
 const LogInPage = () => {
@@ -14,20 +13,32 @@ const LogInPage = () => {
     e.preventDefault();
 
     try {
-      const user = await User.findOne({ username });
-      if (!user) {
-        setError("User not found.");
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          setError("User not found.");
+        } else if (response.status === 401) {
+          setError("Incorrect password.");
+        } else {
+          setError("Something went wrong. Please try again.");
+        }
         return;
       }
 
-      if (user.password !== password) {
-        setError("Incorrect password.");
-        return;
-      }
+      const data = await response.json();
+      login(data.user);
 
-      login(user);
-
-      navigate("");
+      navigate("/");
     } catch (err) {
       console.error("Login error:", err);
       setError("Something went wrong. Please try again.");
