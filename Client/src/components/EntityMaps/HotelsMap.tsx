@@ -1,6 +1,6 @@
 import { AmadeusHotel, AmadeusLocation } from "../../api/Amadeus";
+import { useAppStore } from "../../stores/useAppStore";
 import MapView from "../Map/MapView";
-import { useHotels } from "../../context/HotelsContext";
 
 interface HotelsMapProps {
   hotels: AmadeusHotel[];
@@ -14,7 +14,9 @@ const HotelsMap = ({ hotels, searchedCity }: HotelsMapProps) => {
     );
   };
 
-  const { selectedHotels, addHotel, removeHotel } = useHotels();
+  const selectedHotels = useAppStore((state) => state.selectedHotels);
+  const addHotel = useAppStore((state) => state.addHotel);
+  const removeHotel = useAppStore((state) => state.removeHotel);
 
   const handleHotelInList = (hotel: AmadeusHotel) => {
     console.log("selectedHotels");
