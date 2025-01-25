@@ -6,14 +6,17 @@ interface IFoodPlace extends Document {
   geoCode: { latitude: number; longitude: number };
 }
 
-const FoodPlaceSchema: Schema = new Schema({
-  entityId: { type: String, unique: true, required: true },
-  name: { type: String, required: true },
-  geoCode: {
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
+const FoodPlaceSchema: Schema = new Schema(
+  {
+    entityId: { type: String, unique: true, required: true },
+    name: { type: String, required: true },
+    geoCode: {
+      latitude: { type: Number, required: true },
+      longitude: { type: Number, required: true },
+    },
   },
-});
+  { versionKey: false }
+);
 
 FoodPlaceSchema.pre("save", function (next) {
   if (this.id && !this.entityId) {
