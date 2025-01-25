@@ -25,6 +25,8 @@ const PlanTripPage = () => {
     null
   );
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   const selectedHotels = useAppStore((state) => state.selectedHotels);
   const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
@@ -96,6 +98,8 @@ const PlanTripPage = () => {
       return;
     }
 
+    setIsButtonDisabled(true);
+
     try {
       console.log("handleSaveSelectedObjects do api");
       console.log(loggedInUser);
@@ -128,6 +132,7 @@ const PlanTripPage = () => {
         navigate(`/trip-details/${data.trip._id}`);
       } else {
         console.error("Failed to save trip:", response.statusText);
+        setIsButtonDisabled(false);
       }
     } catch (error) {
       console.error("Error saving trip:", error);
@@ -193,6 +198,7 @@ const PlanTripPage = () => {
               type="button"
               className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
               onClick={handleSaveSelectedObjects}
+              disabled={isButtonDisabled}
             >
               Save selected objects and arrange your trip.
             </button>
