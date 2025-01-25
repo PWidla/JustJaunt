@@ -13,6 +13,7 @@ import {
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
 import { useAppStore } from "../../stores/useAppStore";
+import { useAuth } from "../../context/AuthProvider";
 
 const PlanTripPage = () => {
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
@@ -27,6 +28,8 @@ const PlanTripPage = () => {
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
 
   const locationMock = getMockLocations();
+
+  const { loggedInUser } = useAuth();
 
   const fetchActivities = async (city: AmadeusLocation) => {
     try {
@@ -82,6 +85,49 @@ const PlanTripPage = () => {
           `We couldn't find data for city '${cityInput}'. Please make sure it's correct and try again.`
         );
       }
+    }
+  };
+
+  const handleSaveSelectedObjects = async () => {
+    if (!loggedInUser) {
+      console.error("User is not logged in");
+      return;
+    }
+
+    try {
+      //
+      console.log("napierdalam do api");
+      console.log(loggedInUser);
+      console.log(loggedInUser.id);
+      console.log(selectedAttractions);
+      console.log(selectedHotels);
+      console.log(selectedFoodPlaces);
+
+      //
+      const response = await fetch(
+        "http://localhost:3000/trip/save-with-days",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: loggedInUser.id,
+            selectedAttractions,
+            selectedHotels,
+            selectedFoodPlaces,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Trip saved successfully:", data);
+      } else {
+        console.error("Failed to save trip:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error saving trip:", error);
     }
   };
 
@@ -143,7 +189,7 @@ const PlanTripPage = () => {
             <button
               type="button"
               className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-              // onClick={handleSearchCity}
+              onClick={handleSaveSelectedObjects}
             >
               Save selected objects and arrange your trip.
             </button>

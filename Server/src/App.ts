@@ -2,6 +2,7 @@ import express from "express";
 import { connectDB } from "./dbCon";
 import cors from "cors";
 import authRouter from "./routes/auth";
+import tripRouter from "./routes/trip";
 
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,7 @@ app.use(
 );
 
 app.use("/api", authRouter);
+app.use("/trip", tripRouter);
 
 connectDB()
   .then(() => {
