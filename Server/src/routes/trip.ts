@@ -52,6 +52,10 @@ router.post(
         entities: { entityId: string; [key: string]: any }[]
       ) => {
         const operations = entities.map(async (entity) => {
+          if ((entity.id || entity.hotelId) && !entity.entityId) {
+            entity.entityId = entity.id || entity.hotelId;
+          }
+
           await model.updateOne(
             { entityId: entity.entityId },
             { $setOnInsert: entity },

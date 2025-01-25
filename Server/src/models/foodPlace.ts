@@ -15,6 +15,13 @@ const FoodPlaceSchema: Schema = new Schema({
   },
 });
 
+FoodPlaceSchema.pre("save", function (next) {
+  if (this.id && !this.entityId) {
+    this.entityId = this.id;
+  }
+  next();
+});
+
 export const FoodPlace = mongoose.model<IFoodPlace>(
   "FoodPlace",
   FoodPlaceSchema

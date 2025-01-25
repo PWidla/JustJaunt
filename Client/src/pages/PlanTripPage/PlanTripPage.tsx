@@ -95,15 +95,13 @@ const PlanTripPage = () => {
     }
 
     try {
-      //
-      console.log("napierdalam do api");
+      console.log("handleSaveSelectedObjects do api");
       console.log(loggedInUser);
       console.log(loggedInUser.id);
       console.log(selectedAttractions);
       console.log(selectedHotels);
       console.log(selectedFoodPlaces);
 
-      //
       const response = await fetch(
         "http://localhost:3000/trip/save-with-days",
         {

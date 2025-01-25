@@ -15,4 +15,11 @@ const HotelSchema: Schema = new Schema({
   },
 });
 
+HotelSchema.pre("save", function (next) {
+  if (this.hotelId && !this.entityId) {
+    this.entityId = this.hotelId;
+  }
+  next();
+});
+
 export const Hotel = mongoose.model<IHotel>("Hotel", HotelSchema);
