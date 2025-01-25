@@ -10,7 +10,7 @@ const UserSchema = new Schema<IUser>(
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
   },
-  { collection: "user" }
+  { collection: "user", versionKey: false }
 );
 
 const User: Model<IUser> = mongoose.model<IUser>("User", UserSchema);

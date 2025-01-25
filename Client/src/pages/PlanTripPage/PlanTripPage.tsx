@@ -13,8 +13,11 @@ import {
 import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
 import { useAppStore } from "../../stores/useAppStore";
+import { useAuth } from "../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const PlanTripPage = () => {
+  const navigate = useNavigate();
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
   const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
@@ -22,11 +25,15 @@ const PlanTripPage = () => {
     null
   );
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   const selectedHotels = useAppStore((state) => state.selectedHotels);
   const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
 
   const locationMock = getMockLocations();
+
+  const { loggedInUser } = useAuth();
 
   const fetchActivities = async (city: AmadeusLocation) => {
     try {
@@ -85,6 +92,53 @@ const PlanTripPage = () => {
     }
   };
 
+  const handleSaveSelectedObjects = async () => {
+    if (!loggedInUser) {
+      console.error("User is not logged in");
+      return;
+    }
+
+    setIsButtonDisabled(true);
+
+    try {
+      console.log("handleSaveSelectedObjects do api");
+      console.log(loggedInUser);
+      console.log(loggedInUser.id);
+      console.log(selectedAttractions);
+      console.log(selectedHotels);
+      console.log(selectedFoodPlaces);
+
+      const response = await fetch(
+        "http://localhost:3000/trip/save-with-days",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: loggedInUser.id,
+            selectedAttractions,
+            selectedHotels,
+            selectedFoodPlaces,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("response ok.data");
+        console.log(data);
+        console.log("Trip saved successfully:", data);
+        navigate(`/trip-details/${data.trip._id}`);
+      } else {
+        console.error("Failed to save trip:", response.statusText);
+        setIsButtonDisabled(false);
+      }
+    } catch (error) {
+      console.error("Error saving trip:", error);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen space-y-4 pt-8 font-primaryRegular">
       <span className="font-primaryRegular text-center">
@@ -134,13 +188,17 @@ const PlanTripPage = () => {
 
       <div className="flex flex-col items-center justify-start text-white w-full">
         {activities.length > 0 && hotels.length > 0 ? (
-          selectedAttractions.length > 2 &&
+          selectedAttractions.length > 2 && //peformance purpose. can't afford a lot of requests to api, so storing data is the only feasible option. therefore applied limit
+          selectedAttractions.length < 7 &&
           selectedFoodPlaces.length > 2 &&
-          selectedHotels.length > 0 ? (
+          selectedFoodPlaces.length < 7 &&
+          selectedHotels.length > 0 &&
+          selectedHotels.length < 3 ? (
             <button
               type="button"
               className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-              // onClick={handleSearchCity}
+              onClick={handleSaveSelectedObjects}
+              disabled={isButtonDisabled}
             >
               Save selected objects and arrange your trip.
             </button>
