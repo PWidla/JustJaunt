@@ -14,8 +14,10 @@ import ActivitiesMap from "../../components/EntityMaps/ActivitiesMap";
 import HotelsMap from "../../components/EntityMaps/HotelsMap";
 import { useAppStore } from "../../stores/useAppStore";
 import { useAuth } from "../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const PlanTripPage = () => {
+  const navigate = useNavigate();
   const [activities, setActivities] = useState<AmadeusActivity[]>([]);
   const [hotels, setHotels] = useState<AmadeusHotel[]>([]);
   const cityInputRef = useRef<HTMLInputElement>(null);
@@ -120,7 +122,10 @@ const PlanTripPage = () => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log("response ok.data");
+        console.log(data);
         console.log("Trip saved successfully:", data);
+        navigate(`/trip-details/${data.trip._id}`);
       } else {
         console.error("Failed to save trip:", response.statusText);
       }
