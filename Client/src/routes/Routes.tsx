@@ -3,6 +3,7 @@ import App from "../App";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import PlanTripPage from "../pages/PlanTripPage/PlanTripPage";
+import TripDetailsPage from "../pages/TripDetailsPage/TripDetailsPage";
 import LogInPage from "../pages/LogInPage/LogInPage";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             <PlanTripPage />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/trip/:tripId",
+        element: <TripDetailsPage />,
       },
       { path: "login", element: <LogInPage /> },
     ],

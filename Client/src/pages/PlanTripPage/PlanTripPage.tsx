@@ -129,7 +129,7 @@ const PlanTripPage = () => {
         console.log("response ok.data");
         console.log(data);
         console.log("Trip saved successfully:", data);
-        navigate(`/trip-details/${data.trip._id}`);
+        navigate(`/trip/${data.trip._id}`);
       } else {
         console.error("Failed to save trip:", response.statusText);
         setIsButtonDisabled(false);

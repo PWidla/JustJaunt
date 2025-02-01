@@ -6,6 +6,23 @@ import { FoodPlace } from "../models/foodPlace";
 
 const router = express.Router();
 
+router.get("/:tripId", async (req: Request, res: Response): Promise<any> => {
+  const { tripId } = req.params;
+
+  try {
+    const trip = await Trip.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+
+    res.status(200).json({ trip });
+  } catch (error) {
+    console.error("Error fetching trip:", error);
+    res.status(500).json({ message: "Failed to fetch trip data" });
+  }
+});
+
 router.post(
   "/save-with-days",
   async (req: Request, res: Response): Promise<any> => {
