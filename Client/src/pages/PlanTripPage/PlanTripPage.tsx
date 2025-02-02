@@ -26,6 +26,7 @@ const PlanTripPage = () => {
   );
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [days, setDays] = useState(1);
 
   const selectedHotels = useAppStore((state) => state.selectedHotels);
   const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
@@ -120,6 +121,7 @@ const PlanTripPage = () => {
             selectedAttractions,
             selectedHotels,
             selectedFoodPlaces,
+            days,
           }),
         }
       );
@@ -194,14 +196,38 @@ const PlanTripPage = () => {
           selectedFoodPlaces.length < 7 &&
           selectedHotels.length > 0 &&
           selectedHotels.length < 3 ? (
-            <button
-              type="button"
-              className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-              onClick={handleSaveSelectedObjects}
-              disabled={isButtonDisabled}
-            >
-              Save selected objects and arrange your trip.
-            </button>
+            <>
+              {/* Input na wybór dni */}
+              <div className="flex flex-col items-center mt-4">
+                <span className="text-lg">How many days?</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="4"
+                  value={days}
+                  onChange={(e) => {
+                    const value = Number(e.target.value);
+                    if (!isNaN(value) && value >= 1 && value <= 4) {
+                      //limited to 4 because of activities limit
+                      setDays(value);
+                    }
+                  }}
+                  className="p-2 text-black rounded-md w-20 text-center"
+                />
+                {days > 4 && (
+                  <p className="text-red-500 text-sm">Max 4 days allowed</p>
+                )}
+              </div>
+
+              <button
+                type="button"
+                className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+                onClick={handleSaveSelectedObjects}
+                disabled={isButtonDisabled}
+              >
+                Save selected objects and arrange your trip.
+              </button>
+            </>
           ) : (
             <p className="text-center font-primaryBold md:text-3xl pb-20">
               Please select at least 3 attractions, 3 food places, and 1 hotel
