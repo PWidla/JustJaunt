@@ -33,6 +33,7 @@ const TripSchema: Schema = new Schema(
         day: { type: Number, required: false, default: null },
       },
     ],
+    days: { type: Number, required: true },
   },
   { versionKey: false }
 );
