@@ -13,5 +13,6 @@ export const useAppStore = create((set: any, get: any) => ({
     get().clearAttractions();
     get().clearHotels();
     get().clearFoodPlaces();
+    console.log("Selections cleared!");
   },
 }));

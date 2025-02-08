@@ -133,13 +133,10 @@ const PlanTripPage = () => {
       }
 
       const data = await response.json();
-      console.log("response ok.data");
-      console.log(data);
-      console.log("selected attractions", selectedAttractions);
+      console.log("response ok.data", data);
       console.log("Trip saved successfully:", data);
       clearAllSelections();
       navigate(`/trip/${data.trip._id}`);
-      console.log("cleared selected attractions", selectedAttractions);
     } catch (error) {
       console.error("Error saving trip:", error);
       setIsButtonDisabled(false);
