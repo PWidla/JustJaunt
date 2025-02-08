@@ -26,12 +26,15 @@ router.get("/:tripId", async (req: Request, res: Response): Promise<any> => {
 router.post(
   "/save-with-days",
   async (req: Request, res: Response): Promise<any> => {
+    console.log("Received body:", req.body);
+
     const {
       tripId,
       userId,
       selectedAttractions,
       selectedHotels,
       selectedFoodPlaces,
+      days,
     } = req.body;
 
     if (!userId) {
@@ -53,10 +56,11 @@ router.post(
           selectedAttractions: [],
           selectedHotels: [],
           selectedFoodPlaces: [],
+          days: days || 1,
         });
       }
-      console.log("trip");
-      console.log(trip);
+
+      console.log("Trip found/created:", trip);
 
       if (trip.userId.toString() !== userId) {
         return res
@@ -89,8 +93,11 @@ router.post(
       trip.selectedAttractions = selectedAttractions;
       trip.selectedHotels = selectedHotels;
       trip.selectedFoodPlaces = selectedFoodPlaces;
+      trip.days = days;
 
       await trip.save();
+
+      console.log("Final saved trip:", trip);
 
       res.status(201).json({
         message: "Trip saved or updated successfully.",

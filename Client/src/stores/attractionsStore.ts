@@ -4,6 +4,7 @@ interface AttractionsSlice {
   selectedAttractions: AmadeusActivity[];
   addAttraction: (attraction: AmadeusActivity) => void;
   removeAttraction: (attractionId: string) => void;
+  clearAttractions: () => void;
 }
 
 export const createAttractionsSlice = (set: Function): AttractionsSlice => ({
@@ -25,4 +26,6 @@ export const createAttractionsSlice = (set: Function): AttractionsSlice => ({
         (attraction) => attraction.id !== attractionId
       ),
     })),
+
+  clearAttractions: () => set({ selectedAttractions: [] }),
 });

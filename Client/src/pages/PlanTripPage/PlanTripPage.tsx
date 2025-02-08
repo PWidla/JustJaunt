@@ -29,8 +29,9 @@ const PlanTripPage = () => {
   const [days, setDays] = useState(1);
 
   const selectedHotels = useAppStore((state) => state.selectedHotels);
-  const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
+  const selectedAttractions = useAppStore((state) => state.selectedAttractions);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
+  const { clearAllSelections } = useAppStore();
 
   const locationMock = getMockLocations();
 
@@ -102,13 +103,13 @@ const PlanTripPage = () => {
     setIsButtonDisabled(true);
 
     try {
-      console.log("handleSaveSelectedObjects do api");
-      console.log(loggedInUser);
-      console.log(loggedInUser.id);
-      console.log(selectedAttractions);
-      console.log(selectedHotels);
-      console.log(selectedFoodPlaces);
-
+      console.log("Saving trip with data:", {
+        userId: loggedInUser.id,
+        selectedAttractions,
+        selectedHotels,
+        selectedFoodPlaces,
+        days,
+      });
       const response = await fetch(
         "http://localhost:3000/trip/save-with-days",
         {
@@ -126,18 +127,22 @@ const PlanTripPage = () => {
         }
       );
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("response ok.data");
-        console.log(data);
-        console.log("Trip saved successfully:", data);
-        navigate(`/trip/${data.trip._id}`);
-      } else {
-        console.error("Failed to save trip:", response.statusText);
+      if (!response.ok) {
         setIsButtonDisabled(false);
+        throw new Error(`Failed to save trip: ${response.statusText}`);
       }
+
+      const data = await response.json();
+      console.log("response ok.data");
+      console.log(data);
+      console.log("selected attractions", selectedAttractions);
+      console.log("Trip saved successfully:", data);
+      clearAllSelections();
+      navigate(`/trip/${data.trip._id}`);
+      console.log("cleared selected attractions", selectedAttractions);
     } catch (error) {
       console.error("Error saving trip:", error);
+      setIsButtonDisabled(false);
     }
   };
 
@@ -197,7 +202,6 @@ const PlanTripPage = () => {
           selectedHotels.length > 0 &&
           selectedHotels.length < 3 ? (
             <>
-              {/* Input na wybór dni */}
               <div className="flex flex-col items-center mt-4">
                 <span className="text-lg">How many days?</span>
                 <input

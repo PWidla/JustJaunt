@@ -10,6 +10,7 @@ interface ITrip extends Document {
   selectedAttractions: TripEntity[];
   selectedHotels: TripEntity[];
   selectedFoodPlaces: TripEntity[];
+  days: Number;
 }
 
 const TripSchema: Schema = new Schema(
