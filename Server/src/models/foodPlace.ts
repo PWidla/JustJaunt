@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IFoodPlace extends Document {
+export interface IFoodPlace extends Document {
   entityId: string;
   name: string;
   geoCode: { latitude: number; longitude: number };

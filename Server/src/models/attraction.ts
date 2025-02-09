@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IAttraction extends Document {
+export interface IAttraction extends Document {
   entityId: string;
   name: string;
   description: string;

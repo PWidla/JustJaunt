@@ -15,23 +15,24 @@ interface CarouselProps {
   title: string;
   data: Entity[];
   type: "attraction" | "hotel" | "foodplace";
-  onAddToDay?: (entity: Entity, type: string) => void;
-  onSelectHotel?: (hotel: Entity) => void;
-  onMoveToDay?: (entity: Entity, day: number) => void;
+  onAssignToDay?: (entity: Entity, day: number | null, type: string) => void;
+  onToggleHotel?: (hotel: Entity) => void;
+  tripDays?: number;
 }
 
 const Carousel = ({
   title,
   data,
   type,
-  onAddToDay,
-  onSelectHotel,
-  onMoveToDay,
+  onAssignToDay,
+  onToggleHotel,
+  tripDays,
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
-  // Prevent looping
+  // no looping
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
   };
@@ -76,10 +77,6 @@ const Carousel = ({
                 <h3 className="text-xl font-bold text-dark-green">
                   {data[currentIndex].name}
                 </h3>
-                <p className="text-sm text-dark-brown">
-                  Location: {data[currentIndex].geoCode.latitude},{" "}
-                  {data[currentIndex].geoCode.longitude}
-                </p>
               </div>
             </div>
           </div>
@@ -117,28 +114,38 @@ const Carousel = ({
             </p>
 
             <div className="flex justify-between mt-4">
-              {onAddToDay && (
-                <button
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg"
-                  onClick={() => onAddToDay(selectedEntity, type)}
-                >
-                  Add to Day
-                </button>
+              {onAssignToDay && (
+                <div>
+                  <label>Assign to Day:</label>
+                  <select
+                    value={selectedDay ?? ""}
+                    onChange={(e) => setSelectedDay(Number(e.target.value))}
+                    className="px-4 py-2 border rounded-lg"
+                  >
+                    <option value="">Select Day</option>
+                    {[...Array(tripDays || 0)].map((_, index) => (
+                      <option key={index} value={index + 1}>
+                        Day {index + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    className="ml-2 px-4 py-2 bg-blue-600 text-white rounded-lg"
+                    onClick={() =>
+                      onAssignToDay(selectedEntity, selectedDay, type)
+                    }
+                  >
+                    Assign
+                  </button>
+                </div>
               )}
-              {onMoveToDay && (
-                <button
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg"
-                  onClick={() => onMoveToDay(selectedEntity, 1)} // to change
-                >
-                  Move to Day
-                </button>
-              )}
-              {onSelectHotel && type === "hotel" && (
+
+              {onToggleHotel && type === "hotel" && (
                 <button
                   className="px-4 py-2 bg-purple-600 text-white rounded-lg"
-                  onClick={() => onSelectHotel(selectedEntity)}
+                  onClick={() => onToggleHotel(selectedEntity)}
                 >
-                  Select Hotel
+                  Toggle Hotel
                 </button>
               )}
             </div>

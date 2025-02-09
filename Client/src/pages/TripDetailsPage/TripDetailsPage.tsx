@@ -1,9 +1,24 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
-import Carousel from "../../components/GeneralComponents/Carousel"; // Upewnij się, że importujesz Carousel
+import Carousel from "../../components/GeneralComponents/Carousel";
+import { IAttraction } from "../../../../Server/src/models/attraction";
+import { IHotel } from "../../../../Server/src/models/hotel";
+import { IFoodPlace } from "../../../../Server/src/models/foodPlace";
 
 const TripDetailPage = () => {
+  interface IPlannedAttraction extends IAttraction {
+    day: number | null;
+  }
+
+  interface IPlannedHotel extends IHotel {
+    isChosen: boolean;
+  }
+
+  interface IPlannedFoodPlace extends IFoodPlace {
+    day: number | null;
+  }
+
   const { loggedInUser } = useAuth();
   const { tripId } = useParams<{ tripId: string }>();
   const [tripData, setTripData] = useState<any>(null);
@@ -55,10 +70,38 @@ const TripDetailPage = () => {
           ),
         ]);
 
-        console.log(foodplaces);
-        setAttractionsData(attractions);
-        setHotelsData(hotels);
-        setFoodPlacesData(foodplaces);
+        const plannedAttractions: IPlannedAttraction[] = attractions.map(
+          (attraction: IAttraction) => {
+            const tripAttraction = data.trip.selectedAttractions.find(
+              (item: IAttraction) => item.entityId === attraction.entityId
+            );
+            return { ...attraction, day: tripAttraction?.day || null };
+          }
+        );
+
+        const plannedHotels: IPlannedHotel[] = hotels.map((hotel: IHotel) => {
+          const tripHotel = data.trip.selectedHotels.find(
+            (item: IHotel) => item.entityId === hotel.entityId
+          );
+          return { ...hotel, isChosen: tripHotel?.isChosen || false };
+        });
+
+        const plannedFoodPlaces: IPlannedFoodPlace[] = foodplaces.map(
+          (foodplace: IFoodPlace) => {
+            const tripFoodPlace = data.trip.selectedFoodPlaces.find(
+              (item: IFoodPlace) => item.entityId === foodplace.entityId
+            );
+            return { ...foodplace, day: tripFoodPlace?.day || null };
+          }
+        );
+
+        setAttractionsData(plannedAttractions);
+        setHotelsData(plannedHotels);
+        setFoodPlacesData(plannedFoodPlaces);
+        console.log("plannedAttractions", plannedAttractions);
+        console.log("plannedHotels", plannedHotels);
+        console.log("plannedFoodPlaces", plannedFoodPlaces);
+        console.log("data.trip", data.trip);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -74,16 +117,14 @@ const TripDetailPage = () => {
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
 
-  const handleAddToDay = (entity: any, type: string) => {
-    console.log("Added to day:", entity, type);
+  const handleAssignToDay = (entity: any, day: number | null, type: string) => {
+    console.log("Assigned to day:", entity, day, type);
+    //
   };
 
-  const handleSelectHotel = (hotel: any) => {
-    console.log("Selected hotel:", hotel);
-  };
-
-  const handleMoveToDay = (entity: any, day: number) => {
-    console.log("Moved to day:", entity, day);
+  const handleToggleHotel = (hotel: any) => {
+    console.log("Toggled hotel:", hotel);
+    //
   };
 
   return (
@@ -96,23 +137,23 @@ const TripDetailPage = () => {
         title="Attractions"
         data={attractionsData}
         type="attraction"
-        onAddToDay={handleAddToDay}
-        onMoveToDay={handleMoveToDay}
+        onAssignToDay={handleAssignToDay}
+        tripDays={tripData?.days || 0}
       />
 
       <Carousel
         title="Hotels"
         data={hotelsData}
         type="hotel"
-        onSelectHotel={handleSelectHotel}
+        onToggleHotel={handleToggleHotel}
       />
 
       <Carousel
         title="Food Places"
         data={foodPlacesData}
         type="foodplace"
-        onAddToDay={handleAddToDay}
-        onMoveToDay={handleMoveToDay}
+        onAssignToDay={handleAssignToDay}
+        tripDays={tripData?.days || 0}
       />
 
       {tripData && (
