@@ -18,11 +18,11 @@ const Carousel = ({
   onMoveToDay,
 }: CarouselProps) => {
   return (
-    <div className="w-full my-8">
+    <div className="w-full my-8 flex flex-col items-center">
       <h2 className="text-2xl text-center font-semibold text-light-wheat mb-4">
         {title}
       </h2>
-      <div className="flex overflow-x-auto gap-4 pb-4">
+      <div className="w-full max-w-5xl flex overflow-x-auto gap-4 pb-4 justify-center">
         {data.map((entity: any) => (
           <div key={entity.entityId} className="flex-none w-60">
             <div className="bg-light-brown p-4 rounded-xl shadow-xl space-y-4">
