@@ -154,7 +154,6 @@ const TripDetailPage = () => {
   const handleToggleHotel = (hotel: IPlannedHotel) => {
     const updatedData = { ...tripData };
 
-    // Toggle the "isChosen" flag
     updatedData.selectedHotels = updatedData.selectedHotels.map(
       (item: IHotel) =>
         item.entityId === hotel.entityId
