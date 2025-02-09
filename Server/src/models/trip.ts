@@ -1,15 +1,20 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface TripEntity {
+interface TripActivity {
   entityId: string;
-  day?: number | null;
+  day: number | null;
+}
+
+interface TripHotel {
+  entityId: string;
+  isChosen: boolean;
 }
 
 interface ITrip extends Document {
   userId: string;
-  selectedAttractions: TripEntity[];
-  selectedHotels: TripEntity[];
-  selectedFoodPlaces: TripEntity[];
+  selectedAttractions: TripActivity[];
+  selectedFoodPlaces: TripActivity[];
+  selectedHotels: TripHotel[];
   days: Number;
 }
 
@@ -25,7 +30,7 @@ const TripSchema: Schema = new Schema(
     selectedHotels: [
       {
         entityId: { type: String, required: true },
-        day: { type: Number, required: false, default: null },
+        isChosen: { type: Boolean, required: true, default: false },
       },
     ],
     selectedFoodPlaces: [
