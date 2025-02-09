@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
+import Carousel from "../../components/GeneralComponents/Carousel"; // Upewnij się, że importujesz Carousel
 
 const TripDetailPage = () => {
   const { loggedInUser } = useAuth();
@@ -17,73 +18,47 @@ const TripDetailPage = () => {
     if (!tripId) return;
 
     const fetchTripData = async () => {
-      if (!tripId || !loggedInUser) return; // Nie wykonuj, jeśli brakuje danych trip lub użytkownika
+      if (!tripId || !loggedInUser) return;
 
       try {
         const response = await fetch(`http://localhost:3000/trip/${tripId}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch trip data");
-        }
+        if (!response.ok) throw new Error("Failed to fetch trip data");
+
         const data = await response.json();
-        console.log("loggedInUser?.id");
-        console.log(loggedInUser?.id);
-        console.log("data.trip.userId");
-        console.log(data.trip.userId);
 
-        if (!loggedInUser) {
-          console.log("User not logged in");
-          return navigate("/login");
-        }
-
-        if (data.trip.userId !== loggedInUser?.id) {
-          console.log("unauthorized");
-          navigate("/");
-        }
+        if (!loggedInUser) return navigate("/login");
+        if (data.trip.userId !== loggedInUser?.id) return navigate("/");
 
         setTripData(data.trip);
 
-        // Funkcja do pobrania danych z backendu dla wielu entityIds
         const fetchDetails = async (entityIds: string[], type: string) => {
-          const idsParam = entityIds.join(","); // Łączenie ID w jeden string
+          if (entityIds.length === 0) return [];
           const response = await fetch(
-            `http://localhost:3000/${type}?ids=${idsParam}`
+            `http://localhost:3000/${type}?ids=${entityIds.join(",")}`
           );
-
-          if (!response.ok) {
-            throw new Error(`Failed to fetch ${type} data`);
-          }
-
-          const data = await response.json();
-          return data;
+          if (!response.ok) throw new Error(`Failed to fetch ${type} data`);
+          return await response.json();
         };
 
-        if (data.trip.selectedAttractions) {
-          const attractions = await fetchDetails(
-            data.trip.selectedAttractions.map(
-              (attraction: any) => attraction.entityId
-            ),
+        const [attractions, hotels, foodplaces] = await Promise.all([
+          fetchDetails(
+            data.trip.selectedAttractions?.map((a: any) => a.entityId) || [],
             "attractions"
-          );
-          setAttractionsData(attractions);
-        }
-
-        if (data.trip.selectedHotels) {
-          const hotels = await fetchDetails(
-            data.trip.selectedHotels.map((hotel: any) => hotel.entityId),
+          ),
+          fetchDetails(
+            data.trip.selectedHotels?.map((h: any) => h.entityId) || [],
             "hotels"
-          );
-          setHotelsData(hotels);
-        }
-
-        if (data.trip.selectedFoodPlaces) {
-          const foodPlaces = await fetchDetails(
-            data.trip.selectedFoodPlaces.map(
-              (foodPlace: any) => foodPlace.entityId
-            ),
+          ),
+          fetchDetails(
+            data.trip.selectedFoodPlaces?.map((f: any) => f.entityId) || [],
             "foodplaces"
-          );
-          setFoodPlacesData(foodPlaces);
-        }
+          ),
+        ]);
+
+        console.log(foodplaces);
+        setAttractionsData(attractions);
+        setHotelsData(hotels);
+        setFoodPlacesData(foodplaces);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -94,13 +69,22 @@ const TripDetailPage = () => {
     fetchTripData();
   }, [tripId, loggedInUser, navigate]);
 
-  if (isLoading) {
+  if (isLoading)
     return <div className="text-center text-white">Loading...</div>;
-  }
-
-  if (error) {
+  if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
-  }
+
+  const handleAddToDay = (entity: any, type: string) => {
+    console.log("Added to day:", entity, type);
+  };
+
+  const handleSelectHotel = (hotel: any) => {
+    console.log("Selected hotel:", hotel);
+  };
+
+  const handleMoveToDay = (entity: any, day: number) => {
+    console.log("Moved to day:", entity, day);
+  };
 
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
@@ -108,52 +92,28 @@ const TripDetailPage = () => {
         {tripData?.name}
       </h1>
 
-      <div className="text-center mx-4">
-        <h2 className="text-xl font-primaryBold">Attractions</h2>
-        <ul className="list-none space-y-2 mt-2">
-          {attractionsData.map((attraction: any) => (
-            <li
-              key={attraction.entityId}
-              className="bg-light-brown p-2 rounded-md shadow-lg"
-            >
-              <h3>{attraction.name}</h3>
-              <p>{attraction.description}</p>
-              <p>{attraction.location}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Carousel
+        title="Attractions"
+        data={attractionsData}
+        type="attraction"
+        onAddToDay={handleAddToDay}
+        onMoveToDay={handleMoveToDay}
+      />
 
-      <div className="text-center mx-4">
-        <h2 className="text-xl font-primaryBold">Hotels</h2>
-        <ul className="list-none space-y-2 mt-2">
-          {hotelsData.map((hotel: any) => (
-            <li
-              key={hotel.entityId}
-              className="bg-light-brown p-2 rounded-md shadow-lg"
-            >
-              <h3>{hotel.name}</h3>
-              <p>{hotel.address}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Carousel
+        title="Hotels"
+        data={hotelsData}
+        type="hotel"
+        onSelectHotel={handleSelectHotel}
+      />
 
-      <div className="text-center mx-4">
-        <h2 className="text-xl font-primaryBold">Food Places</h2>
-        <ul className="list-none space-y-2 mt-2">
-          {foodPlacesData.map((foodPlace: any) => (
-            <li
-              key={foodPlace.entityId}
-              className="bg-light-brown p-2 rounded-md shadow-lg"
-            >
-              <h3>{foodPlace.name}</h3>
-              <p>{foodPlace.description}</p>
-              <p>{foodPlace.cuisine}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Carousel
+        title="Food Places"
+        data={foodPlacesData}
+        type="foodplace"
+        onAddToDay={handleAddToDay}
+        onMoveToDay={handleMoveToDay}
+      />
 
       {tripData && (
         <button
