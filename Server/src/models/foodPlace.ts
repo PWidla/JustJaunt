@@ -9,6 +9,7 @@ interface IFoodPlace extends Document {
 const FoodPlaceSchema: Schema = new Schema(
   {
     entityId: { type: String, unique: true, required: true },
+    description: { type: String, required: false },
     name: { type: String, required: true },
     geoCode: {
       latitude: { type: Number, required: true },
