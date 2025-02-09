@@ -128,7 +128,7 @@ const Carousel = ({
               {onMoveToDay && (
                 <button
                   className="px-4 py-2 bg-green-600 text-white rounded-lg"
-                  onClick={() => onMoveToDay(selectedEntity, 1)} // Assuming you want to move it to day 1
+                  onClick={() => onMoveToDay(selectedEntity, 1)} // to change
                 >
                   Move to Day
                 </button>
