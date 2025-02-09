@@ -141,10 +141,22 @@ const TripDetailPage = () => {
         (item: any) =>
           item.entityId === entity.entityId ? { ...item, day } : item
       );
+
+      setAttractionsData((prevData: any) =>
+        prevData.map((item: any) =>
+          item.entityId === entity.entityId ? { ...item, day } : item
+        )
+      );
     } else if (type === "foodplace") {
       updatedData.selectedFoodPlaces = updatedData.selectedFoodPlaces.map(
         (item: any) =>
           item.entityId === entity.entityId ? { ...item, day } : item
+      );
+
+      setFoodPlacesData((prevData: any) =>
+        prevData.map((item: any) =>
+          item.entityId === entity.entityId ? { ...item, day } : item
+        )
       );
     }
 
@@ -166,13 +178,12 @@ const TripDetailPage = () => {
 
   const filterEntitiesForCarousel = (
     entities: (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[],
-    day: number | null,
     type: "attraction" | "foodplace" | "hotel"
   ): (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[] => {
     if (type === "attraction" || type === "foodplace") {
       return entities.filter(
         (entity) =>
-          (entity as IPlannedAttraction | IPlannedFoodPlace).day === day ||
+          // (entity as IPlannedAttraction | IPlannedFoodPlace).day === day ||
           (entity as IPlannedAttraction | IPlannedFoodPlace).day === null
       );
     } else if (type === "hotel") {
@@ -191,7 +202,7 @@ const TripDetailPage = () => {
 
       <Carousel
         title="Attractions"
-        data={filterEntitiesForCarousel(attractionsData, null, "attraction")}
+        data={filterEntitiesForCarousel(attractionsData, "attraction")}
         type="attraction"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
@@ -199,14 +210,14 @@ const TripDetailPage = () => {
 
       <Carousel
         title="Hotels"
-        data={filterEntitiesForCarousel(hotelsData, null, "hotel")}
+        data={filterEntitiesForCarousel(hotelsData, "hotel")}
         type="hotel"
         onToggleHotel={handleToggleHotel}
       />
 
       <Carousel
         title="Food Places"
-        data={filterEntitiesForCarousel(foodPlacesData, null, "foodplace")}
+        data={filterEntitiesForCarousel(foodPlacesData, "foodplace")}
         type="foodplace"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
