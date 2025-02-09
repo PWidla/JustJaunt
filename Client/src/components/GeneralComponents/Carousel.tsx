@@ -126,7 +126,7 @@ const Carousel = ({
                     onChange={(e) => setSelectedDay(Number(e.target.value))}
                     className="px-4 py-2 border rounded-lg"
                   >
-                    <option value="">Select Day</option>
+                    <option value="">Unassign</option>
                     {[...Array(tripDays || 0)].map((_, index) => (
                       <option key={index} value={index + 1}>
                         Day {index + 1}
@@ -140,12 +140,12 @@ const Carousel = ({
                         selectedEntity as
                           | IPlannedAttraction
                           | IPlannedFoodPlace,
-                        selectedDay,
+                        selectedDay || null,
                         type
                       )
                     }
                   >
-                    Assign
+                    Set
                   </button>
                 </div>
               )}
