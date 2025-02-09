@@ -5,7 +5,7 @@ export interface IAttraction extends Document {
   name: string;
   description: string;
   geoCode: { latitude: number; longitude: number };
-  picture: string;
+  pictures: string[];
 }
 
 const AttractionSchema: Schema = new Schema(

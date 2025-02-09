@@ -4,6 +4,7 @@ export interface IFoodPlace extends Document {
   entityId: string;
   name: string;
   geoCode: { latitude: number; longitude: number };
+  pictures: string[];
 }
 
 const FoodPlaceSchema: Schema = new Schema(
