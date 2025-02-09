@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import Carousel from "../../components/GeneralComponents/Carousel";
@@ -6,25 +6,26 @@ import { IAttraction } from "../../../../Server/src/models/attraction";
 import { IHotel } from "../../../../Server/src/models/hotel";
 import { IFoodPlace } from "../../../../Server/src/models/foodPlace";
 
+export interface IPlannedAttraction extends IAttraction {
+  day: number | null;
+}
+
+export interface IPlannedHotel extends IHotel {
+  isChosen: boolean;
+}
+
+export interface IPlannedFoodPlace extends IFoodPlace {
+  day: number | null;
+}
 const TripDetailPage = () => {
-  interface IPlannedAttraction extends IAttraction {
-    day: number | null;
-  }
-
-  interface IPlannedHotel extends IHotel {
-    isChosen: boolean;
-  }
-
-  interface IPlannedFoodPlace extends IFoodPlace {
-    day: number | null;
-  }
-
   const { loggedInUser } = useAuth();
   const { tripId } = useParams<{ tripId: string }>();
   const [tripData, setTripData] = useState<any>(null);
-  const [attractionsData, setAttractionsData] = useState<any[]>([]);
-  const [hotelsData, setHotelsData] = useState<any[]>([]);
-  const [foodPlacesData, setFoodPlacesData] = useState<any[]>([]);
+  const [attractionsData, setAttractionsData] = useState<IPlannedAttraction[]>(
+    []
+  );
+  const [hotelsData, setHotelsData] = useState<IPlannedHotel[]>([]);
+  const [foodPlacesData, setFoodPlacesData] = useState<IPlannedFoodPlace[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -101,7 +102,6 @@ const TripDetailPage = () => {
         console.log("plannedAttractions", plannedAttractions);
         console.log("plannedHotels", plannedHotels);
         console.log("plannedFoodPlaces", plannedFoodPlaces);
-        console.log("data.trip", data.trip);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -117,14 +117,71 @@ const TripDetailPage = () => {
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
 
-  const handleAssignToDay = (entity: any, day: number | null, type: string) => {
-    console.log("Assigned to day:", entity, day, type);
-    //
+  const updateTripData = (updatedData: any) => {
+    setTripData((prevData: any) => ({
+      ...prevData,
+      selectedAttractions:
+        updatedData.attractions || prevData.selectedAttractions,
+      selectedFoodPlaces: updatedData.foodPlaces || prevData.selectedFoodPlaces,
+      selectedHotels: updatedData.hotels || prevData.selectedHotels,
+    }));
+
+    console.log("updatedData", updatedData);
   };
 
-  const handleToggleHotel = (hotel: any) => {
-    console.log("Toggled hotel:", hotel);
-    //
+  const handleAssignToDay = (
+    entity: IPlannedAttraction | IPlannedFoodPlace,
+    day: number | null,
+    type: string
+  ) => {
+    const updatedData = { ...tripData };
+
+    if (type === "attraction") {
+      updatedData.selectedAttractions = updatedData.selectedAttractions.map(
+        (item: any) =>
+          item.entityId === entity.entityId ? { ...item, day } : item
+      );
+    } else if (type === "foodplace") {
+      updatedData.selectedFoodPlaces = updatedData.selectedFoodPlaces.map(
+        (item: any) =>
+          item.entityId === entity.entityId ? { ...item, day } : item
+      );
+    }
+
+    updateTripData(updatedData);
+  };
+
+  const handleToggleHotel = (hotel: IPlannedHotel) => {
+    const updatedData = { ...tripData };
+
+    // Toggle the "isChosen" flag
+    updatedData.selectedHotels = updatedData.selectedHotels.map(
+      (item: IHotel) =>
+        item.entityId === hotel.entityId
+          ? { ...item, isChosen: !hotel.isChosen }
+          : item
+    );
+
+    updateTripData(updatedData);
+  };
+
+  const filterEntitiesForCarousel = (
+    entities: (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[],
+    day: number | null,
+    type: "attraction" | "foodplace" | "hotel"
+  ): (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[] => {
+    if (type === "attraction" || type === "foodplace") {
+      return entities.filter(
+        (entity) =>
+          (entity as IPlannedAttraction | IPlannedFoodPlace).day === day ||
+          (entity as IPlannedAttraction | IPlannedFoodPlace).day === null
+      );
+    } else if (type === "hotel") {
+      return entities.filter(
+        (entity) => (entity as IPlannedHotel).isChosen === false
+      );
+    }
+    return [];
   };
 
   return (
@@ -135,7 +192,7 @@ const TripDetailPage = () => {
 
       <Carousel
         title="Attractions"
-        data={attractionsData}
+        data={filterEntitiesForCarousel(attractionsData, null, "attraction")}
         type="attraction"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
@@ -143,14 +200,14 @@ const TripDetailPage = () => {
 
       <Carousel
         title="Hotels"
-        data={hotelsData}
+        data={filterEntitiesForCarousel(hotelsData, null, "hotel")}
         type="hotel"
         onToggleHotel={handleToggleHotel}
       />
 
       <Carousel
         title="Food Places"
-        data={foodPlacesData}
+        data={filterEntitiesForCarousel(foodPlacesData, null, "foodplace")}
         type="foodplace"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
