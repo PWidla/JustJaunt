@@ -14,6 +14,7 @@ const FoodPlaceSchema: Schema = new Schema(
       latitude: { type: Number, required: true },
       longitude: { type: Number, required: true },
     },
+    pictures: { type: [String], default: [] },
   },
   { versionKey: false }
 );

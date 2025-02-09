@@ -4,6 +4,7 @@ interface IHotel extends Document {
   entityId: string;
   name: string;
   geoCode: { latitude: number; longitude: number };
+  isChosen: boolean;
 }
 
 const HotelSchema: Schema = new Schema(
@@ -14,6 +15,7 @@ const HotelSchema: Schema = new Schema(
       latitude: { type: Number, required: true },
       longitude: { type: Number, required: true },
     },
+    isChosen: { type: Boolean, default: false },
   },
   { versionKey: false }
 );
