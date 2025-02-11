@@ -17,6 +17,7 @@ export interface IPlannedHotel extends IHotel {
 export interface IPlannedFoodPlace extends IFoodPlace {
   day: number | null;
 }
+
 const TripDetailPage = () => {
   const { loggedInUser } = useAuth();
   const { tripId } = useParams<{ tripId: string }>();
@@ -99,9 +100,6 @@ const TripDetailPage = () => {
         setAttractionsData(plannedAttractions);
         setHotelsData(plannedHotels);
         setFoodPlacesData(plannedFoodPlaces);
-        console.log("plannedAttractions", plannedAttractions);
-        console.log("plannedHotels", plannedHotels);
-        console.log("plannedFoodPlaces", plannedFoodPlaces);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -117,16 +115,28 @@ const TripDetailPage = () => {
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
 
-  const updateTripData = (updatedData: any) => {
-    setTripData((prevData: any) => ({
-      ...prevData,
-      selectedAttractions:
-        updatedData.attractions || prevData.selectedAttractions,
-      selectedFoodPlaces: updatedData.foodPlaces || prevData.selectedFoodPlaces,
-      selectedHotels: updatedData.hotels || prevData.selectedHotels,
-    }));
+  const filterEntitiesForDay = (
+    day: number,
+    entities: (IPlannedAttraction | IPlannedFoodPlace)[]
+  ): (IPlannedAttraction | IPlannedFoodPlace)[] => {
+    return entities.filter((entity) => entity.day === day);
+  };
 
-    console.log("updatedData", updatedData);
+  const filterUnassignedEntities = (
+    entities: (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[],
+    type: "attraction" | "foodplace" | "hotel"
+  ): (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[] => {
+    if (type === "attraction" || type === "foodplace") {
+      return entities.filter(
+        (entity) =>
+          (entity as IPlannedAttraction | IPlannedFoodPlace).day === null
+      );
+    } else if (type === "hotel") {
+      return entities.filter(
+        (entity) => (entity as IPlannedHotel).isChosen === false
+      );
+    }
+    return [];
   };
 
   const handleAssignToDay = (
@@ -160,38 +170,7 @@ const TripDetailPage = () => {
       );
     }
 
-    updateTripData(updatedData);
-  };
-
-  const handleToggleHotel = (hotel: IPlannedHotel) => {
-    const updatedData = { ...tripData };
-
-    updatedData.selectedHotels = updatedData.selectedHotels.map(
-      (item: IHotel) =>
-        item.entityId === hotel.entityId
-          ? { ...item, isChosen: !hotel.isChosen }
-          : item
-    );
-
-    updateTripData(updatedData);
-  };
-
-  const filterEntitiesForCarousel = (
-    entities: (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[],
-    type: "attraction" | "foodplace" | "hotel"
-  ): (IPlannedAttraction | IPlannedFoodPlace | IPlannedHotel)[] => {
-    if (type === "attraction" || type === "foodplace") {
-      return entities.filter(
-        (entity) =>
-          // (entity as IPlannedAttraction | IPlannedFoodPlace).day === day ||
-          (entity as IPlannedAttraction | IPlannedFoodPlace).day === null
-      );
-    } else if (type === "hotel") {
-      return entities.filter(
-        (entity) => (entity as IPlannedHotel).isChosen === false
-      );
-    }
-    return [];
+    setTripData(updatedData);
   };
 
   return (
@@ -201,33 +180,62 @@ const TripDetailPage = () => {
       </h1>
 
       <Carousel
-        title="Attractions - not assigned to any day"
-        data={filterEntitiesForCarousel(attractionsData, "attraction")}
+        title="Attractions - Unassigned"
+        data={filterUnassignedEntities(attractionsData, "attraction")}
         type="attraction"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
       />
 
       <Carousel
-        title="Food Places - not assigned to any day"
-        data={filterEntitiesForCarousel(foodPlacesData, "foodplace")}
+        title="Food Places - Unassigned"
+        data={filterUnassignedEntities(foodPlacesData, "foodplace")}
         type="foodplace"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
       />
 
+      {Array.from({ length: tripData?.days }, (_, day) => (
+        <div key={day} className="w-full space-y-6">
+          <Carousel
+            title={`Day ${day + 1} - Attractions`}
+            data={filterEntitiesForDay(day + 1, attractionsData)}
+            type="attraction"
+            onAssignToDay={handleAssignToDay}
+            tripDays={tripData?.days || 0}
+          />
+
+          <Carousel
+            title={`Day ${day + 1} - Food Places`}
+            data={filterEntitiesForDay(day + 1, foodPlacesData)}
+            type="foodplace"
+            onAssignToDay={handleAssignToDay}
+            tripDays={tripData?.days || 0}
+          />
+        </div>
+      ))}
+
       <Carousel
-        title="Hotels - not assigned"
-        data={filterEntitiesForCarousel(hotelsData, "hotel")}
+        title="Hotels - Unassigned"
+        data={filterUnassignedEntities(hotelsData, "hotel")}
         type="hotel"
-        onToggleHotel={handleToggleHotel}
+        onToggleHotel={(hotel) => {
+          const updatedData = { ...tripData };
+          updatedData.selectedHotels = updatedData.selectedHotels.map(
+            (item: IHotel) =>
+              item.entityId === hotel.entityId
+                ? { ...item, isChosen: !hotel.isChosen }
+                : item
+          );
+          setTripData(updatedData);
+        }}
       />
 
       {tripData && (
         <button
           type="button"
-          className="mt-4 px-6 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-          onClick={() => navigate(`/trip/edit/${tripData._id}`)}
+          className="mt-4 px-6 py-2 bg-gradient-to-r from-dark-green to-light-green text-white rounded-full font-primaryBold"
+          onClick={() => navigate(`/trip/${tripId}/edit`)}
         >
           Edit Trip
         </button>
