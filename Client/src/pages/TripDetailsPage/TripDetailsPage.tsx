@@ -201,7 +201,7 @@ const TripDetailPage = () => {
       </h1>
 
       <Carousel
-        title="Attractions"
+        title="Attractions - not assigned to any day"
         data={filterEntitiesForCarousel(attractionsData, "attraction")}
         type="attraction"
         onAssignToDay={handleAssignToDay}
@@ -209,18 +209,18 @@ const TripDetailPage = () => {
       />
 
       <Carousel
-        title="Hotels"
-        data={filterEntitiesForCarousel(hotelsData, "hotel")}
-        type="hotel"
-        onToggleHotel={handleToggleHotel}
-      />
-
-      <Carousel
-        title="Food Places"
+        title="Food Places - not assigned to any day"
         data={filterEntitiesForCarousel(foodPlacesData, "foodplace")}
         type="foodplace"
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
+      />
+
+      <Carousel
+        title="Hotels - not assigned"
+        data={filterEntitiesForCarousel(hotelsData, "hotel")}
+        type="hotel"
+        onToggleHotel={handleToggleHotel}
       />
 
       {tripData && (
