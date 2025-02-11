@@ -171,6 +171,7 @@ const TripDetailPage = () => {
     }
 
     setTripData(updatedData);
+    console.log("updatedData", updatedData);
   };
 
   return (
@@ -178,6 +179,22 @@ const TripDetailPage = () => {
       <h1 className="text-3xl font-primaryBold text-center">
         {tripData?.name}
       </h1>
+
+      <Carousel
+        title="Hotels - Unassigned"
+        data={filterUnassignedEntities(hotelsData, "hotel")}
+        type="hotel"
+        onToggleHotel={(hotel) => {
+          const updatedData = { ...tripData };
+          updatedData.selectedHotels = updatedData.selectedHotels.map(
+            (item: IHotel) =>
+              item.entityId === hotel.entityId
+                ? { ...item, isChosen: !hotel.isChosen }
+                : item
+          );
+          setTripData(updatedData);
+        }}
+      />
 
       <Carousel
         title="Attractions - Unassigned"
@@ -214,22 +231,6 @@ const TripDetailPage = () => {
           />
         </div>
       ))}
-
-      <Carousel
-        title="Hotels - Unassigned"
-        data={filterUnassignedEntities(hotelsData, "hotel")}
-        type="hotel"
-        onToggleHotel={(hotel) => {
-          const updatedData = { ...tripData };
-          updatedData.selectedHotels = updatedData.selectedHotels.map(
-            (item: IHotel) =>
-              item.entityId === hotel.entityId
-                ? { ...item, isChosen: !hotel.isChosen }
-                : item
-          );
-          setTripData(updatedData);
-        }}
-      />
 
       {tripData && (
         <button
