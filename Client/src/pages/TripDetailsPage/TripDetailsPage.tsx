@@ -176,7 +176,7 @@ const TripDetailPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
-      <h1 className="text-3xl font-primaryBold text-center">
+      <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
         {tripData?.name}
       </h1>
 
@@ -212,25 +212,43 @@ const TripDetailPage = () => {
         tripDays={tripData?.days || 0}
       />
 
-      {Array.from({ length: tripData?.days }, (_, day) => (
-        <div key={day} className="w-full space-y-6">
-          <Carousel
-            title={`Day ${day + 1} - Attractions`}
-            data={filterEntitiesForDay(day + 1, attractionsData)}
-            type="attraction"
-            onAssignToDay={handleAssignToDay}
-            tripDays={tripData?.days || 0}
-          />
+      {Array.from({ length: tripData?.days }, (_, day) => {
+        const attractionsForDay = filterEntitiesForDay(
+          day + 1,
+          attractionsData
+        );
+        const foodplacesForDay = filterEntitiesForDay(day + 1, foodPlacesData);
 
-          <Carousel
-            title={`Day ${day + 1} - Food Places`}
-            data={filterEntitiesForDay(day + 1, foodPlacesData)}
-            type="foodplace"
-            onAssignToDay={handleAssignToDay}
-            tripDays={tripData?.days || 0}
-          />
-        </div>
-      ))}
+        if (attractionsForDay.length === 0 && foodplacesForDay.length === 0) {
+          return null;
+        }
+
+        return (
+          <div key={day} className="w-full space-y-6">
+            <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
+              <div className="text-center mb-4 text-light-wheat">
+                {`Day ${day + 1}`}
+              </div>
+
+              <Carousel
+                title={`Day ${day + 1} - Attractions`}
+                data={attractionsForDay}
+                type="attraction"
+                onAssignToDay={handleAssignToDay}
+                tripDays={tripData?.days || 0}
+              />
+
+              <Carousel
+                title={`Day ${day + 1} - Food Places`}
+                data={foodplacesForDay}
+                type="foodplace"
+                onAssignToDay={handleAssignToDay}
+                tripDays={tripData?.days || 0}
+              />
+            </div>
+          </div>
+        );
+      })}
 
       {tripData && (
         <button
