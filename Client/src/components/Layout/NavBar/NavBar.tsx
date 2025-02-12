@@ -63,6 +63,9 @@ const NavBar = () => {
               <Link to="/trip/create">
                 <li className="nav-item">Plan a trip</li>
               </Link>
+              <Link to="/my-trips">
+                <li className="nav-item">My Trips</li>
+              </Link>
               <li>
                 <button type="button" onClick={logout} className="nav-item">
                   Log out
@@ -78,13 +81,6 @@ const NavBar = () => {
               </Link>
             </li>
           )}
-          {/* {!isLoggedIn && (
-            <li>
-              <button type="button" onClick={signup} className="nav-item">
-                Sign up
-              </button>
-            </li>
-          )} */}
         </ul>
 
         {/* mobile menu */}
@@ -109,6 +105,9 @@ const NavBar = () => {
                 <Link to="/trip/create">
                   <li className="nav-item">Plan a trip</li>
                 </Link>
+                <Link to="/my-trips">
+                  <li className="nav-item">My Trips</li>
+                </Link>
                 <li>
                   <button type="button" onClick={logout} className="nav-item">
                     Log out
@@ -122,13 +121,6 @@ const NavBar = () => {
                 </button>
               </li>
             )}
-            {/* {!isLoggedIn && (
-              <li>
-                <button type="button" onClick={signup} className="nav-item">
-                  Sign up
-                </button>
-              </li>
-            )} */}
           </ul>
         </div>
       </div>
