@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
-import { Description, Dialog, DialogTitle } from "@headlessui/react";
+import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
 interface Trip {
   _id: string;
@@ -116,7 +116,7 @@ const MyTrips = () => {
       {tripToDelete && (
         <Dialog open={isDeleteDialogOpen} onClose={closeDeleteDialog}>
           <div className="fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50">
-            <Dialog.Panel className="bg-white p-6 rounded-lg max-w-sm w-full">
+            <DialogPanel className="bg-white p-6 rounded-lg max-w-sm w-full">
               <DialogTitle className="text-2xl font-bold text-center">
                 Confirm Deletion
               </DialogTitle>
@@ -137,7 +137,7 @@ const MyTrips = () => {
                   Delete
                 </button>
               </div>
-            </Dialog.Panel>
+            </DialogPanel>
           </div>
         </Dialog>
       )}
