@@ -142,17 +142,19 @@ const TripDetailPage = () => {
   const handleToggleHotel = (hotel: IPlannedHotel) => {
     const updatedData = { ...tripData };
 
+    const shouldDeselect = hotel.isChosen;
+
     updatedData.selectedHotels = updatedData.selectedHotels.map(
       (item: IPlannedHotel) => ({
         ...JSON.parse(JSON.stringify(item)),
-        isChosen: item.entityId === hotel.entityId,
+        isChosen: shouldDeselect ? false : item.entityId === hotel.entityId,
       })
     );
 
     setHotelsData((prevData: IPlannedHotel[]) =>
       prevData.map((item: IPlannedHotel) => ({
         ...JSON.parse(JSON.stringify(item)),
-        isChosen: item.entityId === hotel.entityId,
+        isChosen: shouldDeselect ? false : item.entityId === hotel.entityId,
       }))
     );
 

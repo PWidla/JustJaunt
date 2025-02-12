@@ -72,7 +72,7 @@ const Carousel = ({
             <div className="bg-light-brown p-4 rounded-xl shadow-xl space-y-4">
               <img
                 src={
-                  (data[currentIndex] as any).pictures?.[0] || imgPlaceholder
+                  (data[currentIndex] as any)?.pictures?.[0] || imgPlaceholder
                 }
                 alt={(data[currentIndex] as any).name}
                 className="w-full h-32 object-cover rounded-md"
