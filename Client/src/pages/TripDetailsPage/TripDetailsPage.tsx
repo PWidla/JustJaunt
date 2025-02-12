@@ -32,7 +32,14 @@ const TripDetailPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!tripId) return;
+    if (!tripId) {
+      navigate("/");
+      return;
+    }
+    if (!loggedInUser) {
+      navigate("/login");
+      return;
+    }
 
     const fetchTripData = async () => {
       if (!tripId || !loggedInUser) return;
