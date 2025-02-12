@@ -23,6 +23,28 @@ router.get("/:tripId", async (req: Request, res: Response): Promise<any> => {
   }
 });
 
+router.get(
+  "/user/:userId",
+  async (req: Request, res: Response): Promise<any> => {
+    const { userId } = req.params;
+    console.log("userId", userId);
+    try {
+      const trips = await Trip.find({ userId });
+      console.log("trips", trips);
+      if (!trips || trips.length === 0) {
+        return res
+          .status(404)
+          .json({ message: "No trips found for this user." });
+      }
+
+      res.status(200).json({ trips });
+    } catch (error) {
+      console.error("Error fetching trips:", error);
+      res.status(500).json({ message: "Failed to fetch trips data" });
+    }
+  }
+);
+
 router.post(
   "/save-with-days",
   async (req: Request, res: Response): Promise<any> => {
