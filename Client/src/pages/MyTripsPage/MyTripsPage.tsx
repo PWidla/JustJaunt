@@ -113,7 +113,6 @@ const MyTrips = () => {
         </div>
       )}
 
-      {/* Delete Confirmation Dialog */}
       {tripToDelete && (
         <Dialog open={isDeleteDialogOpen} onClose={closeDeleteDialog}>
           <div className="fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50">
@@ -122,7 +121,7 @@ const MyTrips = () => {
                 Confirm Deletion
               </Dialog.Title>
               <Dialog.Description className="mt-2 text-center">
-                Are you sure you want to delete the trip "{tripToDelete.name}"?
+                Are you sure you want to delete this trip?
               </Dialog.Description>
               <div className="mt-4 flex justify-around">
                 <button
