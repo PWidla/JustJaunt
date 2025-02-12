@@ -139,6 +139,27 @@ const TripDetailPage = () => {
     return [];
   };
 
+  const handleToggleHotel = (hotel: IPlannedHotel) => {
+    const updatedData = { ...tripData };
+
+    updatedData.selectedHotels = updatedData.selectedHotels.map(
+      (item: IPlannedHotel) => ({
+        ...JSON.parse(JSON.stringify(item)),
+        isChosen: item.entityId === hotel.entityId,
+      })
+    );
+
+    setHotelsData((prevData: IPlannedHotel[]) =>
+      prevData.map((item: IPlannedHotel) => ({
+        ...JSON.parse(JSON.stringify(item)),
+        isChosen: item.entityId === hotel.entityId,
+      }))
+    );
+
+    setTripData(updatedData);
+    console.log("hotel updatedData", updatedData);
+  };
+
   const handleAssignToDay = (
     entity: IPlannedAttraction | IPlannedFoodPlace,
     day: number | null,
@@ -182,18 +203,9 @@ const TripDetailPage = () => {
 
       <Carousel
         title="Hotels - Unassigned"
-        data={filterUnassignedEntities(hotelsData, "hotel")}
+        data={hotelsData.filter((hotel) => !hotel.isChosen)}
         type="hotel"
-        onToggleHotel={(hotel) => {
-          const updatedData = { ...tripData };
-          updatedData.selectedHotels = updatedData.selectedHotels.map(
-            (item: IHotel) =>
-              item.entityId === hotel.entityId
-                ? { ...item, isChosen: !hotel.isChosen }
-                : item
-          );
-          setTripData(updatedData);
-        }}
+        onToggleHotel={handleToggleHotel}
       />
 
       <Carousel
@@ -211,6 +223,19 @@ const TripDetailPage = () => {
         onAssignToDay={handleAssignToDay}
         tripDays={tripData?.days || 0}
       />
+
+      {hotelsData.some((hotel) => hotel.isChosen) && (
+        <div className="w-full space-y-6">
+          <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
+            <Carousel
+              title="Selected Hotel"
+              data={hotelsData.filter((hotel) => hotel.isChosen)}
+              type="hotel"
+              onToggleHotel={handleToggleHotel}
+            />
+          </div>
+        </div>
+      )}
 
       {Array.from({ length: tripData?.days }, (_, day) => {
         const attractionsForDay = filterEntitiesForDay(
