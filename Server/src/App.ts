@@ -3,6 +3,9 @@ import { connectDB } from "./dbCon";
 import cors from "cors";
 import authRouter from "./routes/auth";
 import tripRouter from "./routes/trip";
+import attractionRouter from "./routes/attractions";
+import foodPlaces from "./routes/foodplaces";
+import hotelRouter from "./routes/hotels";
 
 const app = express();
 const PORT = 3000;
@@ -18,6 +21,9 @@ app.use(
 
 app.use("/api", authRouter);
 app.use("/trip", tripRouter);
+app.use("/attractions", attractionRouter);
+app.use("/foodplaces", foodPlaces);
+app.use("/hotels", hotelRouter);
 
 connectDB()
   .then(() => {

@@ -1,11 +1,11 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IAttraction extends Document {
+export interface IAttraction extends Document {
   entityId: string;
   name: string;
   description: string;
   geoCode: { latitude: number; longitude: number };
-  picture: string;
+  pictures: string[];
 }
 
 const AttractionSchema: Schema = new Schema(
@@ -17,7 +17,7 @@ const AttractionSchema: Schema = new Schema(
       latitude: { type: Number, required: true },
       longitude: { type: Number, required: true },
     },
-    picture: { type: String, required: false },
+    pictures: { type: [String], default: [] },
   },
   { versionKey: false }
 );
@@ -26,17 +26,6 @@ AttractionSchema.pre("save", function (next) {
   if (this.id && !this.entityId) {
     this.entityId = this.id;
   }
-
-  if (
-    this.pictures &&
-    Array.isArray(this.pictures) &&
-    this.pictures.length > 0
-  ) {
-    this.picture = this.pictures[0];
-  } else {
-    this.picture = null;
-  }
-
   next();
 });
 

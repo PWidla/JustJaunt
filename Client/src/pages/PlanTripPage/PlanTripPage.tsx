@@ -26,10 +26,12 @@ const PlanTripPage = () => {
   );
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [days, setDays] = useState(1);
 
   const selectedHotels = useAppStore((state) => state.selectedHotels);
-  const selectedAttractions = useAppStore((state) => state.selectedFoodPlaces);
+  const selectedAttractions = useAppStore((state) => state.selectedAttractions);
   const selectedFoodPlaces = useAppStore((state) => state.selectedFoodPlaces);
+  const { clearAllSelections } = useAppStore();
 
   const locationMock = getMockLocations();
 
@@ -101,13 +103,13 @@ const PlanTripPage = () => {
     setIsButtonDisabled(true);
 
     try {
-      console.log("handleSaveSelectedObjects do api");
-      console.log(loggedInUser);
-      console.log(loggedInUser.id);
-      console.log(selectedAttractions);
-      console.log(selectedHotels);
-      console.log(selectedFoodPlaces);
-
+      console.log("Saving trip with data:", {
+        userId: loggedInUser.id,
+        selectedAttractions,
+        selectedHotels,
+        selectedFoodPlaces,
+        days,
+      });
       const response = await fetch(
         "http://localhost:3000/trip/save-with-days",
         {
@@ -120,22 +122,24 @@ const PlanTripPage = () => {
             selectedAttractions,
             selectedHotels,
             selectedFoodPlaces,
+            days,
           }),
         }
       );
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("response ok.data");
-        console.log(data);
-        console.log("Trip saved successfully:", data);
-        navigate(`/trip-details/${data.trip._id}`);
-      } else {
-        console.error("Failed to save trip:", response.statusText);
+      if (!response.ok) {
         setIsButtonDisabled(false);
+        throw new Error(`Failed to save trip: ${response.statusText}`);
       }
+
+      const data = await response.json();
+      console.log("response ok.data", data);
+      console.log("Trip saved successfully:", data);
+      clearAllSelections();
+      navigate(`/trip/${data.trip._id}`);
     } catch (error) {
       console.error("Error saving trip:", error);
+      setIsButtonDisabled(false);
     }
   };
 
@@ -194,14 +198,37 @@ const PlanTripPage = () => {
           selectedFoodPlaces.length < 7 &&
           selectedHotels.length > 0 &&
           selectedHotels.length < 3 ? (
-            <button
-              type="button"
-              className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
-              onClick={handleSaveSelectedObjects}
-              disabled={isButtonDisabled}
-            >
-              Save selected objects and arrange your trip.
-            </button>
+            <>
+              <div className="flex flex-col items-center mt-4">
+                <span className="text-lg">How many days?</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="4"
+                  value={days}
+                  onChange={(e) => {
+                    const value = Number(e.target.value);
+                    if (!isNaN(value) && value >= 1 && value <= 4) {
+                      //limited to 4 because of activities limit
+                      setDays(value);
+                    }
+                  }}
+                  className="p-2 text-black rounded-md w-20 text-center"
+                />
+                {days > 4 && (
+                  <p className="text-red-500 text-sm">Max 4 days allowed</p>
+                )}
+              </div>
+
+              <button
+                type="button"
+                className="mt-2 px-3 py-2 bg-gradient-to-r from-dark-brown to-light-brown text-white hover:text-dark-green rounded-3xl transition-colors duration-300 hover:font-primaryBold"
+                onClick={handleSaveSelectedObjects}
+                disabled={isButtonDisabled}
+              >
+                Save selected objects and arrange your trip.
+              </button>
+            </>
           ) : (
             <p className="text-center font-primaryBold md:text-3xl pb-20">
               Please select at least 3 attractions, 3 food places, and 1 hotel

@@ -6,15 +6,35 @@ import { FoodPlace } from "../models/foodPlace";
 
 const router = express.Router();
 
+router.get("/:tripId", async (req: Request, res: Response): Promise<any> => {
+  const { tripId } = req.params;
+
+  try {
+    const trip = await Trip.findById(tripId);
+
+    if (!trip) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+
+    res.status(200).json({ trip });
+  } catch (error) {
+    console.error("Error fetching trip:", error);
+    res.status(500).json({ message: "Failed to fetch trip data" });
+  }
+});
+
 router.post(
   "/save-with-days",
   async (req: Request, res: Response): Promise<any> => {
+    console.log("Received body:", req.body);
+
     const {
       tripId,
       userId,
       selectedAttractions,
       selectedHotels,
       selectedFoodPlaces,
+      days,
     } = req.body;
 
     if (!userId) {
@@ -36,10 +56,11 @@ router.post(
           selectedAttractions: [],
           selectedHotels: [],
           selectedFoodPlaces: [],
+          days: days || 1,
         });
       }
-      console.log("trip");
-      console.log(trip);
+
+      console.log("Trip found/created:", trip);
 
       if (trip.userId.toString() !== userId) {
         return res
@@ -72,8 +93,11 @@ router.post(
       trip.selectedAttractions = selectedAttractions;
       trip.selectedHotels = selectedHotels;
       trip.selectedFoodPlaces = selectedFoodPlaces;
+      trip.days = days;
 
       await trip.save();
+
+      console.log("Final saved trip:", trip);
 
       res.status(201).json({
         message: "Trip saved or updated successfully.",

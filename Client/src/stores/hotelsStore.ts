@@ -4,6 +4,7 @@ interface HotelsSlice {
   selectedHotels: AmadeusHotel[];
   addHotel: (hotel: AmadeusHotel) => void;
   removeHotel: (hotelDupeId: number) => void;
+  clearHotels: () => void;
 }
 
 export const createHotelsSlice = (set: Function): HotelsSlice => ({
@@ -25,4 +26,6 @@ export const createHotelsSlice = (set: Function): HotelsSlice => ({
         (hotel) => hotel.dupeId !== hotelDupeId
       ),
     })),
+
+  clearHotels: () => set({ selectedHotels: [] }),
 });

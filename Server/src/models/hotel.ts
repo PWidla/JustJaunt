@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IHotel extends Document {
+export interface IHotel extends Document {
   entityId: string;
   name: string;
   geoCode: { latitude: number; longitude: number };

@@ -4,6 +4,7 @@ interface FoodPlacesSlice {
   selectedFoodPlaces: AmadeusActivity[];
   addFoodPlace: (foodPlace: AmadeusActivity) => void;
   removeFoodPlace: (foodPlaceId: string) => void;
+  clearFoodPlaces: () => void;
 }
 
 export const createFoodPlacesSlice = (set: Function): FoodPlacesSlice => ({
@@ -25,4 +26,6 @@ export const createFoodPlacesSlice = (set: Function): FoodPlacesSlice => ({
         (place) => place.id !== foodPlaceId
       ),
     })),
+
+  clearFoodPlaces: () => set({ selectedFoodPlaces: [] }),
 });
