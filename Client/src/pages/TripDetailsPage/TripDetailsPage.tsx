@@ -115,6 +115,45 @@ const TripDetailPage = () => {
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
 
+  const saveUpdatedTrip = async () => {
+    if (!tripData || !loggedInUser) return;
+
+    if (tripData.userId !== loggedInUser.id) {
+      console.warn("Unauthorized: You are not the owner of this trip.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "http://localhost:3000/trip/save-with-days",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tripId: tripData._id,
+            userId: tripData.userId,
+            selectedAttractions: tripData.selectedAttractions,
+            selectedHotels: tripData.selectedHotels,
+            selectedFoodPlaces: tripData.selectedFoodPlaces,
+            days: tripData.days,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to save trip");
+      }
+
+      const data = await response.json();
+      console.log("Trip saved:", data);
+    } catch (error) {
+      console.error("Error saving trip:", error);
+    }
+  };
+
   const filterEntitiesForDay = (
     day: number,
     entities: (IPlannedAttraction | IPlannedFoodPlace)[]
@@ -281,9 +320,9 @@ const TripDetailPage = () => {
         <button
           type="button"
           className="mt-4 px-6 py-2 bg-gradient-to-r from-dark-green to-light-green text-white rounded-full font-primaryBold"
-          onClick={() => navigate(`/trip/${tripId}/edit`)}
+          onClick={saveUpdatedTrip}
         >
-          Edit Trip
+          Save
         </button>
       )}
     </div>
