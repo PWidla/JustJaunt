@@ -21,6 +21,7 @@ export interface IPlannedFoodPlace extends IFoodPlace {
 const TripDetailPage = () => {
   const { loggedInUser } = useAuth();
   const { tripId } = useParams<{ tripId: string }>();
+  const [isShared, setIsShared] = useState(false);
   const [tripData, setTripData] = useState<any>(null);
   const [attractionsData, setAttractionsData] = useState<IPlannedAttraction[]>(
     []
@@ -36,22 +37,28 @@ const TripDetailPage = () => {
       navigate("/");
       return;
     }
-    if (!loggedInUser) {
-      navigate("/login");
-      return;
-    }
+    // if (!loggedInUser) {
+    //   navigate("/login");
+    //   return;
+    // }
 
     const fetchTripData = async () => {
       if (!tripId || !loggedInUser) return;
 
       try {
-        const response = await fetch(`http://localhost:3000/trip/${tripId}`);
+        const userIdParam = loggedInUser ? `&userId=${loggedInUser.id}` : "";
+        const response = await fetch(
+          `http://localhost:3000/trip/${tripId}?${userIdParam}`
+        );
+        // const response = await fetch(`http://localhost:3000/trip/${tripId}`);
         if (!response.ok) throw new Error("Failed to fetch trip data");
 
         const data = await response.json();
 
         if (!loggedInUser) return navigate("/login");
-        if (data.trip.userId !== loggedInUser?.id) return navigate("/");
+        if (!data.trip.isShared && loggedInUser?.id !== data.trip.userId) {
+          return navigate("/");
+        }
 
         setTripData(data.trip);
 
@@ -141,6 +148,7 @@ const TripDetailPage = () => {
           body: JSON.stringify({
             tripId: tripData._id,
             userId: tripData.userId,
+            isShared: tripData.isShared,
             selectedAttractions: tripData.selectedAttractions,
             selectedHotels: tripData.selectedHotels,
             selectedFoodPlaces: tripData.selectedFoodPlaces,
@@ -243,11 +251,49 @@ const TripDetailPage = () => {
     console.log("updatedData", updatedData);
   };
 
+  const copyTripLink = () => {
+    const tripLink = `${window.location.origin}/trip/${tripId}`;
+    navigator.clipboard.writeText(tripLink);
+    alert("Trip link copied!");
+  };
+
+  const toggleShareTrip = () => {
+    console.log("toggleShareTrip");
+    setIsShared(!isShared);
+
+    const updatedData = { ...tripData };
+    updatedData.isShared = isShared;
+    setTripData(updatedData);
+    console.log("updatedData", updatedData);
+
+    console.log("toggleShareTrip end");
+  };
+
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
       <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
         {tripData?.name}
       </h1>
+
+      {tripData?.isShared && (
+        <button
+          className="px-4 py-2 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition"
+          onClick={copyTripLink}
+        >
+          Copy Trip Link
+        </button>
+      )}
+
+      <button
+        className={`px-4 py-2 rounded-lg shadow-md transition ${
+          tripData?.isShared
+            ? "bg-red-600 hover:bg-red-500"
+            : "bg-green-600 hover:bg-green-500"
+        }`}
+        onClick={toggleShareTrip}
+      >
+        {tripData?.isShared ? "Disable Sharing" : "Enable Sharing"}
+      </button>
 
       <Carousel
         title="Hotels - Unassigned"
