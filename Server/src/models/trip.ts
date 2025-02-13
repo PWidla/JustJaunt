@@ -12,6 +12,7 @@ interface TripHotel {
 
 interface ITrip extends Document {
   userId: string;
+  isShared: boolean;
   selectedAttractions: TripActivity[];
   selectedFoodPlaces: TripActivity[];
   selectedHotels: TripHotel[];
@@ -21,6 +22,7 @@ interface ITrip extends Document {
 const TripSchema: Schema = new Schema(
   {
     userId: { type: String, required: true },
+    isShared: { type: Boolean, required: true, default: false },
     selectedAttractions: [
       {
         entityId: { type: String, required: true },
