@@ -8,12 +8,22 @@ const router = express.Router();
 
 router.get("/:tripId", async (req: Request, res: Response): Promise<any> => {
   const { tripId } = req.params;
+  const { userId } = req.query;
 
   try {
     const trip = await Trip.findById(tripId);
 
     if (!trip) {
       return res.status(404).json({ message: "Trip not found" });
+    }
+
+    if (!trip.isShared) {
+      if (!userId) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+      if (userId !== trip.userId) {
+        return res.status(403).json({ message: "Access denied" });
+      }
     }
 
     res.status(200).json({ trip });
