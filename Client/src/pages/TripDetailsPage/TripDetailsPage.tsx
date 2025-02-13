@@ -37,10 +37,6 @@ const TripDetailPage = () => {
       navigate("/");
       return;
     }
-    // if (!loggedInUser) {
-    //   navigate("/login");
-    //   return;
-    // }
 
     const fetchTripData = async () => {
       if (!tripId || !loggedInUser) return;
@@ -50,7 +46,7 @@ const TripDetailPage = () => {
         const response = await fetch(
           `http://localhost:3000/trip/${tripId}?${userIdParam}`
         );
-        // const response = await fetch(`http://localhost:3000/trip/${tripId}`);
+
         if (!response.ok) throw new Error("Failed to fetch trip data");
 
         const data = await response.json();
@@ -114,6 +110,7 @@ const TripDetailPage = () => {
         setAttractionsData(plannedAttractions);
         setHotelsData(plannedHotels);
         setFoodPlacesData(plannedFoodPlaces);
+        setIsShared(data.trip.isShared);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -138,6 +135,7 @@ const TripDetailPage = () => {
     }
 
     try {
+      console.log(tripData);
       const response = await fetch(
         "http://localhost:3000/trip/save-with-days",
         {
@@ -259,10 +257,8 @@ const TripDetailPage = () => {
 
   const toggleShareTrip = () => {
     console.log("toggleShareTrip");
-    setIsShared(!isShared);
-
     const updatedData = { ...tripData };
-    updatedData.isShared = isShared;
+    updatedData.isShared = !updatedData.isShared;
     setTripData(updatedData);
     console.log("updatedData", updatedData);
 

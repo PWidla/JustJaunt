@@ -63,6 +63,7 @@ router.post(
     const {
       tripId,
       userId,
+      isShared,
       selectedAttractions,
       selectedHotels,
       selectedFoodPlaces,
@@ -85,6 +86,7 @@ router.post(
         }
         trip = new Trip({
           userId,
+          isShared,
           selectedAttractions: [],
           selectedHotels: [],
           selectedFoodPlaces: [],
@@ -126,6 +128,7 @@ router.post(
       trip.selectedHotels = selectedHotels;
       trip.selectedFoodPlaces = selectedFoodPlaces;
       trip.days = days;
+      trip.isShared = isShared;
 
       await trip.save();
 
