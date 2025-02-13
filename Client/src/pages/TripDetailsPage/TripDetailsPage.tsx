@@ -21,7 +21,6 @@ export interface IPlannedFoodPlace extends IFoodPlace {
 const TripDetailPage = () => {
   const { loggedInUser } = useAuth();
   const { tripId } = useParams<{ tripId: string }>();
-  const [isShared, setIsShared] = useState(false);
   const [tripData, setTripData] = useState<any>(null);
   const [attractionsData, setAttractionsData] = useState<IPlannedAttraction[]>(
     []
@@ -110,7 +109,6 @@ const TripDetailPage = () => {
         setAttractionsData(plannedAttractions);
         setHotelsData(plannedHotels);
         setFoodPlacesData(plannedFoodPlaces);
-        setIsShared(data.trip.isShared);
       } catch (err: any) {
         setError(err.message);
       } finally {
