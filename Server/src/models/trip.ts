@@ -28,7 +28,7 @@ interface ITrip extends Document {
 const TripSchema: Schema = new Schema(
   {
     userId: { type: String, required: true },
-    isShared: { type: Boolean, required: true, default: false },
+    isShared: { type: Boolean, required: false, default: false },
     selectedAttractions: [
       {
         entityId: { type: String, required: true },
