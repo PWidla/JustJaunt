@@ -287,6 +287,49 @@ const TripDetailPage = () => {
     setPackingList(packingList.filter((_, i) => i !== index));
   };
 
+  const exportTripPlanToTextFile = () => {
+    if (!tripData) return;
+
+    const attractionsList = attractionsData
+      .map(
+        (attraction) =>
+          `${attraction.name} (Day: ${attraction.day || "Unassigned"})`
+      )
+      .join("\n");
+
+    const foodPlacesList = foodPlacesData
+      .map(
+        (foodplace) =>
+          `${foodplace.name} (Day: ${foodplace.day || "Unassigned"})`
+      )
+      .join("\n");
+
+    const packingListContent = packingList
+      .map(
+        (item) => `${item.name} - ${item.isChecked ? "Checked" : "Not Checked"}`
+      )
+      .join("\n");
+
+    const content = `
+      Trip.
+      
+      Attractions:
+      ${attractionsList}
+
+      Food Places:
+      ${foodPlacesList}
+
+      Packing List:
+      ${packingListContent}
+    `;
+
+    const blob = new Blob([content], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Trip_Plan.txt`;
+    link.click();
+  };
+
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
       <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
@@ -311,6 +354,14 @@ const TripDetailPage = () => {
         onClick={toggleShareTrip}
       >
         {tripData?.isShared ? "Disable Sharing" : "Enable Sharing"}
+      </button>
+
+      <button
+        type="button"
+        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full font-primaryBold"
+        onClick={exportTripPlanToTextFile}
+      >
+        Export Trip Plan to Text File
       </button>
 
       <Carousel
