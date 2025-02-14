@@ -68,6 +68,7 @@ router.post(
       selectedHotels,
       selectedFoodPlaces,
       days,
+      packingList,
     } = req.body;
 
     if (!userId) {
@@ -91,6 +92,7 @@ router.post(
           selectedHotels: [],
           selectedFoodPlaces: [],
           days: days || 1,
+          packingList: [],
         });
       }
 
@@ -129,6 +131,7 @@ router.post(
       trip.selectedFoodPlaces = selectedFoodPlaces;
       trip.days = days;
       trip.isShared = isShared;
+      trip.packingList = packingList;
 
       await trip.save();
 
