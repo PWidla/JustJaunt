@@ -5,6 +5,7 @@ import Carousel from "../../components/GeneralComponents/Carousel";
 import { IAttraction } from "../../../../Server/src/models/attraction";
 import { IHotel } from "../../../../Server/src/models/hotel";
 import { IFoodPlace } from "../../../../Server/src/models/foodPlace";
+import { PackingItem } from "./PackingList";
 
 export interface IPlannedAttraction extends IAttraction {
   day: number | null;
@@ -27,6 +28,9 @@ const TripDetailPage = () => {
   );
   const [hotelsData, setHotelsData] = useState<IPlannedHotel[]>([]);
   const [foodPlacesData, setFoodPlacesData] = useState<IPlannedFoodPlace[]>([]);
+  const [packingList, setPackingList] = useState<PackingItem[]>([]);
+  const [newItem, setNewItem] = useState<string>("");
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -56,6 +60,7 @@ const TripDetailPage = () => {
         }
 
         setTripData(data.trip);
+        setPackingList(data.trip.packingList || []);
 
         const fetchDetails = async (entityIds: string[], type: string) => {
           if (entityIds.length === 0) return [];
@@ -148,6 +153,7 @@ const TripDetailPage = () => {
             selectedAttractions: tripData.selectedAttractions,
             selectedHotels: tripData.selectedHotels,
             selectedFoodPlaces: tripData.selectedFoodPlaces,
+            packingList: packingList,
             days: tripData.days,
           }),
         }
@@ -263,6 +269,24 @@ const TripDetailPage = () => {
     console.log("toggleShareTrip end");
   };
 
+  const handleTogglePackingItem = (index: number) => {
+    setPackingList(
+      packingList.map((item, i) =>
+        i === index ? { ...item, isChecked: !item.isChecked } : item
+      )
+    );
+  };
+
+  const handleAddPackingItem = () => {
+    if (!newItem.trim()) return;
+    setPackingList([...packingList, { name: newItem, isChecked: false }]);
+    setNewItem("");
+  };
+
+  const handleRemovePackingItem = (index: number) => {
+    setPackingList(packingList.filter((_, i) => i !== index));
+  };
+
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
       <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
@@ -362,6 +386,50 @@ const TripDetailPage = () => {
           </div>
         );
       })}
+
+      <div className="w-full max-w-md p-4 bg-gray-800 text-white rounded-lg shadow-lg">
+        <h2 className="text-xl font-semibold mb-3">Packing List</h2>
+        <ul className="space-y-2">
+          {packingList.map((item, index) => (
+            <li key={index} className="flex items-center justify-between">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={item.isChecked}
+                  onChange={() => handleTogglePackingItem(index)}
+                  className="w-5 h-5"
+                />
+                <span
+                  className={item.isChecked ? "line-through text-gray-400" : ""}
+                >
+                  {item.name}
+                </span>
+              </label>
+              <button
+                onClick={() => handleRemovePackingItem(index)}
+                className="text-red-400 hover:text-red-500"
+              >
+                ✕
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 flex space-x-2">
+          <input
+            type="text"
+            placeholder="Add an item..."
+            value={newItem}
+            onChange={(e) => setNewItem(e.target.value)}
+            className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+          />
+          <button
+            onClick={handleAddPackingItem}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+          >
+            Add Item
+          </button>
+        </div>
+      </div>
 
       {tripData && (
         <button
