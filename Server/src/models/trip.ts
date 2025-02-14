@@ -10,12 +10,18 @@ interface TripHotel {
   isChosen: boolean;
 }
 
+interface PackingItem {
+  name: string;
+  isChecked: boolean;
+}
+
 interface ITrip extends Document {
   userId: string;
   isShared: boolean;
   selectedAttractions: TripActivity[];
   selectedFoodPlaces: TripActivity[];
   selectedHotels: TripHotel[];
+  packingList: PackingItem[];
   days: Number;
 }
 
@@ -39,6 +45,12 @@ const TripSchema: Schema = new Schema(
       {
         entityId: { type: String, required: true },
         day: { type: Number, required: false, default: null },
+      },
+    ],
+    packingList: [
+      {
+        name: { type: String, required: true },
+        isChecked: { type: Boolean, default: false },
       },
     ],
     days: { type: Number, required: true },
