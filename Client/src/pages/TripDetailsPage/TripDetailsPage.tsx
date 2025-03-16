@@ -50,6 +50,11 @@ const TripDetailPage = () => {
           `http://localhost:3000/trip/${tripId}?${userIdParam}`
         );
 
+        if (response.status === 403) {
+          setError("You do not have permission to view this trip.");
+          return;
+        }
+
         if (!response.ok) throw new Error("Failed to fetch trip data");
 
         const data = await response.json();
@@ -126,7 +131,7 @@ const TripDetailPage = () => {
 
   if (isLoading)
     return <div className="text-center text-white">Loading...</div>;
-  if (error)
+  if (error && error != "You do not have permission to view this trip.")
     return <div className="text-center text-red-500">Error: {error}</div>;
 
   const saveUpdatedTrip = async () => {
@@ -326,170 +331,186 @@ const TripDetailPage = () => {
     const blob = new Blob([content], { type: "text/plain" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `Trip_Plan.txt`;
+    link.download = `Trip_Plan_${tripData._id}.txt`;
     link.click();
   };
 
   return (
     <div className="flex flex-col items-center justify-start bg-gradient-to-r from-dark-green to-light-green text-white w-full min-h-screen pt-8 space-y-6 font-primaryRegular">
-      <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
-        {tripData?.name}
-      </h1>
-
-      {tripData?.isShared && (
-        <button
-          className="px-4 py-2 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition"
-          onClick={copyTripLink}
-        >
-          Copy Trip Link
-        </button>
-      )}
-
-      <button
-        className={`px-4 py-2 rounded-lg shadow-md transition ${
-          tripData?.isShared
-            ? "bg-red-600 hover:bg-red-500"
-            : "bg-green-600 hover:bg-green-500"
-        }`}
-        onClick={toggleShareTrip}
-      >
-        {tripData?.isShared ? "Disable Sharing" : "Enable Sharing"}
-      </button>
-
-      <button
-        type="button"
-        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full font-primaryBold"
-        onClick={exportTripPlanToTextFile}
-      >
-        Export Trip Plan to Text File
-      </button>
-
-      <Carousel
-        title="Hotels - Unassigned"
-        data={hotelsData.filter((hotel) => !hotel.isChosen)}
-        type="hotel"
-        onToggleHotel={handleToggleHotel}
-      />
-
-      <Carousel
-        title="Attractions - Unassigned"
-        data={filterUnassignedEntities(attractionsData, "attraction")}
-        type="attraction"
-        onAssignToDay={handleAssignToDay}
-        tripDays={tripData?.days || 0}
-      />
-
-      <Carousel
-        title="Food Places - Unassigned"
-        data={filterUnassignedEntities(foodPlacesData, "foodplace")}
-        type="foodplace"
-        onAssignToDay={handleAssignToDay}
-        tripDays={tripData?.days || 0}
-      />
-
-      {hotelsData.some((hotel) => hotel.isChosen) && (
-        <div className="w-full space-y-6">
-          <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
-            <Carousel
-              title="Selected Hotel"
-              data={hotelsData.filter((hotel) => hotel.isChosen)}
-              type="hotel"
-              onToggleHotel={handleToggleHotel}
-            />
-          </div>
+      {error ? (
+        <div className="bg-red-600 text-white text-2xl font-bold p-4 rounded-lg text-center">
+          {error}
         </div>
-      )}
+      ) : (
+        <>
+          <h1 className="text-3xl font-primaryBold text-center text-light-wheat">
+            {tripData?.name}
+          </h1>
 
-      {Array.from({ length: tripData?.days }, (_, day) => {
-        const attractionsForDay = filterEntitiesForDay(
-          day + 1,
-          attractionsData
-        );
-        const foodplacesForDay = filterEntitiesForDay(day + 1, foodPlacesData);
+          {tripData?.isShared && (
+            <button
+              className="px-4 py-2 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition"
+              onClick={copyTripLink}
+            >
+              Copy trip link
+            </button>
+          )}
 
-        if (attractionsForDay.length === 0 && foodplacesForDay.length === 0) {
-          return null;
-        }
+          <button
+            className={`px-4 py-2 rounded-lg shadow-md transition ${
+              tripData?.isShared
+                ? "bg-red-600 hover:bg-red-500"
+                : "bg-green-600 hover:bg-green-500"
+            }`}
+            onClick={toggleShareTrip}
+          >
+            {tripData?.isShared ? "Disable sharing" : "Enable sharing"}
+          </button>
 
-        return (
-          <div key={day} className="w-full space-y-6">
-            <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
-              <div className="text-center mb-4 text-light-wheat">
-                {`Day ${day + 1}`}
+          <button
+            type="button"
+            className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full font-primaryBold"
+            onClick={exportTripPlanToTextFile}
+          >
+            Export trip plan to text file
+          </button>
+
+          <Carousel
+            title="Hotels - Unassigned"
+            data={hotelsData.filter((hotel) => !hotel.isChosen)}
+            type="hotel"
+            onToggleHotel={handleToggleHotel}
+          />
+
+          <Carousel
+            title="Attractions - Unassigned"
+            data={filterUnassignedEntities(attractionsData, "attraction")}
+            type="attraction"
+            onAssignToDay={handleAssignToDay}
+            tripDays={tripData?.days || 0}
+          />
+
+          <Carousel
+            title="Food Places - Unassigned"
+            data={filterUnassignedEntities(foodPlacesData, "foodplace")}
+            type="foodplace"
+            onAssignToDay={handleAssignToDay}
+            tripDays={tripData?.days || 0}
+          />
+
+          {hotelsData.some((hotel) => hotel.isChosen) && (
+            <div className="w-full space-y-6">
+              <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
+                <Carousel
+                  title="Selected Hotel"
+                  data={hotelsData.filter((hotel) => hotel.isChosen)}
+                  type="hotel"
+                  onToggleHotel={handleToggleHotel}
+                />
               </div>
+            </div>
+          )}
 
-              <Carousel
-                title={`Day ${day + 1} - Attractions`}
-                data={attractionsForDay}
-                type="attraction"
-                onAssignToDay={handleAssignToDay}
-                tripDays={tripData?.days || 0}
-              />
+          {Array.from({ length: tripData?.days }, (_, day) => {
+            const attractionsForDay = filterEntitiesForDay(
+              day + 1,
+              attractionsData
+            );
+            const foodplacesForDay = filterEntitiesForDay(
+              day + 1,
+              foodPlacesData
+            );
 
-              <Carousel
-                title={`Day ${day + 1} - Food Places`}
-                data={foodplacesForDay}
-                type="foodplace"
-                onAssignToDay={handleAssignToDay}
-                tripDays={tripData?.days || 0}
+            if (
+              attractionsForDay.length === 0 &&
+              foodplacesForDay.length === 0
+            ) {
+              return null;
+            }
+
+            return (
+              <div key={day} className="w-full space-y-6">
+                <div className="bg-green-950 p-4 rounded-lg shadow-lg text-white text-xl font-semibold border-t-4 border-dark-green">
+                  <div className="text-center mb-4 text-light-wheat">
+                    {`Day ${day + 1}`}
+                  </div>
+
+                  <Carousel
+                    title={`Day ${day + 1} - Attractions`}
+                    data={attractionsForDay}
+                    type="attraction"
+                    onAssignToDay={handleAssignToDay}
+                    tripDays={tripData?.days || 0}
+                  />
+
+                  <Carousel
+                    title={`Day ${day + 1} - Food Places`}
+                    data={foodplacesForDay}
+                    type="foodplace"
+                    onAssignToDay={handleAssignToDay}
+                    tripDays={tripData?.days || 0}
+                  />
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="w-full max-w-md p-4 bg-gray-800 text-white rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold mb-3">Packing List</h2>
+            <ul className="space-y-2">
+              {packingList.map((item, index) => (
+                <li key={index} className="flex items-center justify-between">
+                  <label className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={item.isChecked}
+                      onChange={() => handleTogglePackingItem(index)}
+                      className="w-5 h-5"
+                    />
+                    <span
+                      className={
+                        item.isChecked ? "line-through text-gray-400" : ""
+                      }
+                    >
+                      {item.name}
+                    </span>
+                  </label>
+                  <button
+                    onClick={() => handleRemovePackingItem(index)}
+                    className="text-red-400 hover:text-red-500"
+                  >
+                    ✕
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 flex space-x-2">
+              <input
+                type="text"
+                placeholder="Add an item..."
+                value={newItem}
+                onChange={(e) => setNewItem(e.target.value)}
+                className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
               />
+              <button
+                onClick={handleAddPackingItem}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+              >
+                Add Item
+              </button>
             </div>
           </div>
-        );
-      })}
 
-      <div className="w-full max-w-md p-4 bg-gray-800 text-white rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-3">Packing List</h2>
-        <ul className="space-y-2">
-          {packingList.map((item, index) => (
-            <li key={index} className="flex items-center justify-between">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  checked={item.isChecked}
-                  onChange={() => handleTogglePackingItem(index)}
-                  className="w-5 h-5"
-                />
-                <span
-                  className={item.isChecked ? "line-through text-gray-400" : ""}
-                >
-                  {item.name}
-                </span>
-              </label>
-              <button
-                onClick={() => handleRemovePackingItem(index)}
-                className="text-red-400 hover:text-red-500"
-              >
-                ✕
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-4 flex space-x-2">
-          <input
-            type="text"
-            placeholder="Add an item..."
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
-            className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
-          />
-          <button
-            onClick={handleAddPackingItem}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg"
-          >
-            Add Item
-          </button>
-        </div>
-      </div>
-
-      {tripData && (
-        <button
-          type="button"
-          className="mt-4 px-6 py-2 bg-gradient-to-r from-dark-green to-light-green text-white rounded-full font-primaryBold"
-          onClick={saveUpdatedTrip}
-        >
-          Save
-        </button>
+          {tripData && (
+            <button
+              type="button"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-dark-green to-light-green text-white rounded-full font-primaryBold"
+              onClick={saveUpdatedTrip}
+            >
+              Save
+            </button>
+          )}
+        </>
       )}
     </div>
   );
